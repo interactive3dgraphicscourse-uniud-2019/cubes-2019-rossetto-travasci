@@ -2,19 +2,19 @@
 	<head>
 		<title>Starting Code for 1st Project 2017 - with lights and textures</title>
 		<style>
-		
+
 		body {
 			font-family: Monospace;
 			background-color: #f0f0f0;
 			margin: 0px;
 			overflow: hidden;
 		}
-		
-		canvas { 
-			width: 100%; 
+
+		canvas {
+			width: 100%;
 			height: 100%;
 		}
-	
+
 		</style>
 	</head>
 	<body>
@@ -23,9 +23,9 @@
 		<script src="lib/Coordinates.js"></script>
 		<script src="lib/OrbitControls.js"></script>
 		<script>
-		
+
 		var scene, camera, renderer, controls, stats;
-		
+
 		function Start() {
 			scene = new THREE.Scene();
 			camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -38,17 +38,17 @@
 			renderer.gammaOutput = true;
 			renderer.shadowMap.enabled = true;
 			document.body.appendChild( renderer.domElement );
-			
+
 			camera.position.set(2,2,2);
 			camera.lookAt( new THREE.Vector3(0,0,0));
-			
+
 			var geometry = new THREE.BoxGeometry(1,1,1);
-			var texture = THREE.ImageUtils.loadTexture('textures/11635.jpg');
+			var texture = new THREE.TextureLoader().load('textures/11635.jpg');
 			var material = new THREE.MeshPhongMaterial( { map: texture } );
 			var cube = new THREE.Mesh( geometry, material );
 			cube.castShadow = true;
 			cube.receiveShadow = true;
-			
+
 			scene.add( cube );
 
 			hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
@@ -76,36 +76,36 @@
 			ground.rotation.x = -Math.PI/2;
 			scene.add( ground );
 			ground.receiveShadow = true;
-			
+
 			stats = new Stats();
 			stats.domElement.style.position = 'absolute';
 			stats.domElement.style.top = '0px';
 			document.body.appendChild( stats.domElement );
-			
+
 			// uncomment if you need to draw coordinate axes when building the scene
 			//Coordinates.drawAllAxes();
-			
+
 			controls = new THREE.OrbitControls( camera );
 			controls.addEventListener( 'change', Render );
-			
-			
+
+
 		}
-		
+
 		function Update() {
 			requestAnimationFrame( Update );
-			controls.update();  
+			controls.update();
 			stats.update();
 			Render();
 		}
-		
+
 		function Render() {
-			
+
 			renderer.render(scene, camera);
 		}
-		
+
 		Start();
 		Update();
-			
+
 		</script>
 	</body>
 </html>
