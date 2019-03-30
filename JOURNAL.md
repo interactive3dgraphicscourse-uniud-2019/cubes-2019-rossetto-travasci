@@ -52,3 +52,12 @@ Oltre a varie modifiche minori, è stato tolto il cubo di esempio e il terreno p
 
 Ampliato il journal con altre informazioni.
 - Stefano Travasci
+
+```30.03.2019 - 23:17```
+
+Aggiunta la cartella **models** contentente:
+- *geometries* : contiene solo file del tipo nome.json e contiene solo geometrie esportate dall'editor di three.js
+- *objects* : contiene solo file del tipo nome.json e contiene solo mesh esportati dall'editor di three.js
+- *textures* : contiene solo file del tipo nome.png o nome.jpg
+
+Inoltre è stato aggiunto il file `boxLoader.html` che contiene un utile esempio di loading di una mesh esportata dall'editor a cui è stata successivamente modificato il materiale rendendolo adatto al sistema di illuminazione.
