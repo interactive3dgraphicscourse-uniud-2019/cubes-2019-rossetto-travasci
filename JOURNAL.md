@@ -1,6 +1,6 @@
 # Progetto Interactive 3D Graphics: Modeling and rendering with boxes
 
-La struttura del progetto è divisa in *feature* ognuna posizionata all'interno di un gruppo che ne definisce la priorità di implementazione (in ordine di priorità decrescente).
+La struttura del progetto è divisa in *feature*, ognuna posizionata all'interno di un gruppo che ne definisce la priorità di implementazione (in ordine di priorità decrescente).
 
 ## Feature fondamentali
 
@@ -30,4 +30,4 @@ La struttura del progetto è divisa in *feature* ognuna posizionata all'interno 
 **FORMATO ATTIVITA'**
 *gg.mm.aaaa : descrizione [nome.cognome]* 
 
-30.03.2019 : Stesura iniziale delle features del Journal e testing iniziale di three.js editor
+30.03.2019 : Stesura iniziale delle features del Journal e testing iniziale di three.js editor.
