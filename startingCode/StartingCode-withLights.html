@@ -18,10 +18,10 @@
 		</style>
 	</head>
 	<body>
-		<script src="lib/three.min.js"></script>
-		<script src="lib/stats.min.js"></script>
-		<script src="lib/Coordinates.js"></script>
-		<script src="lib/OrbitControls.js"></script>
+		<script src="../lib/three.min.js"></script>
+		<script src="../lib/stats.min.js"></script>
+		<script src="../lib/Coordinates.js"></script>
+		<script src="../lib/OrbitControls.js"></script>
 		<script>
 
 		var scene, camera, renderer, controls, stats;
@@ -43,7 +43,7 @@
 			camera.lookAt( new THREE.Vector3(0,0,0));
 
 			var geometry = new THREE.BoxGeometry(1,1,1);
-			var texture = new THREE.TextureLoader().load('textures/11635.jpg');
+			var texture = new THREE.TextureLoader().load('../textures/11635.jpg');
 			var material = new THREE.MeshPhongMaterial( { map: texture } );
 			var cube = new THREE.Mesh( geometry, material );
 			cube.castShadow = true;
