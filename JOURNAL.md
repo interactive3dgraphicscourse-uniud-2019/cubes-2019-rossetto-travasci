@@ -60,4 +60,7 @@ Aggiunta la cartella **models** contentente:
 - *objects* : contiene solo file del tipo nome.json e contiene solo mesh esportati dall'editor di three.js
 - *textures* : contiene solo file del tipo nome.png o nome.jpg
 
-Inoltre è stato aggiunto il file `boxLoader.html` che contiene un utile esempio di loading di una mesh esportata dall'editor a cui è stata successivamente modificato il materiale rendendolo adatto al sistema di illuminazione.
+Inoltre è stato aggiunto il file `boxLoader.html` (all'interno di *example_code*) che contiene un utile esempio di loading di una mesh esportata dall'editor a cui è stata successivamente modificato il materiale rendendolo adatto al sistema di illuminazione.
+
+E' stato inoltre aggiunt ouno script per il loading degli oggetti (temporaneo!).
+- Eric Rossetto
