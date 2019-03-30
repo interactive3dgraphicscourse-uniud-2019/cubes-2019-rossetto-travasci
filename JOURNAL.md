@@ -8,7 +8,7 @@ La struttura del progetto è divisa in *feature*, ognuna posizionata all'interno
 - oggetti aggiuntivi oltre al terreno (costruzione di una gerarchia di scena)
 - animazione di uno o più oggetti
 
-## Feature primarie**
+## Feature primarie
 
 - aggiunta di blocchi per evitare che superfici verticali del terreno contengano *buchi*
 - raffinamento dell'animazione/i
@@ -16,7 +16,7 @@ La struttura del progetto è divisa in *feature*, ognuna posizionata all'interno
 - utilizzo di texture diverse nei vari blocchi nel terreno a seconda dell'altezza registrata e/o del numero di blocchi posizionati al di sopra
 - *mare* intorno all'isola
 
-## Feature secondarie**
+## Feature secondarie
 
 - aggiunta di ombre per ogni cubo
 - pozza d'acqua all'interno dell'isola
@@ -30,4 +30,4 @@ La struttura del progetto è divisa in *feature*, ognuna posizionata all'interno
 **FORMATO ATTIVITA'**
 *gg.mm.aaaa : descrizione [nome.cognome]* 
 
-30.03.2019 : Stesura iniziale delle features del Journal e testing iniziale di three.js editor.
+30.03.2019 : Stesura iniziale delle features del Journal e testing iniziale di three.js editor. [Eric.Rossetto]
