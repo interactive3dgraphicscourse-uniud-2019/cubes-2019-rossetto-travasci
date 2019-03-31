@@ -22,6 +22,7 @@
 		<script src="lib/stats.min.js"></script>
 		<script src="lib/Coordinates.js"></script>
 		<script src="lib/OrbitControls.js"></script>
+		<script src="scripts/terrainBuilder.js"></script>
 		<script src="scripts/lights.js"></script>
 		<script>
 
@@ -51,7 +52,10 @@
 			document.body.appendChild( stats.domElement );
 
 			// uncomment if you need to draw coordinate axes when building the scene
-			Coordinates.drawAllAxes();
+			//Coordinates.drawAllAxes();
+
+			//builds the terrain
+			buildTerrain(scene);
 
 			controls = new THREE.OrbitControls( camera );
 		}
