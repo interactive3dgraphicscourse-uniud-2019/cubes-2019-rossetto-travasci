@@ -3,6 +3,8 @@
     the scene.
 */
 
-function moveFishTail(fish) {
+function moveWater( obj, time ) {
+
+    obj.material.alphaMap.offset.y = time * 0.2;
 
 }

@@ -108,6 +108,9 @@ function createHouse() {
   Creates a platform of specified height with a plane on top of given
   width. The legOffset specifies how much the pillars of the platform must dist
   from the edge of the plane. 
+
+  The legOffset depends on the width and the depth of the pillars. 
+      0.25 < legOffSet < width
 */
 
 function createPlatform(width, height, legOffset, textureUrl) {
@@ -124,7 +127,7 @@ function createPlatform(width, height, legOffset, textureUrl) {
         { map: texture }
       )
     },
-    
+
     function( err ) {
       console.error( 'An error happened. ');
       platform_material = unknown_material;
@@ -164,5 +167,41 @@ function createPlatform(width, height, legOffset, textureUrl) {
   table.add(top);
 
   return table;
+}
+
+/*
+  Creates a layer of water. (Can be a box)
+  It uses the principles of transparency shown at lesson plus
+  some tricks to make it move.
+
+  The width is the length of an edge of a cube.
+*/
+function createWater( width ) {
+
+  var texture = new THREE.TextureLoader().load("../models/textures/water2.png");
+  var box_geometry = new THREE.BoxBufferGeometry( width, 0.01, width );
+  var box_material = new THREE.MeshPhongMaterial(
+     {
+       map: texture, 
+       opacity: 1,
+       blendSrc: THREE.SrcAlphaFactor,
+       blendDst: THREE.OneMinusSrcAlphaFactor,
+       blendEquation: THREE.AddEquation,
+       transparent: true,
+       side: THREE.FrontSide
+     }
+  );
+
+  box_material.alphaMap = texture;
+  box_material.alphaMap.magFilter = THREE.NearestFilter;
+  box_material.alphaMap.wrapT = THREE.RepeatWrapping;
+  box_material.alphaMap.repeat.y = 1;
+
+  var water_box = new THREE.Mesh(box_geometry, box_material);
+  
+  // CAN CAUSE PROBLEMS 
+  water_box.receiveShadow = true;
+
+  return water_box;
 }
 

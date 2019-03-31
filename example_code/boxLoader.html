@@ -29,7 +29,7 @@
 
 		var scene, camera, renderer, controls, stats;
 
-		var time;
+		var time, test;
 
 		function Start() {
 			scene = new THREE.Scene();
@@ -47,20 +47,19 @@
 			camera.position.set(2,2,2);
             camera.lookAt( new THREE.Vector3(0,0,0));
             
-            createLights();
-			
+			createLights();
 			time = 0;
 
             // Ground
             // Just for showing the casting shadow
             var groundGeo = new THREE.PlaneBufferGeometry( 5, 5 );
 			var groundMat = new THREE.MeshPhongMaterial( 
-                {   color: 0xffffff, 
+                {   color: 0x00ffff, 
                     specular: 0x050505 });
 			groundMat.color.setHSL( 0.3, 1, 0.6 );
 			var ground = new THREE.Mesh( groundGeo, groundMat );
 			ground.rotation.x = -Math.PI/2;
-			scene.add( ground );
+			//scene.add( ground );
 			ground.receiveShadow = true;
             
             // --- IMPORTANT ---
@@ -95,9 +94,10 @@
                 }
 			);
 			*/
-			
-			var t = createPlatform(3, 2, 0.3, "../models/texture/missingTexture.png");
-			scene.add(t);
+
+			test = createWater( 1 );
+			scene.add(test);
+			test.position.y = 1;
 
 			stats = new Stats();
 			stats.domElement.style.position = 'absolute';
@@ -108,9 +108,10 @@
 		}
 
 		function Update() {
-			time += 1;
+
+			time += 0.01;
 			requestAnimationFrame( Update );
-			//moveFishTail(fish, time);
+			moveWater( test, time);
 			controls.update();
 			stats.update();
 			renderer.render(scene, camera);

@@ -78,10 +78,19 @@ Aggiunto file `animation.js` contenente tutte le funzioni da chiamare per le ani
 - Eric Rossetto
 
 ##Creazione del terrain
+
 ```31.03.2019 - 15:12```
 
 Completata sia la versione iniziale dell'algoritmo deputato alla costruzione del terreno che l'immagine rappresentante la heightmap. Il prossimo passo sarà modificare l'algoritmo di costruzione del terreno in modo da riempire eventuali buchi nelle pareti verticali del terreno.
 
 ![First iteration of terrain](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/First%20terrain%20iteration.png)
 
--Stefano Travasci
+- Stefano Travasci
+
+```31.03.2019 - 19:02```
+
+Creati i costruttori per i modelli di pesci e piattaforme. Sostituiti i materiali con i più appropriati `MeshPongMaterial`.
+
+Aggiunta la possibilità di creare un blocco d'acqua, sugli aspetti stilistici non ci ho ancora dato peso.
+
+- Eric Rossetto
