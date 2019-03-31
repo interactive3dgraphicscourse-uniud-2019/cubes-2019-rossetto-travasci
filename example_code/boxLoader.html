@@ -22,12 +22,14 @@
 		<script src="../lib/stats.min.js"></script>
 		<script src="../lib/Coordinates.js"></script>
 		<script src="../lib/OrbitControls.js"></script>
-		<script src="../scripts/createFish.js"></script>
+		<script src="../scripts/builders.js"></script>
 		<script src="../scripts/lights.js"></script>
 		<script src="../scripts/animations.js"></script>
 		<script>
 
 		var scene, camera, renderer, controls, stats;
+
+		var time;
 
 		function Start() {
 			scene = new THREE.Scene();
@@ -46,7 +48,9 @@
             camera.lookAt( new THREE.Vector3(0,0,0));
             
             createLights();
-            
+			
+			time = 0;
+
             // Ground
             // Just for showing the casting shadow
             var groundGeo = new THREE.PlaneBufferGeometry( 5, 5 );
@@ -91,11 +95,10 @@
                 }
 			);
 			*/
-
-			var fish = createBlueFish();
-			scene.add(fish);
-			fish.position.set(0, 0.5, 0);
 			
+			var t = createPlatform(3, 2, 0.3, "../models/texture/missingTexture.png");
+			scene.add(t);
+
 			stats = new Stats();
 			stats.domElement.style.position = 'absolute';
 			stats.domElement.style.top = '0px';
@@ -105,8 +108,9 @@
 		}
 
 		function Update() {
+			time += 1;
 			requestAnimationFrame( Update );
-			moveFishTail(Date.now());
+			//moveFishTail(fish, time);
 			controls.update();
 			stats.update();
 			renderer.render(scene, camera);

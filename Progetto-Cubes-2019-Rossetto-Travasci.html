@@ -26,7 +26,7 @@
 		<script src="scripts/lights.js"></script>
 		<script>
 
-		var scene, camera, renderer, controls, stats;
+		var scene, camera, renderer, controls, stats, time;
 
 		function Start() {
 			scene = new THREE.Scene();
@@ -44,6 +44,7 @@
 			camera.position.set(2,2,2);
 			camera.lookAt( new THREE.Vector3(0,0,0));
 
+			time = 0;
 			createLights();
 
 			stats = new Stats();
@@ -65,6 +66,7 @@
 			controls.update();
 			stats.update();
 
+			time += 1;
 
 			renderer.render(scene, camera);
 		}

@@ -3,9 +3,6 @@
     the scene.
 */
 
-function moveFishTail( t ) {
-
-    // Fin need to move on XZ
-    // TAIL on XY
+function moveFishTail(fish) {
 
 }
