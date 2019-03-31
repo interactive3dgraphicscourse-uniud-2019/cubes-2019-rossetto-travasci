@@ -10,7 +10,7 @@ function buildTerrain(scene){
 	}
 
 	// load img source
-	img.src = "../textures/heightmapIsland.png";
+	img.src = "../models/textures/heightmapIsland.png";
 }
 
 //return array with height data from img, taken from: http://danni-three.blogspot.it/2013/09/threejs-heightmaps.html
@@ -55,7 +55,7 @@ function createTerrain(scene, data){
 
 	var cube;
 	var geometry = new THREE.BoxGeometry(0.5,0.5,0.5);
-	var texture = new THREE.TextureLoader().load('../textures/missingTexture.png');
+	var texture = new THREE.TextureLoader().load('../models/textures/missingTexture.png');
 	texture.magFilter = THREE.NearestFilter;
 	texture.minFilter = THREE.LinearMipMapLinearFilter;
 	var material = new THREE.MeshPhongMaterial( { map: texture } );
