@@ -70,3 +70,9 @@ Aggiunta cartella scripts. Completata la funzione che crea l'oggetto `blueFish`.
 Lo script `lights.js` ora è a parte e **deve** essere inizializzato nel main.
 
 - Eric Rossetto
+
+```31.03.2019 - 14:35```
+
+Aggiunto file `animation.js` contenente tutte le funzioni da chiamare per le animazioni.
+
+- Eric Rossetto
