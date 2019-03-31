@@ -62,5 +62,11 @@ Aggiunta la cartella **models** contentente:
 
 Inoltre è stato aggiunto il file `boxLoader.html` (all'interno di *example_code*) che contiene un utile esempio di loading di una mesh esportata dall'editor a cui è stata successivamente modificato il materiale rendendolo adatto al sistema di illuminazione.
 
-E' stato inoltre aggiunt ouno script per il loading degli oggetti (temporaneo!).
+- Eric Rossetto
+
+```31.03.2019 - 11:35```
+
+Aggiunta cartella scripts. Completata la funzione che crea l'oggetto `blueFish`. 
+Lo script `lights.js` ora è a parte e **deve** essere inizializzato nel main.
+
 - Eric Rossetto

@@ -3,6 +3,7 @@
     @param url : the url of the object to loaded
     @param freeBoxes : a list of avaiable boxes to be used
 */
+/*
 function objLoader(url, freeBoxes) {
     var loader = new THREE.ObjectLoader();
 
@@ -16,3 +17,4 @@ function objLoader(url, freeBoxes) {
         }
     );
 }
+*/
