@@ -24,6 +24,7 @@
 		<script src="../lib/OrbitControls.js"></script>
 		<script src="../scripts/createFish.js"></script>
 		<script src="../scripts/lights.js"></script>
+		<script src="../scripts/animations.js"></script>
 		<script>
 
 		var scene, camera, renderer, controls, stats;
@@ -105,6 +106,7 @@
 
 		function Update() {
 			requestAnimationFrame( Update );
+			moveFishTail(Date.now());
 			controls.update();
 			stats.update();
 			renderer.render(scene, camera);
