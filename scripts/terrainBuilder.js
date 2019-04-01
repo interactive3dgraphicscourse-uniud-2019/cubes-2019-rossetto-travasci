@@ -176,5 +176,6 @@ function placeBlock(x,y,z,top){
 	cube.position.x=x;
 	cube.position.z=z;
 	cube.position.y=y;
-
+	cube.castShadow = true;
+	cube.receiveShadow = true;
 }
