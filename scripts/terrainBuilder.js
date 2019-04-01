@@ -122,6 +122,21 @@ function createTerrain(scene, data){
 	terrain.position.x=-side/4;
 	terrain.position.z=-side/4;
 	terrain.position.y=-(127.5)/2;
+
+	//finds the height of the sea floor so to not create an oversized sea
+	var minVal=255;
+	for (var i=0;i<data.length;i++){
+		minVal=Math.min(data[i],minVal);
+	}
+
+	//creates the sea
+	var seaGeometry = new THREE.BoxGeometry(side/2-0.2,(127/2)-minVal-0.2,side/2-0.2);
+	var seaMaterial = new THREE.MeshBasicMaterial( { color: 0x0042ad, transparent: true, opacity: 0.33 } );
+	var sea=new THREE.Mesh(seaGeometry,seaMaterial);
+	sea.position.x=+side/4-0.25;
+	sea.position.z=+side/4-0.25;
+	sea.position.y=minVal+((127/2)-minVal-0.2)/2;
+	terrain.add(sea);
 }
 
 //given a set of coordinates and a number n, it create of column of blocks n blocks tall with the block on top being at those coordinates
