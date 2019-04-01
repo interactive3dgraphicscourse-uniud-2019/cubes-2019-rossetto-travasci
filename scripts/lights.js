@@ -25,13 +25,19 @@ function createLights() {
     dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
 
     dirLight.color.setHSL( 0.1, 1, 0.95 );
-    dirLight.position.set( -1, 1.75, 1 );
-    dirLight.position.multiplyScalar( 50 );
+    dirLight.position.set( -1, 1.7, 1 );
+    dirLight.position.multiplyScalar( 105 );
 	  dirLight.castShadow = true;
 	  dirLight.shadow.mapSize.width = 1024;
     dirLight.shadow.mapSize.height = 1024;
 
     scene.add( hemiLight );
     scene.add( dirLight );
+
+    //increase the shadow camera
+    dirLight.shadow.camera.left = -50;
+    dirLight.shadow.camera.right = 50;
+    dirLight.shadow.camera.top = 40;
+    dirLight.shadow.camera.bottom = -40;
 
 }
