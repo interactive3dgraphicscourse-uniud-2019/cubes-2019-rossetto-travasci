@@ -143,3 +143,14 @@ Modificato il codice delle luci in modo da renderizzare correttamente le ombre c
 Modificato il codice di creazione dell'acqua: ora sfrutta un PlaneBufferGeometry per ridurre l'impatto sulle perfomance. Corretta l'altezza di alcune texture che non erano potenze di due.
 
 - Eric Rossetto
+
+## Migliorata l'erba del terreno
+
+```1.04.2019 - 20:33```
+
+Modificata la texture dell'erba in modo che le sue facce laterali siano composte da due parti: una superiore di erba ed una inferiore di terra. Allo stesso tempo, però, quando nel colonna di blocchi adiacente alla faccia in questione è presente un blocco di erba esattamente un blocco più in basso, la faccia in questione sarà composta completamente da erba, in modo da collegare le parti di erba dei due blocchi.
+In questa descrizione non si discute del corportamento dell'algoritmo per le facce dei blocchi di erba che non sono visibili o lo sono solo guardando il terreno da sotto.
+
+!(Improved grass)[https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/NewKindsOfGrass.png]
+
+- Stefano Travasci
