@@ -114,3 +114,15 @@ Il codice per la costruzione del terreno è stato migliorato in modo da evitare 
 Cambiamenti minori includono un nuovo colore per il cielo e un diverso posizionamento iniziale della telecamera.
 
 ![Sandy-Terrain](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Sandy-Terrain.png)
+
+- Stefano Travasci
+
+## Aggiunta del mare e altro
+
+```1.04.2019 - 16:22```
+
+Aggiunto il mare trasparente al terreno. Tentativo di aggiungere le ombre ai blocchi del terreno, ma le ombre appaiono solo per un ridottissimo numero di blocchi. Necessari ulteriori approfondimenti a riguardo.
+
+![Aggiunto il mare](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedSea.png)
+
+- Stefano Travasci
