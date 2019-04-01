@@ -24,6 +24,7 @@
 		<script src="lib/OrbitControls.js"></script>
 		<script src="scripts/terrainBuilder.js"></script>
 		<script src="scripts/lights.js"></script>
+		<script src="scripts/builders.js"></script>
 		<script>
 
 		var scene, camera, renderer, controls, stats, time;
@@ -52,10 +53,14 @@
 			document.body.appendChild( stats.domElement );
 
 			// uncomment if you need to draw coordinate axes when building the scene
-			//Coordinates.drawAllAxes();
+			Coordinates.drawAllAxes();
 
 			//builds the terrain
 			buildTerrain(scene);
+			var tree = createLightBlueTree();
+			scene.add(tree);
+			tree.position.set(0, 1, 0);
+			tree.scale.divideScalar(2.5);
 
 			controls = new THREE.OrbitControls( camera );
 		}
