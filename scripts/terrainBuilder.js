@@ -10,7 +10,7 @@ function buildTerrain(scene){
 	}
 
 	// load img source
-	img.src = "../textures/heightmapIsland.png";
+	img.src = "../models/textures/heightmapIsland.png";
 }
 
 //return array with height data from img, taken from: http://danni-three.blogspot.it/2013/09/threejs-heightmaps.html
@@ -45,28 +45,54 @@ function getHeightData(img,scale) {
 		return data;
 }
 
+//declared here sot hey can be used everywhere
+var terrain, cube, geometry, material;
+
 //build the terrain by using an array contain the various heights and adds it to the scene
 //we suppose the base of the terrain to be a square
 function createTerrain(scene, data){
 	//the lenght and width of the terrain
 	var side=parseInt(Math.sqrt(data.length));
 	//the Object3D containing the terrain
-	var terrain=new THREE.Object3D();
+	terrain=new THREE.Object3D();
 
-	var cube;
-	var geometry = new THREE.BoxGeometry(0.5,0.5,0.5);
-	var texture = new THREE.TextureLoader().load('../textures/missingTexture.png');
+	geometry = new THREE.BoxGeometry(0.5,0.5,0.5);
+	var texture = new THREE.TextureLoader().load('../models/textures/missingTexture.png');
 	texture.magFilter = THREE.NearestFilter;
 	texture.minFilter = THREE.LinearMipMapLinearFilter;
-	var material = new THREE.MeshPhongMaterial( { map: texture } );
+	material = new THREE.MeshPhongMaterial( { map: texture } );
 
 	for(var i=0;i<side;i++){
 		for(var j=0;j<side;j++){
-			cube = new THREE.Mesh( geometry, material );
-			terrain.add(cube);
-			cube.position.x=j/2;
-			cube.position.z=i/2;
-			cube.position.y=data[i*side+j];
+			var up, down, left, right;
+
+			//dealing with the special cases where the considered point is at the edge of the terrain
+			if(i==0){
+				up=data[i*side+j];
+				down=data[(i+1)*side+j];
+			} else if (i==side-1){
+				up=data[(i-1)*side+j];
+				down=data[i*side+j];
+			} else {
+				up=data[(i-1)*side+j];
+				down=data[(i+1)*side+j];
+			}
+
+			if(j==0){
+				right=data[i*side+j+1];
+				left=data[i*side+j];
+			} else if (j==side-1){
+				right=data[i*side+j];
+				left=data[i*side+j-1];
+			} else {
+				right=data[i*side+j+1];
+				left=data[i*side+j-1];
+			}
+
+			var y=data[i*side+j];
+			var min=Math.min(up,down,left,right,y);
+
+			buildColumn(j/2,i/2,y,(y-min)*2);
 		}
 	}
 	scene.add(terrain);
@@ -75,4 +101,24 @@ function createTerrain(scene, data){
 	terrain.position.x=-side/4;
 	terrain.position.z=-side/4;
 	terrain.position.y=-(127.5)/2;
+}
+
+//given a set of coordinates and a number n, it create of column of blocks n blocks tall with the block on top being at those coordinates
+function buildColumn(x,z,y,n){
+	//the surface block
+	cube = new THREE.Mesh( geometry, material );
+	terrain.add(cube);
+	cube.position.x=x;
+	cube.position.z=z;
+	cube.position.y=y;
+
+	//the blocks under the surface block
+	for(var i=1;i<n;i++){
+		cube = new THREE.Mesh( geometry, material );
+		terrain.add(cube);
+		cube.position.x=x;
+		cube.position.z=z;
+		cube.position.y=y-(i/2);
+	}
+
 }
