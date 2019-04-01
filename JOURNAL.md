@@ -154,3 +154,14 @@ In questa descrizione non si discute del corportamento dell'algoritmo per le fac
 ![Improved grass](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/NewKindsOfGrass.png)
 
 - Stefano Travasci
+
+ ## Aggiunte mura verticali al confine del terreno
+ 
+```1.04.2019 - 21:23```
+
+Ora i confini del terreno non rimangono più "aperti" come prima, ma viene costruito automaticamente un muro verticale che arriva fino al punto più in basso del terreno.
+Alzato leggermente il livello del mare.
+
+![Vertical walls](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/VerticalTerrainEdges.png)
+
+- Stefano Travasci
