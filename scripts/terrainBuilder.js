@@ -90,17 +90,25 @@ function createTerrain(scene, data){
 	//create the different blocks of grassSide
 	createGrass();
 
+	//finds the height of the lowest point on the terrain.
+	//Used to avoid the creation of an overside sea and to build the sides of the terrain
+	var minVal=255;
+	for (var i=0;i<data.length;i++){
+		minVal=Math.min(data[i],minVal);
+	}
+
 	for(var i=0;i<side;i++){
 		for(var j=0;j<side;j++){
 			var up, down, left, right;
 
 			//dealing with the special cases where the considered point is at the edge of the terrain
+			//using minVal to build vertical walls from the edges of terrain down to height of the lowest point in the terrain
 			if(i==0){
-				up=data[i*side+j];
+				up=minVal-0.5;
 				down=data[(i+1)*side+j];
 			} else if (i==side-1){
 				up=data[(i-1)*side+j];
-				down=data[i*side+j];
+				down=minVal-0.5;
 			} else {
 				up=data[(i-1)*side+j];
 				down=data[(i+1)*side+j];
@@ -108,9 +116,9 @@ function createTerrain(scene, data){
 
 			if(j==0){
 				right=data[i*side+j+1];
-				left=data[i*side+j];
+				left=minVal-0.5;
 			} else if (j==side-1){
-				right=data[i*side+j];
+				right=minVal-0.5;
 				left=data[i*side+j-1];
 			} else {
 				right=data[i*side+j+1];
@@ -131,14 +139,8 @@ function createTerrain(scene, data){
 	terrain.position.z=-side/4;
 	terrain.position.y=-(127.5)/2;
 
-	//finds the height of the sea floor so to not create an oversized sea
-	var minVal=255;
-	for (var i=0;i<data.length;i++){
-		minVal=Math.min(data[i],minVal);
-	}
-
 	//creates the sea
-	var seaGeometry = new THREE.BoxGeometry(side/2-0.2,(127/2)-minVal-0.2,side/2-0.2);
+	var seaGeometry = new THREE.BoxGeometry(side/2-0.2,(128/2)-minVal-0.2,side/2-0.2);
 	var seaMaterial = new THREE.MeshPhongMaterial( {
 		color: 0x0042ad,
 		transparent: true,
@@ -152,7 +154,7 @@ function createTerrain(scene, data){
 	var sea=new THREE.Mesh(seaGeometry,seaMaterial);
 	sea.position.x=+side/4-0.25;
 	sea.position.z=+side/4-0.25;
-	sea.position.y=minVal+((127/2)-minVal-0.2)/2;
+	sea.position.y=minVal+((128/2)-minVal-0.2)/2+0.3-0.5;
 	terrain.add(sea);
 }
 
