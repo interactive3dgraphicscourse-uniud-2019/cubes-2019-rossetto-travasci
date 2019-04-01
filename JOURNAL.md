@@ -104,3 +104,13 @@ Creato il costruttore per il ponte e per l'albero. Create alcune utili texture d
 ![Tree 1.0](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/tree_example.png)
 
 - Eric Rossetto
+
+## Progressi con il terreno
+
+
+```1.04.2019 - 14:15```
+
+Il codice per la costruzione del terreno è stato migliorato in modo da evitare la formazione di buchi nelle pareti verticali dello stesso. È stata inoltre aggiunta una texture per la sabbia, che al momento è stata applicata a tutto il terreno.
+Cambiamenti minori includono un nuovo colore per il cielo e un diverso posizionamento iniziale della telecamera.
+
+![Sandy-Terrain](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Sandy-Terrain.png)
