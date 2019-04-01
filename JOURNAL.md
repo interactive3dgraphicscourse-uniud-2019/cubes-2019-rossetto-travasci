@@ -117,12 +117,23 @@ Cambiamenti minori includono un nuovo colore per il cielo e un diverso posiziona
 
 - Stefano Travasci
 
-## Aggiunta del mare e altro
+## Texture del terreno cambia a seconda dell'altezza, aggiunta del mare e altro
 
 ```1.04.2019 - 16:22```
 
+Ora il la texture del terreno cambia a seconda dell'altezza del blocco e del fatto che sia o meno in superficie. I blocchi al di sotto del metro sopra al livello del mare sono tutti di sabbia, quelli al di sopra sono di erba se si trovano in superficie, altrimenti sono di terra.
 Aggiunto il mare trasparente al terreno. Tentativo di aggiungere le ombre ai blocchi del terreno, ma le ombre appaiono solo per un ridottissimo numero di blocchi. Necessari ulteriori approfondimenti a riguardo.
 
 ![Aggiunto il mare](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedSea.png)
+
+- Stefano Travasci
+
+## Ombre del terreno
+
+```1.04.2019 - 16:45```
+
+Modificato il codice delle luci in modo da renderizzare correttamente le ombre create dal terreno.
+
+![Sistemate le ombre](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/FixedShadows.png)
 
 - Stefano Travasci
