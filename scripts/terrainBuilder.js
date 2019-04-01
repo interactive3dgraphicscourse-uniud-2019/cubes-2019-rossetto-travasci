@@ -46,7 +46,8 @@ function getHeightData(img,scale) {
 }
 
 //declared here sot hey can be used everywhere
-var terrain, cube, geometry, material;
+var terrain, cube, geometry;
+var sandMaterial, grassMaterial, dirtMaterial, stoneMaterial;
 
 //build the terrain by using an array contain the various heights and adds it to the scene
 //we suppose the base of the terrain to be a square
@@ -57,10 +58,30 @@ function createTerrain(scene, data){
 	terrain=new THREE.Object3D();
 
 	geometry = new THREE.BoxGeometry(0.5,0.5,0.5);
-	var texture = new THREE.TextureLoader().load('../models/textures/sand.png');
-	texture.magFilter = THREE.NearestFilter;
-	texture.minFilter = THREE.LinearMipMapLinearFilter;
-	material = new THREE.MeshPhongMaterial( { map: texture } );
+
+	//sand
+	var sandTexture = new THREE.TextureLoader().load('../models/textures/sand.png');
+	sandTexture.magFilter = THREE.NearestFilter;
+	sandTexture.minFilter = THREE.LinearMipMapLinearFilter;
+	sandMaterial = new THREE.MeshPhongMaterial( { map: sandTexture } );
+
+	//grass
+	var grassTexture = new THREE.TextureLoader().load('../models/textures/grass.png');
+	grassTexture.magFilter = THREE.NearestFilter;
+	grassTexture.minFilter = THREE.LinearMipMapLinearFilter;
+	grassMaterial = new THREE.MeshPhongMaterial( { map: grassTexture } );
+
+	//dirt
+	var dirtTexture = new THREE.TextureLoader().load('../models/textures/dirt.png');
+	dirtTexture.magFilter = THREE.NearestFilter;
+	dirtTexture.minFilter = THREE.LinearMipMapLinearFilter;
+	dirtMaterial = new THREE.MeshPhongMaterial( { map: dirtTexture } );
+
+	//stone
+	var stoneTexture = new THREE.TextureLoader().load('../models/textures/stone.png');
+	stoneTexture.magFilter = THREE.NearestFilter;
+	stoneTexture.minFilter = THREE.LinearMipMapLinearFilter;
+	stoneMaterial = new THREE.MeshPhongMaterial( { map: stoneTexture } );
 
 	for(var i=0;i<side;i++){
 		for(var j=0;j<side;j++){
@@ -106,19 +127,39 @@ function createTerrain(scene, data){
 //given a set of coordinates and a number n, it create of column of blocks n blocks tall with the block on top being at those coordinates
 function buildColumn(x,z,y,n){
 	//the surface block
+	placeBlock(x,y,z,true);
+
+	//the blocks under the surface block
+	for(var i=1;i<n;i++){
+		placeBlock(x,y-(i/2),z,false);
+	}
+
+}
+
+//places the block made of the right material
+//uses a boolean to differentiate from blocks on top (that may be made of grass) and the ones under it
+function placeBlock(x,y,z,top){
+	var material;
+	if(y*2>128){
+
+		if(top){
+			material=grassMaterial;
+		} else {
+			material=dirtMaterial;
+		}
+
+		} else {
+			if(top){
+				material=sandMaterial;
+			} else {
+				material=sandMaterial;
+			}
+	}
+
 	cube = new THREE.Mesh( geometry, material );
 	terrain.add(cube);
 	cube.position.x=x;
 	cube.position.z=z;
 	cube.position.y=y;
-
-	//the blocks under the surface block
-	for(var i=1;i<n;i++){
-		cube = new THREE.Mesh( geometry, material );
-		terrain.add(cube);
-		cube.position.x=x;
-		cube.position.z=z;
-		cube.position.y=y-(i/2);
-	}
 
 }
