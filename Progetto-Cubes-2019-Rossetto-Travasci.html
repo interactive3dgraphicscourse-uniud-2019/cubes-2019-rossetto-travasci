@@ -44,7 +44,6 @@
 			camera.position.set(30,25,30);
 			camera.lookAt( new THREE.Vector3(0,0,0));
 
-			time = 0;
 			createLights();
 
 			stats = new Stats();
@@ -66,7 +65,7 @@
 			controls.update();
 			stats.update();
 
-			time += 1;
+			time = Date.now();
 
 			renderer.render(scene, camera);
 		}
