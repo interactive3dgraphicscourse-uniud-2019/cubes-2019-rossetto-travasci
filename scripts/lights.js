@@ -29,7 +29,7 @@ function createLights() {
     dirLight.position.multiplyScalar( 50 );
 	dirLight.castShadow = true;
 	dirLight.shadow.mapSize.width = 1024;
-    dirLight.shadow.mapSize.height = 1024;
+    dirLight.shadow.mapSize.height = 1024
 
     scene.add( hemiLight );
     scene.add( dirLight );

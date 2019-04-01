@@ -169,6 +169,9 @@ function createPlatform(width, height, legOffset) {
   return table;
 }
 
+/*
+  Creates a bridge of a given height.
+*/
 function createBridge( height ) {
 
   var pillar_geometry = new THREE.BoxBufferGeometry( 0.23, height, 0.23 );
@@ -257,5 +260,87 @@ function createWater( width ) {
   water_box.receiveShadow = true;
 
   return water_box;
+}
+
+/*
+  Creates a a light blue tree.
+*/
+function createLightBlueTree() {
+
+  trunk_texture = new THREE.TextureLoader().load("../models/textures/trunk_texture_256x256.png");
+  var trunk_material = new THREE.MeshPhongMaterial(
+    {
+      map: trunk_texture
+    }
+  );
+  var foliage_texture = new THREE.TextureLoader().load("../models/textures/foliage_texture_256x256.png");
+  
+  var foliage_material = new THREE.MeshPhongMaterial(
+    {
+      color: 0x01FFFF,
+      map: foliage_texture
+    }
+  );
+  var trunk_geometry = new THREE.BoxBufferGeometry( 1, 5, 1 );
+  var trunk_geometry_add1 = new THREE.BoxBufferGeometry( 1.3, 1, 1 );
+  var trunk_geometry_add2 = new THREE.BoxBufferGeometry( 1, 3, 1.1 );
+  var trunk_geometry_add3 = new THREE.BoxBufferGeometry( 1, 0.8, 1 );
+  var branch_geometry = new THREE.BoxBufferGeometry( 0.8, 0.3, 0.3 );
+  var foliage_geometry = new THREE.BoxBufferGeometry( 3.2, 2.5, 4 );
+  var foliage_geometry_add1 = new THREE.BoxBufferGeometry( 1.5, 1, 2 );
+  var foliage_geometry_add2 = new THREE.BoxBufferGeometry( 1, 1, 3 );
+
+  var trunk = new THREE.Mesh(trunk_geometry, trunk_material);
+  var trunk_add1 = new THREE.Mesh(trunk_geometry_add1, trunk_material);
+  var trunk_add2 = new THREE.Mesh(trunk_geometry_add2, trunk_material);
+  var trunk_add3 = new THREE.Mesh(trunk_geometry_add3, trunk_material);
+  var branch1 = new THREE.Mesh(branch_geometry, trunk_material);
+  var branch2 = new THREE.Mesh(branch_geometry, trunk_material); 
+  var foliage = new THREE.Mesh(foliage_geometry, foliage_material);
+  var foliage_add1 = new THREE.Mesh(foliage_geometry_add1, foliage_material);
+  var foliage_add2 = new THREE.Mesh(foliage_geometry_add2, foliage_material);
+  var tree = new THREE.Mesh();
+
+  trunk.position.set( 0, 2.5, 0 );
+  trunk_add1.position.set( 0, 0.5, 0.3 );
+  trunk_add2.position.set( -0.3, 1.5, 0.3 );
+  trunk_add3.position.set( 0.3, 0.4, -0.3 );
+  branch1.position.set( 0.7, 4, 0 );
+  branch2.position.set( 0.95, 4.35, 0 );
+  branch2.rotation.z = 90 * Math.PI/180;
+  foliage.position.set( 0, 5.8, 0 );
+  foliage_add1.position.set( 1.4, 6, 1.3 );
+  foliage_add2.position.set( -1.3, 6, -0.7 );
+
+  trunk.castShadow = true;
+  trunk.receiveShadow = true;
+  trunk_add1.castShadow = true;
+  trunk_add1.receiveShadow = true;
+  trunk_add2.castShadow = true;
+  trunk_add2.receiveShadow = true;
+  trunk_add3.castShadow = true;
+  trunk_add3.receiveShadow = true;
+  branch1.castShadow = true;
+  branch1.receiveShadow = true;
+  branch2.castShadow = true;
+  branch2.receiveShadow = true;
+  foliage.castShadow = true;
+  foliage.receiveShadow = true;
+  foliage_add1.castShadow = true;
+  foliage_add1.receiveShadow = true;
+  foliage_add2.castShadow = true;
+  foliage_add2.receiveShadow = true;
+
+  tree.add(trunk);
+  tree.add(trunk_add1);
+  tree.add(trunk_add2);
+  tree.add(trunk_add3);
+  tree.add(branch1);
+  tree.add(branch2);
+  tree.add(foliage);
+  tree.add(foliage_add1);
+  tree.add(foliage_add2);
+
+  return tree;
 }
 
