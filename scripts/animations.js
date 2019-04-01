@@ -3,7 +3,7 @@
     the scene.
 */
 
-function moveWater( obj, time ) {
+function animateWater( obj, time ) {
 
     obj.material.alphaMap.offset.y = time * 0.2;
 }

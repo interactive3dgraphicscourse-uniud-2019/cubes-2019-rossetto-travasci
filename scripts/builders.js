@@ -236,7 +236,7 @@ function createBridge( height ) {
 function createWater( width ) {
 
   var texture = new THREE.TextureLoader().load("../models/textures/water2.png");
-  var box_geometry = new THREE.BoxBufferGeometry( width, 0.01, width );
+  var box_geometry = new THREE.PlaneBufferGeometry( width, width );
   var box_material = new THREE.MeshPhongMaterial(
      {
        map: texture, 
@@ -245,7 +245,7 @@ function createWater( width ) {
        blendDst: THREE.OneMinusSrcAlphaFactor,
        blendEquation: THREE.AddEquation,
        transparent: true,
-       side: THREE.FrontSide
+       side: THREE.DoubleSide
      }
   );
 
@@ -255,6 +255,8 @@ function createWater( width ) {
   box_material.alphaMap.repeat.y = 1;
 
   var water_box = new THREE.Mesh(box_geometry, box_material);
+
+  water_box.rotation.x = 90 * Math.PI/180;
   
   // CAN CAUSE PROBLEMS 
   water_box.receiveShadow = true;
@@ -267,14 +269,19 @@ function createWater( width ) {
 */
 function createLightBlueTree() {
 
-  trunk_texture = new THREE.TextureLoader().load("../models/textures/trunk_texture_256x256.png");
+  trunk_texture = new THREE.TextureLoader().load("../models/textures/trunk_texture_16x16.png");
+  trunk_texture.magFilter = THREE.NearestFilter;
+  trunk_texture.minFilter = THREE.LinearMipMapLinearFilter;
+
   var trunk_material = new THREE.MeshPhongMaterial(
     {
       map: trunk_texture
     }
   );
   var foliage_texture = new THREE.TextureLoader().load("../models/textures/foliage_texture_256x256.png");
-  
+  foliage_texture.magFilter = THREE.NearestFilter;
+  foliage_texture.minFilter = THREE.LinearMipMapLinearFilter;
+
   var foliage_material = new THREE.MeshPhongMaterial(
     {
       color: 0x01FFFF,
