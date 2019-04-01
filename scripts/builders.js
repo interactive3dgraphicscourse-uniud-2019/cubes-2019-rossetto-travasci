@@ -110,10 +110,10 @@ function createHouse() {
   from the edge of the plane. 
 
   The legOffset depends on the width and the depth of the pillars. 
-      0.25 < legOffSet < width
+      pillarsWidth < legOffSet < width
 */
 
-function createPlatform(width, height, legOffset, textureUrl) {
+function createPlatform(width, height, legOffset) {
 
   var pillar_geometry = new THREE.BoxBufferGeometry( 0.25, height, 0.25 );
   var top_geometry = new THREE.BoxBufferGeometry( width, 0.1, width );
@@ -121,7 +121,7 @@ function createPlatform(width, height, legOffset, textureUrl) {
 
   var loader = new THREE.TextureLoader();
   loader.load(
-    textureUrl,
+    "",                                   // Need a texture
     function( texture ) {
       platform_material = new THREE.MeshPhongMaterial(
         { map: texture }
@@ -167,6 +167,60 @@ function createPlatform(width, height, legOffset, textureUrl) {
   table.add(top);
 
   return table;
+}
+
+function createBridge( height ) {
+
+  var pillar_geometry = new THREE.BoxBufferGeometry( 0.23, height, 0.23 );
+  var top_geometry = new THREE.BoxBufferGeometry( 1.8, 0.1, 2.8 );
+
+  var texture = new THREE.TextureLoader().load("../models/textures/bridge_texture_256x256.png");
+  var platform_material = new THREE.MeshPhongMaterial(
+    { map: texture,
+      shininess: 10 }
+  );
+
+  var pillar_texture = new THREE.TextureLoader().load("../models/textures/pillars_texture_16x16.png");
+  var pillar_material = new THREE.MeshPhongMaterial(
+    {
+      map: pillar_texture,
+      shininess: 10
+    }
+  )
+
+  var pillar1 = new THREE.Mesh(pillar_geometry, pillar_material);
+  var pillar2 = new THREE.Mesh(pillar_geometry, pillar_material);
+  var pillar3 = new THREE.Mesh(pillar_geometry, pillar_material);
+  var pillar4 = new THREE.Mesh(pillar_geometry, pillar_material);
+  var top = new THREE.Mesh(top_geometry, platform_material);
+
+  pillar1.position.set( 0.9, height/2, 1.4 );
+  pillar2.position.set( -0.9, height/2, 1.4);
+  pillar3.position.set( 0.9, height/2, -1.4);
+  pillar4.position.set( -0.9, height/2, -1.4 );
+  top.position.set( 0, height - 0.25, 0 );
+
+  pillar1.receiveShadow = true;
+  pillar1.castShadow = true;
+  pillar2.receiveShadow = true;
+  pillar2.castShadow = true;
+  pillar3.receiveShadow = true;
+  pillar3.castShadow = true;
+  pillar4.receiveShadow = true;
+  pillar4.castShadow = true;
+  top.receiveShadow = true;
+  top.castShadow = true;
+
+  var bridge = new THREE.Mesh();
+  bridge.position.set( 0, 0, 0 );
+
+  bridge.add(pillar1);
+  bridge.add(pillar2);
+  bridge.add(pillar3);
+  bridge.add(pillar4);
+  bridge.add(top);
+
+  return bridge;
 }
 
 /*

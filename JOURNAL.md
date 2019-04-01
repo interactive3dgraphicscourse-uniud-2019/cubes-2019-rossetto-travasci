@@ -91,8 +91,14 @@ Completata sia la versione iniziale dell'algoritmo deputato alla costruzione del
 
 Creati i costruttori per i modelli di pesci e piattaforme. Sostituiti i materiali con i più appropriati `MeshPongMaterial`.
 
-Aggiunta la possibilità di creare un blocco d'acqua animato (su questo è possibile però migliorarlo), sugli aspetti stilistici non ci ho ancora dato peso.
+Aggiunta la possibilità di creare un blocco d'acqua animato (su questo è possibile però migliorarlo), agli aspetti stilistici non ci ho ancora dato peso.
 
 ![water 1.0](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/water_example.PNG)
+
+- Eric Rossetto
+
+```1.04.2019 - 10:42```
+
+Creato il costruttore per il ponte. Create alcune utili texture di 256x256 pixel in formato `.png`.
 
 - Eric Rossetto
