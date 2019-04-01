@@ -57,7 +57,7 @@ function createTerrain(scene, data){
 	terrain=new THREE.Object3D();
 
 	geometry = new THREE.BoxGeometry(0.5,0.5,0.5);
-	var texture = new THREE.TextureLoader().load('../models/textures/missingTexture.png');
+	var texture = new THREE.TextureLoader().load('../models/textures/sand.png');
 	texture.magFilter = THREE.NearestFilter;
 	texture.minFilter = THREE.LinearMipMapLinearFilter;
 	material = new THREE.MeshPhongMaterial( { map: texture } );
