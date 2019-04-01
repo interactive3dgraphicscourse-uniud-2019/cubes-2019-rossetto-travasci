@@ -165,3 +165,9 @@ Alzato leggermente il livello del mare.
 ![Vertical walls](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/VerticalTerrainEdges.png)
 
 - Stefano Travasci
+
+```1.04.2019 - 21:23```
+
+Ridotta la heightmap a 49x49 per questioni di perfomance. Modificata in modo da renderla più eterogenea.
+
+- Eric Rossetto
