@@ -141,3 +141,5 @@ Modificato il codice delle luci in modo da renderizzare correttamente le ombre c
 ```1.04.2019 - 16:56```
 
 Modificato il codice di creazione dell'acqua: ora sfrutta un PlaneBufferGeometry per ridurre l'impatto sulle perfomance. Corretta l'altezza di alcune texture che non erano potenze di due.
+
+- Eric Rossetto

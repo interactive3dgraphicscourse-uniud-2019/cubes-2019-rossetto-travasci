@@ -131,7 +131,16 @@ function createTerrain(scene, data){
 
 	//creates the sea
 	var seaGeometry = new THREE.BoxGeometry(side/2-0.2,(127/2)-minVal-0.2,side/2-0.2);
-	var seaMaterial = new THREE.MeshBasicMaterial( { color: 0x0042ad, transparent: true, opacity: 0.33 } );
+	var seaMaterial = new THREE.MeshPhongMaterial( { 
+		color: 0x0042ad, 
+		transparent: true, 
+		opacity: 0.33,
+		blendSrc: THREE.SrcAlphaFactor,
+       	blendDst: THREE.OneMinusSrcAlphaFactor,
+		blendEquation: THREE.AddEquation,
+		shininess: 90
+	} );
+
 	var sea=new THREE.Mesh(seaGeometry,seaMaterial);
 	sea.position.x=+side/4-0.25;
 	sea.position.z=+side/4-0.25;
@@ -176,6 +185,6 @@ function placeBlock(x,y,z,top){
 	cube.position.x=x;
 	cube.position.z=z;
 	cube.position.y=y;
-	cube.castShadow = true;
+	//cube.castShadow = true;
 	cube.receiveShadow = true;
 }
