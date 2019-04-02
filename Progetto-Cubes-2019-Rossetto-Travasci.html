@@ -29,12 +29,12 @@
 		<script>
 
 		var scene, camera, renderer, controls, stats, time;
-		var redButterfly, purpleButterfly, flag, fish1, fish2, fish3;
+		var redButterfly, purpleButterfly, flag, fish1, fish2, fish3, bridge1, bridge2, bridge3, bridge4, bridge5;
 
 		function Start() {
 			scene = new THREE.Scene();
 			//camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-			camera = new THREE.OrthographicCamera( window.innerWidth / - 2,  window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 1000 );
+			camera = new THREE.OrthographicCamera( window.innerWidth / - 2,  window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 10000 );
 
 			renderer = new THREE.WebGLRenderer( {antialias: true} );
 			renderer.setSize( window.innerWidth, window.innerHeight );
@@ -91,14 +91,42 @@
 			fish1 = createFish(0x0060fc);
 			fish2 = createFish(0x33cc33);
 			fish3 = createFish(0xff6600);
-
 			fish1.position.set(2.5, -0.3, 8);
 			fish2.position.set(10, -0.3, -5);
 			fish3.position.set(10, -0.5, -5);
-
 			scene.add(fish1);
 			scene.add(fish2);
 			scene.add(fish3);
+
+			// Bridge
+			bridge1 = createBridge( 4.1 );
+			scene.add(bridge1);
+			bridge1.position.set( 1.75, -0.5, 2);
+			bridge1.rotation.y = 90 * Math.PI/180;
+			bridge1.scale.divideScalar(2);
+
+			bridge2 = createBridge( 4.1 );
+			scene.add(bridge2);
+			bridge2.position.set( 3.16, -0.5, 2 );
+			bridge2.rotation.y = 90 * Math.PI/180;
+			bridge2.scale.divideScalar(2);
+
+			bridge3 = createBridge( 4.1 );
+			scene.add(bridge3);
+			bridge3.position.set( 4.57, -0.5, 2 );
+			bridge3.rotation.y = 90 * Math.PI/180;
+			bridge3.scale.divideScalar(2);
+
+			bridge4 = createBridge( 5 );
+			scene.add(bridge4);
+			bridge4.position.set( 5.75, -0.9, 2.25 );
+			bridge4.scale.divideScalar(2);
+
+			bridge5 = createBridge( 2.5 );
+			scene.add(bridge5);
+			bridge5.position.set( 6, 0.4, 3.4 );
+			bridge5.rotation.y = 90 * Math.PI/180;
+			bridge5.scale.divideScalar(2);
 		}
 
 		function Update() {
