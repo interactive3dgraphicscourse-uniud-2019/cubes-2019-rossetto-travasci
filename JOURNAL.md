@@ -192,3 +192,13 @@ Inoltre, ora le farfalle producono e ricevono ombre.
 ![ButterfliesAndShadows](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/ShadowButterflies.png)
 
 - Stefano Travasci
+
+## Aggiunta bandiera pirata
+
+```2.04.2019 - 12:03```
+
+Aggiunto il codice per creare ed animare una bandiera pirata e le relative texture.
+
+![Pirates](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/PirateFlag.png)
+
+- Stefano Travasci
