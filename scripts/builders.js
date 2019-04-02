@@ -63,14 +63,14 @@ function createFish( color ) {
     var eye = new THREE.Mesh(eye_geometry, eye_material);
 
     muzzle.position.set(-0.09, 0, 0);
-    tail1.position.set(0.04, 0.0, 0);
+    tail1.position.set(0.045, 0.0, 0);
     tail2.position.set(0.07, 0, 0);
     backfin1.position.set(0.111, 0, 0);
     backfin2.position.set(0.111, 0, 0);
     backfin1.rotation.z = 36.6 * Math.PI/180;
     backfin2.rotation.z = -36.6 * Math.PI/180;
-    backfin1.rotation.y = -60 * Math.PI/180;
-    backfin2.rotation.y = -60 * Math.PI/180;
+    //backfin1.rotation.y = -60 * Math.PI/180;
+    //backfin2.rotation.y = -60 * Math.PI/180;
     topfin.position.set(0, 0.08, 0);
     eye.rotation.x = -90 * Math.PI/180;
     eye.position.set(-0.04, 0.04, 0);

@@ -1,5 +1,5 @@
 /*
-    This file contains all the animations for all the objects in
+    This file contains all the animations for all the objects in 
     the scene.
 */
 
@@ -26,11 +26,26 @@ function animateFishTail( obj, time, duration ) {
     tail1.position.x -= 0.0008;
     tail2.position.x -= 0.0005;
   }
-
-  backfin1.rotation.y = (-60 * Math.PI/180) * swingTime/(duration);
-  backfin2.rotation.y = (-60 * Math.PI/180) * swingTime/(duration);
-
+  
+  // I don't know how much of this animation we can see.
+  //backfin1.rotation.y = (-60 * Math.PI/180) * swingTime/(duration);
+  //backfin2.rotation.y = (-60 * Math.PI/180) * swingTime/(duration);
+  
 }
+
+function animateFish( fish, time, duration ) {
+  animateFishTail(fish, time, 800);
+
+  var swimTime = time % duration;
+  fish.position.x = Math.cos( 360 * Math.PI/180 * t / )
+
+  if( swimTime > duration/2 ) {
+    swimTime = -( duration - swimTime ); 
+  }
+
+  fish.position.x = Math.sin(360 * Math.PI/180 * swimTime/duration);
+}
+
 
 //Animates the butterfly 'butterfly' by making it go around an ellipse centered at 'x', 'y', 'z' in periodCircuit time.
 //The ellipse as an axis aligned with the x axis and with a length of 'rx' and another axis aligned with the z axis and with a length of 'rz'.
@@ -46,19 +61,19 @@ function animateButterfly(butterfly,time,x,y,z,periodCircuit,periodOscillation,r
     if (wingTime>350) {
       wingTime=700-wingTime;
     }
-    b[0].rotation.x=(120*Math.PI/180)*wingTime/350;
-    b[1].rotation.x=-(120*Math.PI/180)*wingTime/350;
-
+    b[0].rotation.x=(90*Math.PI/180)*wingTime/350;
+    b[1].rotation.x=-(90*Math.PI/180)*wingTime/350;
+  
     //move the butterfly
     var t=time%periodCircuit;
     butterfly.position.x=Math.cos(mul*360*Math.PI/180*t/periodCircuit)*rx+x;
     butterfly.position.z=Math.sin(mul*360*Math.PI/180*t/periodCircuit)*rz+z;
     var ty=time%periodOscillation;
     butterfly.position.y=Math.cos(360*Math.PI/180*ty/periodOscillation-Math.PI/4)*ry+y;
-
+  
     //change the direction the butterfly is pointing towards
     butterfly.rotation.y=-2*Math.PI*t/periodCircuit*mul+Math.PI/2*mul;
-
+  
   }
 
 //animates a flag
