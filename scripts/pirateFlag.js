@@ -46,10 +46,10 @@ function buildFlagCloth(){
     flagStripTextures[i-1].magFilter = THREE.NearestFilter;
     flagStripTextures[i-1].minFilter = THREE.LinearMipMapLinearFilter;
     flagStripMaterials.push(new THREE.MeshPhongMaterial( { map: flagStripTextures[i-1] } ));
-    flagStripMaterials[i-1].castShadow=true;
-    flagStripMaterials[i-1].receiveShadow=true;
     part = new THREE.Mesh(flagShape,[flagSideThinMaterial,flagSideThinMaterial,flagShortMaterial,flagShortMaterial,flagStripMaterials[i-1],flagStripMaterials[i-1]]);
     part.position.x=i/4;
+    part.castShadow=true;
+    part.receiveShadow=true;
     flagPart.add(part);
   }
 
@@ -65,24 +65,22 @@ function buildPole(){
   poleTextureSide.magFilter = THREE.NearestFilter;
   poleTextureSide.minFilter = THREE.LinearMipMapLinearFilter;
   var poleMaterialSide = new THREE.MeshPhongMaterial( { map: poleTextureSide } );
-  poleMaterialSide.castShadow=true;
-  poleMaterialSide.receiveShadow=true;
   var poleTexturePoint = new THREE.TextureLoader().load('../models/textures/flag/polePoint.png');
   poleTexturePoint.magFilter = THREE.NearestFilter;
   poleTexturePoint.minFilter = THREE.LinearMipMapLinearFilter;
   var poleMaterialPoint = new THREE.MeshPhongMaterial( { map: poleTexturePoint } );
-  poleMaterialPoint.castShadow=true;
-  poleMaterialPoint.receiveShadow=true;
   var pole=new THREE.Mesh(poleShape,[poleMaterialSide,poleMaterialSide,poleMaterialPoint,poleMaterialPoint,poleMaterialSide,poleMaterialSide]);
+  pole.castShadow=true;
+  pole.receiveShadow=true;
 
   var topBallShape=new THREE.BoxGeometry(0.5,0.5,0.5);
   var topBallTexture = new THREE.TextureLoader().load('../models/textures/flag/poleTop.png');
   topBallTexture.magFilter = THREE.NearestFilter;
   topBallTexture.minFilter = THREE.LinearMipMapLinearFilter;
   var topBallMaterial = new THREE.MeshPhongMaterial( { map: topBallTexture } );
-  topBallMaterial.castShadow=true;
-  topBallMaterial.receiveShadow=true;
   var topBall=new THREE.Mesh(topBallShape,topBallMaterial);
+  topBall.castShadow=true;
+  topBall.receiveShadow=true;
 
   poleComplete.add(topBall);
   topBall.position.y=2.8;
