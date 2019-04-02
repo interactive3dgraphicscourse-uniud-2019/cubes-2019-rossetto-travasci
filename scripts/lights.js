@@ -26,7 +26,7 @@ function createLights() {
 
     dirLight.color.setHSL( 0.1, 1, 0.95 );
     dirLight.position.set( -1, 1.7, 1 );
-    dirLight.position.multiplyScalar( 105 );
+    dirLight.position.multiplyScalar( 40 );
 	  dirLight.castShadow = true;
 	  dirLight.shadow.mapSize.width = 1024;
     dirLight.shadow.mapSize.height = 1024;
@@ -35,9 +35,9 @@ function createLights() {
     scene.add( dirLight );
 
     //increase the shadow camera
-    dirLight.shadow.camera.left = -50;
-    dirLight.shadow.camera.right = 50;
-    dirLight.shadow.camera.top = 40;
-    dirLight.shadow.camera.bottom = -40;
+    dirLight.shadow.camera.left = -15;
+    dirLight.shadow.camera.right = 15;
+    dirLight.shadow.camera.top = 15;
+    dirLight.shadow.camera.bottom = -15;
 
 }
