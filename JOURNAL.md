@@ -171,3 +171,14 @@ Alzato leggermente il livello del mare.
 Ridotta la heightmap a 49x49 per questioni di perfomance. Modificata in modo da renderla più eterogenea.
 
 - Eric Rossetto
+
+## Aggiunta farfalle
+
+```2.04.2019 - 02:12```
+
+Aggiunto codice deputato alla creazione di farfalle e alla loro animazione. Nel momento della creazione è possibile scegliere il colore della farfalla. Una volta creata viene restituito un Object3D rappresentante la farfalla. Una volta aggiunta alla scena, sarà possibile usare la funzione apposita per animarla. La funzione riceve, oltre all'Object3D farfalla, varie informazioni come la posizione del centro, distanze massime dal centro e tempi necessari a compiere i vari spostamenti. La funzione si occupa sia dell'animazione dell'oggetto stesso che del suo spostamento e orientamento all'interno della scena.
+Sono state fatte anche alcune modifiche minori al codice, come una piccola riorganizzazione del codice all'interno del file HTML principale e lo spostamento della posizione iniziale della telecamera.
+
+![Butteflies](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Butterflies.png)
+
+- Stefano Travasci
