@@ -40,7 +40,7 @@ function createFish( color ) {
 
     var backfin_geometry = new THREE.BoxBufferGeometry( 0.08, 0.02, 0.005 );
     var fin_material = new THREE.MeshPhongMaterial(
-        { color: 0x13FF00, 
+        { color: 0x13FF00,
           side: THREE.FrontSide }
     );
 
@@ -89,7 +89,7 @@ function createFish( color ) {
     backfin1.receiveShadow = true;
     backfin2.castShadow = true;
     backfin2.receiveShadow = true;
-    
+
     // Hierarchy
     body.add(muzzle);
     body.add(tail1);
@@ -105,9 +105,9 @@ function createFish( color ) {
 /*
   Creates a platform of specified height with a plane on top of given
   width. The legOffset specifies how much the pillars of the platform must dist
-  from the edge of the plane. 
+  from the edge of the plane.
 
-  The legOffset depends on the width and the depth of the pillars. 
+  The legOffset depends on the width and the depth of the pillars.
       pillarsWidth < legOffSet < width
 */
 
@@ -237,7 +237,7 @@ function createWater( width ) {
   var box_geometry = new THREE.PlaneBufferGeometry( width, width );
   var box_material = new THREE.MeshPhongMaterial(
      {
-       map: texture, 
+       map: texture,
        opacity: 1,
        blendSrc: THREE.SrcAlphaFactor,
        blendDst: THREE.OneMinusSrcAlphaFactor,
@@ -255,8 +255,8 @@ function createWater( width ) {
   var water_box = new THREE.Mesh(box_geometry, box_material);
 
   water_box.rotation.x = 90 * Math.PI/180;
-  
-  // CAN CAUSE PROBLEMS 
+
+  // CAN CAUSE PROBLEMS
   water_box.receiveShadow = true;
 
   return water_box;
@@ -300,7 +300,7 @@ function createLightBlueTree() {
   var trunk_add2 = new THREE.Mesh(trunk_geometry_add2, trunk_material);
   var trunk_add3 = new THREE.Mesh(trunk_geometry_add3, trunk_material);
   var branch1 = new THREE.Mesh(branch_geometry, trunk_material);
-  var branch2 = new THREE.Mesh(branch_geometry, trunk_material); 
+  var branch2 = new THREE.Mesh(branch_geometry, trunk_material);
   var foliage = new THREE.Mesh(foliage_geometry, foliage_material);
   var foliage_add1 = new THREE.Mesh(foliage_geometry_add1, foliage_material);
   var foliage_add2 = new THREE.Mesh(foliage_geometry_add2, foliage_material);
@@ -460,10 +460,10 @@ function buildFlagCloth(){
     flagStripTextures[i-1].magFilter = THREE.NearestFilter;
     flagStripTextures[i-1].minFilter = THREE.LinearMipMapLinearFilter;
     flagStripMaterials.push(new THREE.MeshPhongMaterial( { map: flagStripTextures[i-1] } ));
-    flagStripMaterials[i-1].castShadow=true;
-    flagStripMaterials[i-1].receiveShadow=true;
     part = new THREE.Mesh(flagShape,[flagSideThinMaterial,flagSideThinMaterial,flagShortMaterial,flagShortMaterial,flagStripMaterials[i-1],flagStripMaterials[i-1]]);
     part.position.x=i/4;
+    part.castShadow=true;
+    part.receiveShadow=true;
     flagPart.add(part);
   }
 
@@ -479,24 +479,22 @@ function buildPole(){
   poleTextureSide.magFilter = THREE.NearestFilter;
   poleTextureSide.minFilter = THREE.LinearMipMapLinearFilter;
   var poleMaterialSide = new THREE.MeshPhongMaterial( { map: poleTextureSide } );
-  poleMaterialSide.castShadow=true;
-  poleMaterialSide.receiveShadow=true;
   var poleTexturePoint = new THREE.TextureLoader().load('../models/textures/flag/polePoint.png');
   poleTexturePoint.magFilter = THREE.NearestFilter;
   poleTexturePoint.minFilter = THREE.LinearMipMapLinearFilter;
   var poleMaterialPoint = new THREE.MeshPhongMaterial( { map: poleTexturePoint } );
-  poleMaterialPoint.castShadow=true;
-  poleMaterialPoint.receiveShadow=true;
   var pole=new THREE.Mesh(poleShape,[poleMaterialSide,poleMaterialSide,poleMaterialPoint,poleMaterialPoint,poleMaterialSide,poleMaterialSide]);
+  pole.castShadow=true;
+  pole.receiveShadow=true;
 
   var topBallShape=new THREE.BoxGeometry(0.5,0.5,0.5);
   var topBallTexture = new THREE.TextureLoader().load('../models/textures/flag/poleTop.png');
   topBallTexture.magFilter = THREE.NearestFilter;
   topBallTexture.minFilter = THREE.LinearMipMapLinearFilter;
   var topBallMaterial = new THREE.MeshPhongMaterial( { map: topBallTexture } );
-  topBallMaterial.castShadow=true;
-  topBallMaterial.receiveShadow=true;
   var topBall=new THREE.Mesh(topBallShape,topBallMaterial);
+  topBall.castShadow=true;
+  topBall.receiveShadow=true;
 
   poleComplete.add(topBall);
   topBall.position.y=2.8;
