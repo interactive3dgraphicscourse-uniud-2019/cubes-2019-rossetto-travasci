@@ -10,6 +10,8 @@ function animateWater( obj, time ) {
 
 function animateFishTail( obj, time ) {
 
+    tail1 = obj.children[1];
+    tail2 = obj.children[2];
     backfin1 = obj.children[2].children[0];
     backfin2 = obj.children[2].children[1];
 
@@ -18,6 +20,7 @@ function animateFishTail( obj, time ) {
 
     if( swingTime < 2000 ) {
         // Moving to the right 
+        tail1.position.x +=
         backfin1.rotation.y = (-30 * Math.PI/180) * swingTime/2000;
         backfin2.rotation.y = (-30 * Math.PI/180) * swingTime/2000;
     } else {
