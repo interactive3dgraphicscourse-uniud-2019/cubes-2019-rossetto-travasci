@@ -89,8 +89,7 @@ Completata sia la versione iniziale dell'algoritmo deputato alla costruzione del
 
 ```31.03.2019 - 19:02```
 
-Creati i costruttori per i modelli di pesci e piattaforme. Sostituiti i materiali con i più appropriati `MeshPongMaterial`.
-
+Creati i costruttori per i modelli di pesci e piattaforme. Sostituiti i materiali con i più appropriati `MeshPongMaterial`.  
 Aggiunta la possibilità di creare un blocco d'acqua animato (su questo è possibile però migliorarlo), agli aspetti stilistici non ci ho ancora dato peso.
 
 ![Water 1.0](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/water_example.PNG)
@@ -110,7 +109,7 @@ Creato il costruttore per il ponte e per l'albero. Create alcune utili texture d
 
 ```1.04.2019 - 14:15```
 
-Il codice per la costruzione del terreno è stato migliorato in modo da evitare la formazione di buchi nelle pareti verticali dello stesso. È stata inoltre aggiunta una texture per la sabbia, che al momento è stata applicata a tutto il terreno.
+Il codice per la costruzione del terreno è stato migliorato in modo da evitare la formazione di buchi nelle pareti verticali dello stesso. È stata inoltre aggiunta una texture per la sabbia, che al momento è stata applicata a tutto il terreno.  
 Cambiamenti minori includono un nuovo colore per il cielo e un diverso posizionamento iniziale della telecamera.
 
 ![Sandy-Terrain](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Sandy-Terrain.png)
@@ -121,7 +120,7 @@ Cambiamenti minori includono un nuovo colore per il cielo e un diverso posiziona
 
 ```1.04.2019 - 16:22```
 
-Ora il la texture del terreno cambia a seconda dell'altezza del blocco e del fatto che sia o meno in superficie. I blocchi al di sotto del metro sopra al livello del mare sono tutti di sabbia, quelli al di sopra sono di erba se si trovano in superficie, altrimenti sono di terra.
+Ora il la texture del terreno cambia a seconda dell'altezza del blocco e del fatto che sia o meno in superficie. I blocchi al di sotto del metro sopra al livello del mare sono tutti di sabbia, quelli al di sopra sono di erba se si trovano in superficie, altrimenti sono di terra.  
 Aggiunto il mare trasparente al terreno. Tentativo di aggiungere le ombre ai blocchi del terreno, ma le ombre appaiono solo per un ridottissimo numero di blocchi. Necessari ulteriori approfondimenti a riguardo.
 
 ![Aggiunto il mare](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedSea.png)
@@ -148,7 +147,7 @@ Modificato il codice di creazione dell'acqua: ora sfrutta un PlaneBufferGeometry
 
 ```1.04.2019 - 20:33```
 
-Modificata la texture dell'erba in modo che le sue facce laterali siano composte da due parti: una superiore di erba ed una inferiore di terra. Allo stesso tempo, però, quando nel colonna di blocchi adiacente alla faccia in questione è presente un blocco di erba esattamente un blocco più in basso, la faccia in questione sarà composta completamente da erba, in modo da collegare le parti di erba dei due blocchi.
+Modificata la texture dell'erba in modo che le sue facce laterali siano composte da due parti: una superiore di erba ed una inferiore di terra. Allo stesso tempo, però, quando nel colonna di blocchi adiacente alla faccia in questione è presente un blocco di erba esattamente un blocco più in basso, la faccia in questione sarà composta completamente da erba, in modo da collegare le parti di erba dei due blocchi.  
 In questa descrizione non si discute del corportamento dell'algoritmo per le facce dei blocchi di erba che non sono visibili o lo sono solo guardando il terreno da sotto.
 
 ![Improved grass](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/NewKindsOfGrass.png)
@@ -159,7 +158,7 @@ In questa descrizione non si discute del corportamento dell'algoritmo per le fac
  
 ```1.04.2019 - 21:23```
 
-Ora i confini del terreno non rimangono più "aperti" come prima, ma viene costruito automaticamente un muro verticale che arriva fino al punto più in basso del terreno.
+Ora i confini del terreno non rimangono più "aperti" come prima, ma viene costruito automaticamente un muro verticale che arriva fino al punto più in basso del terreno.  
 Alzato leggermente il livello del mare.
 
 ![Vertical walls](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/VerticalTerrainEdges.png)
@@ -180,5 +179,16 @@ Aggiunto codice deputato alla creazione di farfalle e alla loro animazione. Nel 
 Sono state fatte anche alcune modifiche minori al codice, come una piccola riorganizzazione del codice all'interno del file HTML principale e lo spostamento della posizione iniziale della telecamera.
 
 ![Butteflies](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Butterflies.png)
+
+- Stefano Travasci
+
+## Miglioramento ombre e aggiunta ombre alle farfalle
+
+```2.04.2019 - 02:39```
+
+La luce direzionale è stata riposizionata e le dimensioni della sua shadow camera ridotte. Questi cambiamenti, fatti per adeguarsi alla riduzione della dimensione del terreno, hanno portato un miglioramento della qualità delle ombre.  
+Inoltre, ora le farfalle producono e ricevono ombre.
+
+![ButterfliesAndShadows](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/ShadowButterflies.png)
 
 - Stefano Travasci
