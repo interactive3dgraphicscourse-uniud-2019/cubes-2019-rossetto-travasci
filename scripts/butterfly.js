@@ -11,7 +11,7 @@ function buildButterfly(color){
   butterfly.add(leftWing);
   butterfly.add(rightWing);
   butterfly.add(body);
-  butterfly.scale.set(0.1,0.1,0.1);
+  butterfly.scale.set(0.07,0.07,0.07);
   return butterfly;
 }
 
@@ -54,26 +54,28 @@ function buildButterflyBody(){
 //Animates the butterfly 'butterfly' by making it go around an ellipse centered at 'x', 'y', 'z' in periodCircuit time.
 //The ellipse as an axis aligned with the x axis and with a length of 'rx' and another axis aligned with the z axis and with a length of 'rz'.
 //The butterfly also goes up and down by a distance of 'ry', reaching the apex height every periodOscillation milliseconds.
-function animateButterfly(butterfly,time,x,y,z,periodCircuit,periodOscillation,rx,ry,rz){
+//Clockwise is true when the butterfly if flying in a clockwise motion.
+function animateButterfly(butterfly,time,x,y,z,periodCircuit,periodOscillation,rx,ry,rz,clockwise){
 
   var b=butterfly.children;
-
+  var mul=1;
+  if(!clockwise)mul=-1;
   //animate the wings
-  var wingTime=time%1000;
-  if (wingTime>500) {
-    wingTime=1000-wingTime;
+  var wingTime=time%700;
+  if (wingTime>350) {
+    wingTime=700-wingTime;
   }
-  b[0].rotation.x=(90*Math.PI/180)*wingTime/500;
-  b[1].rotation.x=-(90*Math.PI/180)*wingTime/500;
+  b[0].rotation.x=(90*Math.PI/180)*wingTime/350;
+  b[1].rotation.x=-(90*Math.PI/180)*wingTime/350;
 
   //move the butterfly
   var t=time%periodCircuit;
-  butterfly.position.x=Math.cos(360*Math.PI/180*t/periodCircuit)*rx+x;
-  butterfly.position.z=Math.sin(360*Math.PI/180*t/periodCircuit)*rz+z;
+  butterfly.position.x=Math.cos(mul*360*Math.PI/180*t/periodCircuit)*rx+x;
+  butterfly.position.z=Math.sin(mul*360*Math.PI/180*t/periodCircuit)*rz+z;
   var ty=time%periodOscillation;
   butterfly.position.y=Math.cos(360*Math.PI/180*ty/periodOscillation-Math.PI/4)*ry+y;
 
   //change the direction the butterfly is pointing towards
-  butterfly.rotation.y=-2*Math.PI*t/periodCircuit+Math.PI/2;
+  butterfly.rotation.y=-2*Math.PI*t/periodCircuit*mul+Math.PI/2*mul;
 
 }

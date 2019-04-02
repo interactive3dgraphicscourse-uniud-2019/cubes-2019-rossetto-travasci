@@ -25,9 +25,11 @@
 		<script src="scripts/terrainBuilder.js"></script>
 		<script src="scripts/lights.js"></script>
 		<script src="scripts/builders.js"></script>
+		<script src="scripts/butterfly.js"></script>
 		<script>
 
 		var scene, camera, renderer, controls, stats, time;
+		var redButterfly, purpleButterfly;
 
 		function Start() {
 			scene = new THREE.Scene();
@@ -57,12 +59,26 @@
 
 			//builds the terrain
 			buildTerrain(scene);
+
+			addObjects();
+
+			controls = new THREE.OrbitControls( camera );
+		}
+
+		function addObjects(){
+			//tree
 			var tree = createLightBlueTree();
 			scene.add(tree);
 			tree.position.set(0, 1, 0);
 			tree.scale.divideScalar(2.5);
 
-			controls = new THREE.OrbitControls( camera );
+			//red butterfly
+			redButterfly=buildButterfly(0xf42c2c);
+			scene.add(redButterfly);
+
+			//purple butterfly
+			purpleButterfly=buildButterfly(0x7f24b5);
+			scene.add(purpleButterfly);
 		}
 
 		function Update() {
@@ -70,10 +86,17 @@
 			controls.update();
 			stats.update();
 
-			time = Date.now();
+			Animate();
 
 			renderer.render(scene, camera);
 		}
+
+		function Animate(){
+			time=Date.now();
+			animateButterfly(redButterfly,time,-0.5,2.3,1.5,15000,1500,1.5,0.17,4,true);
+			animateButterfly(purpleButterfly,time,6,1.8,4,20000,2500,2,0.25,3,false);
+		}
+
 
 		Start();
 		Update();
