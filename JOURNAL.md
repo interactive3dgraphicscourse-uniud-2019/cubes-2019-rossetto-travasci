@@ -212,3 +212,11 @@ Aggiunto il codice relativo all'animazione della coda e del movimento del pesce.
 ![Fishes](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/fishes_example.png)
 
 - Eric Rossetto
+
+## Scelta progettuale
+
+```3.04.2019 - 00:03```
+
+Per incrementare il numero di modelli presenti in scena verranno implementati: un forziere e un cannone. Il primo dovrà aprirsi all'avvicinarsi della camera e mostrare al suo interno una texture che rappresenti il tesoro (possibilmente luccicante). Il secondo invece dovrà avere la possibilità di essere attivato ed essere in grado di "accendere" la miccia emettendo delle proprie particelle e sparare un colpo con conseguente fumo.
+
+- Eric Rossetto
