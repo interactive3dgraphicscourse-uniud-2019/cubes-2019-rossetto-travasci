@@ -209,4 +209,6 @@ Aggiunto il codice per creare ed animare una bandiera pirata e le relative textu
 
 Aggiunto il codice relativo all'animazione della coda e del movimento del pesce.
 
+![Fishes](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/fishes_example.png)
+
 - Eric Rossetto
