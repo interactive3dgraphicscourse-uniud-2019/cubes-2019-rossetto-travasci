@@ -15,12 +15,12 @@ errLoader.load(
   }
 );
 
-function createBlueFish() {
+function createFish( color ) {
 
     // Geometries and materials
     var body_geometry = new THREE.BoxBufferGeometry( 0.22, 0.18, 0.18 );
     var body_material = new THREE.MeshPhongMaterial(
-        { color: 0x0060fc,
+        { color,
           side: THREE.FrontSide }
     );
 
@@ -32,7 +32,7 @@ function createBlueFish() {
 
     var tail1_geometry = new THREE.BoxBufferGeometry( 0.23, 0.148, 0.14 );
     var tail1_material = new THREE.MeshPhongMaterial(
-        { color: 0x1fb8de,
+        { color: color*8.35,
           side: THREE.FrontSide }
     );
 
@@ -69,6 +69,8 @@ function createBlueFish() {
     backfin2.position.set(0.111, 0, 0);
     backfin1.rotation.z = 36.6 * Math.PI/180;
     backfin2.rotation.z = -36.6 * Math.PI/180;
+    backfin1.rotation.y = -60 * Math.PI/180;
+    backfin2.rotation.y = -60 * Math.PI/180;
     topfin.position.set(0, 0.08, 0);
     eye.rotation.x = -90 * Math.PI/180;
     eye.position.set(-0.04, 0.04, 0);
@@ -98,10 +100,6 @@ function createBlueFish() {
     body.add(eye);
 
     return body;
-}
-
-function createHouse() {
-
 }
 
 /*
@@ -269,7 +267,7 @@ function createWater( width ) {
 */
 function createLightBlueTree() {
 
-  trunk_texture = new THREE.TextureLoader().load("../models/textures/trunk_texture_16x16.png");
+  trunk_texture = new THREE.TextureLoader().load("../models/textures/trunk_texture_256x512.png");
   trunk_texture.magFilter = THREE.NearestFilter;
   trunk_texture.minFilter = THREE.LinearMipMapLinearFilter;
 
@@ -351,3 +349,157 @@ function createLightBlueTree() {
   return tree;
 }
 
+//Creates a butterfly with wings the color of 'color'
+function buildButterfly(color){
+  var rightWing=buildWing(color);
+  var leftWing=buildWing(color);
+  var butterfly=new THREE.Object3D;
+  var body=buildButterflyBody();
+  leftWing.position.z=0.8;
+  rightWing.position.z=-0.8;
+  leftWing.scale.set(1.2,1.2,1.2);
+  rightWing.scale.set(1.2,1.2,1.2);
+  butterfly.add(leftWing);
+  butterfly.add(rightWing);
+  butterfly.add(body);
+  butterfly.scale.set(0.07,0.07,0.07);
+  return butterfly;
+}
+
+//builds a wing of the butterfly
+function buildWing(color){
+  var material=new THREE.MeshPhongMaterial({color:color});
+  var geometry1=new THREE.BoxGeometry(1,3,1);
+  var geometry2=new THREE.BoxGeometry(1,2,1);
+  var geometry3=new THREE.BoxGeometry(1,1,1);
+  var mesh1=new THREE.Mesh(geometry1,material);
+  var mesh2=new THREE.Mesh(geometry2,material);
+  var mesh3=new THREE.Mesh(geometry3,material);
+  mesh1.castShadow = true;
+  mesh2.castShadow = true;
+  mesh3.castShadow = true;
+  mesh1.receiveShadow = true;
+  mesh2.receiveShadow = true;
+  mesh3.receiveShadow = true;
+  mesh1.position.y=1.5;
+  mesh2.position.y=1;
+  mesh3.position.y=0.5;
+  mesh1.position.x=-1;
+  mesh3.position.x=1;
+  var wing=new THREE.Object3D;
+  wing.add(mesh1);
+  wing.add(mesh2);
+  wing.add(mesh3);
+  return wing;
+}
+
+//builds the body of the butterfly
+function buildButterflyBody(){
+  var material=new THREE.MeshPhongMaterial({color:0x000000});
+  var geometryBody=new THREE.BoxGeometry(4,0.5,0.5);
+  var geometryHead=new THREE.BoxGeometry(1,1,1);
+  var meshBody=new THREE.Mesh(geometryBody,material);
+  var meshHead=new THREE.Mesh(geometryHead,material);
+  var body=new THREE.Object3D;
+  meshHead.position.x=-2.5;
+  meshBody.position.x=-0.25;
+  meshHead.castShadow = true;
+  meshBody.castShadow = true;
+  meshHead.receiveShadow = true;
+  meshBody.receiveShadow = true;
+  body.add(meshBody);
+  body.add(meshHead);
+  return body;
+}
+
+//create a pirate flag
+function buildPirateFlag(){
+  var flagPart=buildFlagCloth();
+  var pole=buildPole();
+  var flag=new THREE.Object3D;
+
+  flag.add(flagPart);
+  flag.add(pole);
+
+  flagPart.position.y+=1.5;
+  return flag;
+}
+
+//builds the flag part of the flag
+function buildFlagCloth(){
+  var flagPart=new THREE.Object3D;
+
+  var flagShape=new THREE.BoxGeometry(0.25,2,0.25);
+
+  var flagShortTexture = new THREE.TextureLoader().load('../models/textures/flag/flagShort.png');
+	flagShortTexture.magFilter = THREE.NearestFilter;
+	flagShortTexture.minFilter = THREE.LinearMipMapLinearFilter;
+  var flagShortMaterial = new THREE.MeshPhongMaterial( { map: flagShortTexture } );
+  flagShortMaterial.castShadow=true;
+  flagShortMaterial.receiveShadow=true;
+
+  var flagSideTexture = new THREE.TextureLoader().load('../models/textures/flag/flagStripBlank.png');
+	flagSideTexture.magFilter = THREE.NearestFilter;
+	flagSideTexture.minFilter = THREE.LinearMipMapLinearFilter;
+  var flagSideMaterial = new THREE.MeshPhongMaterial( { map: flagSideTexture } );
+  flagSideMaterial.castShadow=true;
+  flagSideMaterial.receiveShadow=true;
+
+  var flagSideThinTexture = new THREE.TextureLoader().load('../models/textures/flag/flagStripBlankThin.png');
+	flagSideThinTexture.magFilter = THREE.NearestFilter;
+	flagSideThinTexture.minFilter = THREE.LinearMipMapLinearFilter;
+  var flagSideThinMaterial = new THREE.MeshPhongMaterial( { map: flagSideThinTexture } );
+  flagSideThinMaterial.castShadow=true;
+  flagSideThinMaterial.receiveShadow=true;
+
+  var flagStripTextures=[];
+  var flagStripMaterials=[];
+  var part;
+  for(var i=1;i<=14;i++){
+    flagStripTextures.push(new THREE.TextureLoader().load('../models/textures/flag/flagStrip'+i+'.png'));
+    flagStripTextures[i-1].magFilter = THREE.NearestFilter;
+    flagStripTextures[i-1].minFilter = THREE.LinearMipMapLinearFilter;
+    flagStripMaterials.push(new THREE.MeshPhongMaterial( { map: flagStripTextures[i-1] } ));
+    flagStripMaterials[i-1].castShadow=true;
+    flagStripMaterials[i-1].receiveShadow=true;
+    part = new THREE.Mesh(flagShape,[flagSideThinMaterial,flagSideThinMaterial,flagShortMaterial,flagShortMaterial,flagStripMaterials[i-1],flagStripMaterials[i-1]]);
+    part.position.x=i/4;
+    flagPart.add(part);
+  }
+
+  return flagPart;
+}
+
+//builds the pole of the flag
+function buildPole(){
+  var poleComplete=new THREE.Object3D;
+
+  var poleShape=new THREE.BoxGeometry(0.35,5.5,0.35);
+  var poleTextureSide = new THREE.TextureLoader().load('../models/textures/flag/poleHeight.png');
+  poleTextureSide.magFilter = THREE.NearestFilter;
+  poleTextureSide.minFilter = THREE.LinearMipMapLinearFilter;
+  var poleMaterialSide = new THREE.MeshPhongMaterial( { map: poleTextureSide } );
+  poleMaterialSide.castShadow=true;
+  poleMaterialSide.receiveShadow=true;
+  var poleTexturePoint = new THREE.TextureLoader().load('../models/textures/flag/polePoint.png');
+  poleTexturePoint.magFilter = THREE.NearestFilter;
+  poleTexturePoint.minFilter = THREE.LinearMipMapLinearFilter;
+  var poleMaterialPoint = new THREE.MeshPhongMaterial( { map: poleTexturePoint } );
+  poleMaterialPoint.castShadow=true;
+  poleMaterialPoint.receiveShadow=true;
+  var pole=new THREE.Mesh(poleShape,[poleMaterialSide,poleMaterialSide,poleMaterialPoint,poleMaterialPoint,poleMaterialSide,poleMaterialSide]);
+
+  var topBallShape=new THREE.BoxGeometry(0.5,0.5,0.5);
+  var topBallTexture = new THREE.TextureLoader().load('../models/textures/flag/poleTop.png');
+  topBallTexture.magFilter = THREE.NearestFilter;
+  topBallTexture.minFilter = THREE.LinearMipMapLinearFilter;
+  var topBallMaterial = new THREE.MeshPhongMaterial( { map: topBallTexture } );
+  topBallMaterial.castShadow=true;
+  topBallMaterial.receiveShadow=true;
+  var topBall=new THREE.Mesh(topBallShape,topBallMaterial);
+
+  poleComplete.add(topBall);
+  topBall.position.y=2.8;
+  poleComplete.add(pole);
+  return poleComplete;
+}

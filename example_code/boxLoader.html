@@ -59,7 +59,7 @@
 			groundMat.color.setHSL( 0.3, 1, 0.6 );
 			var ground = new THREE.Mesh( groundGeo, groundMat );
 			ground.rotation.x = -Math.PI/2;
-			//scene.add( ground );
+			scene.add( ground );
 			ground.receiveShadow = true;
             
             // --- IMPORTANT ---
@@ -95,9 +95,10 @@
 			);
 			*/
 
-			test = createWater( 1 );
+			test = createFish(0x0060fc);
 			scene.add(test);
-			test.position.y = 1;
+			test.position.y = 0.1
+			;
 
 			stats = new Stats();
 			stats.domElement.style.position = 'absolute';
@@ -109,8 +110,9 @@
 
 		function Update() {
 
-			time += 0.01;
+			time = Date.now();
 			requestAnimationFrame( Update );
+			//animateFishTail(test, time)
 			controls.update();
 			stats.update();
 			renderer.render(scene, camera);
