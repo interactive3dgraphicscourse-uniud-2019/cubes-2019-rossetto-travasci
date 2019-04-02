@@ -326,7 +326,7 @@ function createLightBlueTree() {
   var foliage = new THREE.Mesh(foliage_geometry, foliage_material);
   var foliage_add1 = new THREE.Mesh(foliage_geometry_add1, foliage_material);
   var foliage_add2 = new THREE.Mesh(foliage_geometry_add2, foliage_material);
-  var tree = new THREE.Mesh();
+  var tree = new THREE.Object3D();
 
   trunk.position.set( 0, 2.5, 0 );
   trunk_add1.position.set( 0, 0.5, 0.3 );
