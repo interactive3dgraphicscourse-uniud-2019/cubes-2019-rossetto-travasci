@@ -32,7 +32,7 @@ function createFish( color ) {
 
     var tail1_geometry = new THREE.BoxBufferGeometry( 0.23, 0.148, 0.14 );
     var tail1_material = new THREE.MeshPhongMaterial(
-        { color: color*8.35,
+        { color: color*8.5,
           side: THREE.FrontSide }
     );
 
@@ -100,6 +100,28 @@ function createFish( color ) {
     body.add(eye);
 
     return body;
+}
+
+function createFishes() {
+  var fish1 = createFish(0x0060fc);
+  var fish2 = createFish(0x33cc33);
+  var fish3 = createFish(0xff6600);
+
+  fish1.position.y = 0.1;
+  fish2.position.y = 0.1;
+  fish3.position.y = 0.1;
+
+  fish1.position.x = -0.3;
+  fish1.position.z = 0.3;
+  fish3.position.x = 0.2;
+  fish3.position.z = 0.4;
+
+  var group = new THREE.Mesh();
+  group.add(fish1);
+  group.add(fish2);
+  group.add(fish3);
+
+  return group;
 }
 
 /*

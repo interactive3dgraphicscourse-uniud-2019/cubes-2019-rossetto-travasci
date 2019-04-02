@@ -95,16 +95,16 @@
 			);
 			*/
 
-			test = createFish(0x0060fc);
-			scene.add(test);
-			test.position.y = 0.1
-			;
+			fishes = createFishes();
+			scene.add(fishes);
+			fishes.position.y = 0.1;
 
 			stats = new Stats();
 			stats.domElement.style.position = 'absolute';
 			stats.domElement.style.top = '0px';
 			document.body.appendChild( stats.domElement );
 
+			Coordinates.drawAllAxes();
 			controls = new THREE.OrbitControls( camera );
 		}
 
@@ -112,11 +112,13 @@
 
 			time = Date.now();
 			requestAnimationFrame( Update );
-			animateFish( test, time, 4000 );
+			animateFish( test, time, 12000, 1 );
+
 			controls.update();
 			stats.update();
 			renderer.render(scene, camera);
 		}
+		
 
 		Start();
 		Update();

@@ -21,10 +21,10 @@ function animateFishTail( obj, time, duration ) {
   if( swingTime > duration/2) {
     swingTime = duration - swingTime;
     tail1.position.x += 0.0008;
-    tail2.position.x += 0.0005;
+    tail2.position.x += 0.0007;
   } else {
     tail1.position.x -= 0.0008;
-    tail2.position.x -= 0.0005;
+    tail2.position.x -= 0.0007;
   }
   
   // I don't know how much of this animation we can see.
@@ -33,17 +33,22 @@ function animateFishTail( obj, time, duration ) {
   
 }
 
-function animateFish( fish, time, duration ) {
+
+/*
+  Animates the fish.
+  Duration is the time to do the animation.
+*/
+function animateFish( fish, time, duration, x, y, z ) {
+
   animateFishTail(fish, time, 800);
-
+  var period = duration;
   var swimTime = time % duration;
-  fish.position.x = Math.cos( 360 * Math.PI/180 * t / )
+  var radius = 1;
 
-  if( swimTime > duration/2 ) {
-    swimTime = -( duration - swimTime ); 
-  }
+  fish.position.z = Math.sin(360 * Math.PI/180 * swimTime/period ) + z;
+  fish.position.x = Math.cos(360 * Math.PI/180 * swimTime/period ) + x;
 
-  fish.position.x = Math.sin(360 * Math.PI/180 * swimTime/duration);
+  fish.rotation.y = (-1.9 * Math.PI * swimTime/period + Math.PI/2);
 }
 
 
