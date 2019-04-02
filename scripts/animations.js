@@ -8,27 +8,28 @@ function animateWater( obj, time ) {
     obj.material.alphaMap.offset.y = time * 0.2;
 }
 
-function animateFishTail( obj, time ) {
+function animateFishTail( obj, time, duration ) {
 
-    tail1 = obj.children[1];
-    tail2 = obj.children[2];
-    backfin1 = obj.children[2].children[0];
-    backfin2 = obj.children[2].children[1];
+  tail1 = obj.children[1];
+  tail2 = obj.children[2];
+  backfin1 = obj.children[2].children[0];
+  backfin2 = obj.children[2].children[1];
 
-    // Time to move all the fish tail : 4s
-    swingTime = time % 4000;
-
-    if( swingTime < 2000 ) {
-        // Moving to the right 
-        tail1.position.x +=
-        backfin1.rotation.y = (-30 * Math.PI/180) * swingTime/2000;
-        backfin2.rotation.y = (-30 * Math.PI/180) * swingTime/2000;
-    } else {
-        // Moving to the left
-        backfin1.rotation.y = (30 * Math.PI/180) * swingTime/2000;
-        backfin2.rotation.y = (30 * Math.PI/180) * swingTime/2000;
-    }
-   
+  // Time to move all the fish tail : 4s
+  // Values from 0 to 3999
+  swingTime = time % duration;
+  if( swingTime > duration/2) {
+    swingTime = duration - swingTime;
+    tail1.position.x += 0.0008;
+    tail2.position.x += 0.0005;
+  } else {
+    tail1.position.x -= 0.0008;
+    tail2.position.x -= 0.0005;
+  }
+  
+  backfin1.rotation.y = (-60 * Math.PI/180) * swingTime/(duration);
+  backfin2.rotation.y = (-60 * Math.PI/180) * swingTime/(duration);
+  
 }
 
 //Animates the butterfly 'butterfly' by making it go around an ellipse centered at 'x', 'y', 'z' in periodCircuit time.
