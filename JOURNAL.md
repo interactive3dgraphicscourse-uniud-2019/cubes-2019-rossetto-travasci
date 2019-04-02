@@ -205,7 +205,7 @@ Aggiunto il codice per creare ed animare una bandiera pirata e le relative textu
 
 ## Completata animazione pesce
 
-```2.04.2019 - 12:34```
+```2.04.2019 - 16:53```
 
 Aggiunto il codice relativo all'animazione della coda e del movimento del pesce.
 
