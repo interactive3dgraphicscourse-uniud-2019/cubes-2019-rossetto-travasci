@@ -102,27 +102,6 @@ function createFish( color ) {
     return body;
 }
 
-function createFishes() {
-  var fish1 = createFish(0x0060fc);
-  var fish2 = createFish(0x33cc33);
-  var fish3 = createFish(0xff6600);
-
-  fish1.position.y = 0.1;
-  fish2.position.y = 0.1;
-  fish3.position.y = 0.1;
-
-  fish1.position.x = -0.3;
-  fish1.position.z = 0.3;
-  fish3.position.x = 0.2;
-  fish3.position.z = 0.4;
-
-  var group = new THREE.Mesh();
-  group.add(fish1);
-  group.add(fish2);
-  group.add(fish3);
-
-  return group;
-}
 
 /*
   Creates a platform of specified height with a plane on top of given
@@ -141,16 +120,11 @@ function createPlatform(width, height, legOffset) {
 
   var loader = new THREE.TextureLoader();
   loader.load(
-    "",                                   // Need a texture
+    "../models/textures/bridge_texture_256x256.png",                                   // Need a texture
     function( texture ) {
       platform_material = new THREE.MeshPhongMaterial(
         { map: texture }
       )
-    },
-
-    function( err ) {
-      console.error( 'An error happened. ');
-      platform_material = unknown_material;
     }
   );
 
