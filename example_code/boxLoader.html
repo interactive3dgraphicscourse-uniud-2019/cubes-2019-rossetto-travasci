@@ -95,7 +95,7 @@
 			);
 			*/
 
-			fishes = createFishes();
+			fishes = createFish(0xffffff);
 			scene.add(fishes);
 			fishes.position.y = 0.1;
 
@@ -112,8 +112,8 @@
 
 			time = Date.now();
 			requestAnimationFrame( Update );
-			animateFish( test, time, 12000, 1 );
 
+			animateFish( fishes, time, 10000, 0, 0, 0 );
 			controls.update();
 			stats.update();
 			renderer.render(scene, camera);

@@ -38,17 +38,34 @@ function animateFishTail( obj, time, duration ) {
   Animates the fish.
   Duration is the time to do the animation.
 */
-function animateFish( fish, time, duration, x, y, z ) {
+function animateFish2( fish, time, duration, x, y, z ) {
 
   animateFishTail(fish, time, 800);
   var period = duration;
   var swimTime = time % duration;
-  var radius = 1;
 
   fish.position.z = Math.sin(360 * Math.PI/180 * swimTime/period ) + z;
   fish.position.x = Math.cos(360 * Math.PI/180 * swimTime/period ) + x;
 
   fish.rotation.y = (-1.9 * Math.PI * swimTime/period + Math.PI/2);
+}
+
+function animateFish( fish, time, duration, x, y, z ) {
+
+  animateFishTail(fish, time, 800);
+  var period = duration / 2;
+  var swimTime = time % duration;
+
+  if( swimTime > duration / 2 ) {
+    fish.position.z = Math.sin(360 * Math.PI/180 * swimTime/period ) + z ;
+    fish.position.x = Math.cos(360 * Math.PI/180 * swimTime/period ) + x - 1 ;
+  } else {
+    fish.position.z = Math.sin(360 * Math.PI/180 * swimTime/period  ) + z ;
+    fish.position.x = Math.cos(360 * Math.PI/180 * swimTime/period  ) + x + 1 ;
+  }
+  
+
+  //fish.rotation.y = (-1.9 * Math.PI * swimTime/period + Math.PI/2);
 }
 
 
