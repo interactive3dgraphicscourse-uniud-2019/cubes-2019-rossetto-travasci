@@ -146,9 +146,11 @@ function createTerrain(scene, data){
 		transparent: true,
 		opacity: 0.33,
 		blendSrc: THREE.SrcAlphaFactor,
-    blendDst: THREE.OneMinusSrcAlphaFactor,
+    	blendDst: THREE.OneMinusSrcAlphaFactor,
 		blendEquation: THREE.AddEquation,
-		shininess: 90
+		shininess: 90,
+		emissive: 0x0033cc,
+		emissiveIntensity: 0.1,
 	} );
 
 	var sea=new THREE.Mesh(seaGeometry,seaMaterial);
