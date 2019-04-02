@@ -46,28 +46,28 @@
 
 			camera.position.set(2,2,2);
             camera.lookAt( new THREE.Vector3(0,0,0));
-            
+
 			createLights();
 			time = 0;
 
             // Ground
             // Just for showing the casting shadow
             var groundGeo = new THREE.PlaneBufferGeometry( 5, 5 );
-			var groundMat = new THREE.MeshPhongMaterial( 
-                {   color: 0x00ffff, 
+			var groundMat = new THREE.MeshPhongMaterial(
+                {   color: 0x00ffff,
                     specular: 0x050505 });
 			groundMat.color.setHSL( 0.3, 1, 0.6 );
 			var ground = new THREE.Mesh( groundGeo, groundMat );
 			ground.rotation.x = -Math.PI/2;
 			scene.add( ground );
 			ground.receiveShadow = true;
-            
+
             // --- IMPORTANT ---
             /*
                     THIS IS AN EDUCATIONAL ONLY CODE
 
                     It simply import an object imported from the three.js editor
-                    and it shows how and which function calling for the loading 
+                    and it shows how and which function calling for the loading
                     purpose.
             */
 
@@ -84,10 +84,10 @@
                     obj.castShadow = true;
                     obj.receiveShadow = true;
                     var texture = new THREE.TextureLoader().load('models/textures/missingTexture.png');
-			        var material = new THREE.MeshPhongMaterial( 
-                        {   
-                            color: 0xffffff, 
-                            specular: 0x050505, 
+			        var material = new THREE.MeshPhongMaterial(
+                        {
+                            color: 0xffffff,
+                            specular: 0x050505,
                             map: texture });
                     obj.material = material;
                     scene.add( obj );
@@ -113,12 +113,12 @@
 			time = Date.now();
 			requestAnimationFrame( Update );
 
-			animateFish( fishes, time, 10000, 0, 0, 0 );
+			animateFish( fishes, time, 10000, 0, 0, 0, 3, 2 );
 			controls.update();
 			stats.update();
 			renderer.render(scene, camera);
 		}
-		
+
 
 		Start();
 		Update();
