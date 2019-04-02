@@ -17,13 +17,19 @@ function buildButterfly(color){
 
 //builds a wing of the butterfly
 function buildWing(color){
-  var material=new THREE.MeshBasicMaterial({color:color});
+  var material=new THREE.MeshPhongMaterial({color:color});
   var geometry1=new THREE.BoxGeometry(1,3,1);
   var geometry2=new THREE.BoxGeometry(1,2,1);
   var geometry3=new THREE.BoxGeometry(1,1,1);
   var mesh1=new THREE.Mesh(geometry1,material);
   var mesh2=new THREE.Mesh(geometry2,material);
   var mesh3=new THREE.Mesh(geometry3,material);
+  mesh1.castShadow = true;
+  mesh2.castShadow = true;
+  mesh3.castShadow = true;
+  mesh1.receiveShadow = true;
+  mesh2.receiveShadow = true;
+  mesh3.receiveShadow = true;
   mesh1.position.y=1.5;
   mesh2.position.y=1;
   mesh3.position.y=0.5;
@@ -38,7 +44,7 @@ function buildWing(color){
 
 //builds the body of the butterfly
 function buildButterflyBody(){
-  var material=new THREE.MeshBasicMaterial({color:0x000000});
+  var material=new THREE.MeshPhongMaterial({color:0x000000});
   var geometryBody=new THREE.BoxGeometry(4,0.5,0.5);
   var geometryHead=new THREE.BoxGeometry(1,1,1);
   var meshBody=new THREE.Mesh(geometryBody,material);
@@ -46,6 +52,10 @@ function buildButterflyBody(){
   var body=new THREE.Object3D;
   meshHead.position.x=-2.5;
   meshBody.position.x=-0.25;
+  meshHead.castShadow = true;
+  meshBody.castShadow = true;
+  meshHead.receiveShadow = true;
+  meshBody.receiveShadow = true;
   body.add(meshBody);
   body.add(meshHead);
   return body;
