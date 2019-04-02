@@ -84,8 +84,8 @@ function animateButterfly(butterfly,time,x,y,z,periodCircuit,periodOscillation,r
     if (wingTime>350) {
       wingTime=700-wingTime;
     }
-    b[0].rotation.x=(90*Math.PI/180)*wingTime/350;
-    b[1].rotation.x=-(90*Math.PI/180)*wingTime/350;
+    b[0].rotation.x=(120*Math.PI/180)*wingTime/350;
+    b[1].rotation.x=-(120*Math.PI/180)*wingTime/350;
 
     //move the butterfly
     var t=time%periodCircuit;
