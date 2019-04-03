@@ -29,28 +29,21 @@ function animateFishTail2( obj, time, duration ) {
 
 }
 
-function animateFishTail( obj, time, duration, y ) {
+function animateFishTail( obj, time, duration ) {
 
   tail1 = obj.children[1];
   tail2 = obj.children[2];
   backfin1 = obj.children[2].children[0];
   backfin2 = obj.children[2].children[1];
 
-  var swingTime = time % duration; 
-  if( swingTime > duration/2 ){
-    if( swingTime > (duration*3/4) ) {
-      swingTime = (duration/2) - swingTime;
-    }
-
-    tail1.rotation.y = ( 7 * Math.PI/180) * swingTime/(duration/2) + y;
-    tail2.rotation.y = ( 14 * Math.PI/180) * swingTime/(duration/2) + y;
+  var swingTime = time % duration;
+  if( swingTime < duration/2 ){
+    tail1.rotation.y = 14 * Math.PI/180 * swingTime/(duration/2)-7* Math.PI/180;
+    tail2.rotation.y = 28 * Math.PI/180 * swingTime/(duration/2)-14* Math.PI/180;
   } else {    // 0 - 50%
-    if( swingTime > duration/4 ) {
-      swingTime = (duration/2) - swingTime;
-    }
-
-    tail1.rotation.y = ( -7 * Math.PI/180 * swingTime/(duration/2) ) + y;
-    tail2.rotation.y = ( -14 * Math.PI/180 * swingTime/(duration/2) ) + y;
+    swingTime=duration-swingTime;
+    tail1.rotation.y = 14 * Math.PI/180 * swingTime/(duration/2)-7* Math.PI/180;
+    tail2.rotation.y = 28 * Math.PI/180 * swingTime/(duration/2)-14* Math.PI/180;
   }
 }
 
