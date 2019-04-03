@@ -37,14 +37,11 @@ function animateFishTail( obj, time, duration ) {
   backfin2 = obj.children[2].children[1];
 
   var swingTime = time % duration;
-  if( swingTime < duration/2 ){
-    tail1.rotation.y = 14 * Math.PI/180 * swingTime/(duration/2)-7* Math.PI/180;
-    tail2.rotation.y = 28 * Math.PI/180 * swingTime/(duration/2)-14* Math.PI/180;
-  } else {    // 0 - 50%
+  if( swingTime > duration/2 ){
     swingTime=duration-swingTime;
-    tail1.rotation.y = 14 * Math.PI/180 * swingTime/(duration/2)-7* Math.PI/180;
-    tail2.rotation.y = 28 * Math.PI/180 * swingTime/(duration/2)-14* Math.PI/180;
   }
+  tail1.rotation.y = 14 * Math.PI/180 * swingTime/(duration/2)-7* Math.PI/180;
+  tail2.rotation.y = 28 * Math.PI/180 * swingTime/(duration/2)-14* Math.PI/180;
 }
 
 
@@ -53,14 +50,14 @@ function animateFishTail( obj, time, duration ) {
   Animates the fish.
   Duration is the time to do the animation.
 */
-function animateFish2( fish, time, duration, x, y, z ) {
+function animateFish2( fish, time, duration, x, y, z, r ) {
 
   //animateFishTail(fish, time, 800, x);
   var period = duration;
   var swimTime = time % duration;
 
-  fish.position.z = Math.sin(360 * Math.PI/180 * swimTime/period ) + z;
-  fish.position.x = Math.cos(360 * Math.PI/180 * swimTime/period ) + x;
+  fish.position.z = r*Math.sin(360 * Math.PI/180 * swimTime/period ) + z;
+  fish.position.x = r*Math.cos(360 * Math.PI/180 * swimTime/period ) + x;
 
   fish.rotation.y = (-1.9 * Math.PI * swimTime/period + Math.PI/2);
 }
