@@ -230,3 +230,11 @@ Aggiunta di un piccolo ponte di collegamento fra le isole.
 ![Bridge](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/bridge_example.png)
 
 - Eric Rossetto
+
+## Ombre del terreno
+
+```3.04.2019 - 20:32```
+
+Il codice di creazione del terreno è stato modificato in modo che i cubi di superficie che non hanno adiacenti altri blocchi di superficie che si trovano ad un'altezza minore non generano più ombre. Queste ombre non cadevano mai in un punto visibile del terreno o degli oggetti presenti su di esso, quindi erano inutili. In questo modo si migliorano le performance e si riduce notevolmente il numero di effetti visivi spiacevoli causati dalle ombre che si notano fra i confini di blocchi adiacenti.
+
+- Stefano Travasci
