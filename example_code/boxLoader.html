@@ -96,8 +96,11 @@
 			*/
 
 			fishes = createFish(0xffffff);
+			test = buildButterfly(0xffffff);
 			scene.add(fishes);
+			scene.add(test);
 			fishes.position.y = 0.1;
+			test.position.y = 1;
 
 			stats = new Stats();
 			stats.domElement.style.position = 'absolute';
@@ -113,7 +116,7 @@
 			time = Date.now();
 			requestAnimationFrame( Update );
 
-			animateFishTail( fishes, time, 800, 0 );
+			animateFishTail( fishes, time, 4000, 0 );
 			controls.update();
 			stats.update();
 			renderer.render(scene, camera);

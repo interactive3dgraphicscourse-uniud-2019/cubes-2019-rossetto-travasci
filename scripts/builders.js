@@ -66,9 +66,9 @@ function createFish( color ) {
 
     muzzle.position.set(-0.08, 0, 0);
     tail1.position.set(0.1, 0.0, 0);
-    //tail1.rotation.y = -7 * Math.PI/180;
+    //tail1.rotation.y = 30 * Math.PI/180;
     tail2.position.set(0.14, 0, 0);
-    //tail2.rotation.y = -14 * Math.PI/180;
+    //tail2.rotation.y = 48 * Math.PI/180;
     backfin1.position.set(0.05, 0, 0);
     backfin2.position.set(0.05, 0, 0);
     backfin1.rotation.z = 10 * Math.PI/180;
