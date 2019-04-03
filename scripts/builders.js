@@ -208,7 +208,7 @@ function createBridge( height ) {
   top.receiveShadow = true;
   top.castShadow = true;
 
-  var bridge = new THREE.Mesh();
+  var bridge = new THREE.Object3D();
   bridge.position.set( 0, 0, 0 );
 
   bridge.add(pillar1);
