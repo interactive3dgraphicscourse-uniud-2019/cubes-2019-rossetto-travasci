@@ -40,8 +40,8 @@ function animateFishTail( obj, time, duration, y ) {
   var swingTime = time % duration; 
 
   if( swingTime >= duration/2 ){
+    swingTime = (duration/2) - swingTime;
     if( swingTime >= duration/4 ) {
-      swingTime = (duration/2) - swingTime;
       tail1.rotation.y = ( 14 * Math.PI/180 ) * swingTime/duration + y;
       tail2.rotation.y = ( 20 * Math.PI/180 ) * swingTime/duration + y;
     } else {
@@ -49,13 +49,13 @@ function animateFishTail( obj, time, duration, y ) {
       tail2.rotation.y = ( 20 * Math.PI/180 ) * swingTime/duration + y;
     }
   } else {
+    swingTime = (duration/2) - swingTime;
     if( swingTime >= duration/4 ) {
-      swingTime = (duration/2) - swingTime;
-      tail1.rotation.y = ( 14 * Math.PI/180 * swingTime/duration ) + y;
-      tail2.rotation.y = ( 20 * Math.PI/180 * swingTime/duration ) + y;
+      tail1.rotation.y = ( -14 * Math.PI/180 * swingTime/duration ) + y;
+      tail2.rotation.y = ( -20 * Math.PI/180 * swingTime/duration ) + y;
     } else {
-      tail1.rotation.y = ( 14 * Math.PI/180 * swingTime/duration ) + y;
-      tail2.rotation.y = ( 20 * Math.PI/180 * swingTime/duration ) + y;
+      tail1.rotation.y = ( -14 * Math.PI/180 * swingTime/duration ) + y;
+      tail2.rotation.y = ( -20 * Math.PI/180 * swingTime/duration ) + y;
     }
   }
 
