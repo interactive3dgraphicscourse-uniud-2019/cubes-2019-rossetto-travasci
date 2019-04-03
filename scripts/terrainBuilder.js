@@ -165,7 +165,8 @@ function createTerrain(scene, data){
 function buildColumn(x,z,y,n,adiacentHeights){
 	//the surface block
 	var sidesBool=[y<adiacentHeights[0]+1,y<adiacentHeights[1]+1,y<adiacentHeights[2]+1,y<adiacentHeights[3]+1];
-	placeBlock(x,y,z,true,sidesBool);
+	var castShadow=!((y<=adiacentHeights[0])&&(y<=adiacentHeights[1])&&(y<=adiacentHeights[2])&&(y<=adiacentHeights[3]));
+	placeBlock(x,y,z,true,sidesBool,castShadow);
 
 	//the blocks under the surface block
 	for(var i=1;i<n;i++){
@@ -175,13 +176,14 @@ function buildColumn(x,z,y,n,adiacentHeights){
 }
 
 function placeNonSurfaceBlock(x,y,z){
-	placeBlock(x,y,z,false,[false,false,false,false]);
+	placeBlock(x,y,z,false,[false,false,false,false],true);
 }
 
 //places the block made of the right material
 //uses a boolean to differentiate from blocks on top (that may be made of grass) and the ones under it
 //uses other booleans to know on which sides the height of the adiacent point is within one block of difference from the block itself (used for creating the grass)
-function placeBlock(x,y,z,top,sidesBool){
+//the surface blocks surrounded by blocks of the same height don't cast shadows (there's no need to). This way we reduce unwanted visual effects and improve the performance.
+function placeBlock(x,y,z,top,sidesBool,castShadow){
 	var material;
 	//over y*2=128 there's grass or dirt, under it only sand
 	if(y*2>128){
@@ -209,7 +211,7 @@ function placeBlock(x,y,z,top,sidesBool){
 	cube.position.x=x;
 	cube.position.z=z;
 	cube.position.y=y;
-	cube.castShadow = true;
+	cube.castShadow = castShadow;
 	cube.receiveShadow = true;
 }
 
