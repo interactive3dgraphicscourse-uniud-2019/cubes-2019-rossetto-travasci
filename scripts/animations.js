@@ -8,7 +8,7 @@ function animateWater( obj, time ) {
     obj.material.alphaMap.offset.y = time * 0.2;
 }
 
-function animateFishTail( obj, time, duration ) {
+function animateFishTail2( obj, time, duration ) {
 
   tail1 = obj.children[1];
   tail2 = obj.children[2];
@@ -27,9 +27,37 @@ function animateFishTail( obj, time, duration ) {
     tail2.position.x -= 0.0007;
   }
 
-  // I don't know how much of this animation we can see.
-  //backfin1.rotation.y = (-60 * Math.PI/180) * swingTime/(duration);
-  //backfin2.rotation.y = (-60 * Math.PI/180) * swingTime/(duration);
+}
+
+function animateFishTail( obj, time, duration, y ) {
+
+  tail1 = obj.children[1];
+  tail2 = obj.children[2];
+  backfin1 = obj.children[2].children[0];
+  backfin2 = obj.children[2].children[1];
+  var mul = 1;
+
+  var swingTime = time % duration; 
+
+  if( swingTime >= duration/2 ){
+    if( swingTime >= duration/4 ) {
+      swingTime = (duration/2) - swingTime;
+      tail1.rotation.y = ( 14 * Math.PI/180 ) * swingTime/duration + y;
+      tail2.rotation.y = ( 20 * Math.PI/180 ) * swingTime/duration + y;
+    } else {
+      tail1.rotation.y = ( 14 * Math.PI/180 ) * swingTime/duration + y;
+      tail2.rotation.y = ( 20 * Math.PI/180 ) * swingTime/duration + y;
+    }
+  } else {
+    if( swingTime >= duration/4 ) {
+      swingTime = (duration/2) - swingTime;
+      tail1.rotation.y = ( 14 * Math.PI/180 * swingTime/duration ) + y;
+      tail2.rotation.y = ( 20 * Math.PI/180 * swingTime/duration ) + y;
+    } else {
+      tail1.rotation.y = ( 14 * Math.PI/180 * swingTime/duration ) + y;
+      tail2.rotation.y = ( 20 * Math.PI/180 * swingTime/duration ) + y;
+    }
+  }
 
 }
 
@@ -40,7 +68,7 @@ function animateFishTail( obj, time, duration ) {
 */
 function animateFish2( fish, time, duration, x, y, z ) {
 
-  animateFishTail(fish, time, 800);
+  //animateFishTail(fish, time, 800, x);
   var period = duration;
   var swimTime = time % duration;
 
@@ -52,7 +80,7 @@ function animateFish2( fish, time, duration, x, y, z ) {
 
 function animateFish( fish, time, duration, x, y, z, rx, rz ) {
 
-  animateFishTail(fish, time, 800);
+  //animateFishTail(fish, time, 800, x );
   var period = duration / 2;
   var swimTime = time % duration;
 

@@ -104,7 +104,7 @@
 			stats.domElement.style.top = '0px';
 			document.body.appendChild( stats.domElement );
 
-			Coordinates.drawAllAxes();
+			//Coordinates.drawAllAxes();
 			controls = new THREE.OrbitControls( camera );
 		}
 
@@ -113,7 +113,7 @@
 			time = Date.now();
 			requestAnimationFrame( Update );
 
-			animateFish( fishes, time, 10000, 0, 0, 0, 1, 1 );
+			animateFishTail( fishes, time, 4000, 0 );
 			controls.update();
 			stats.update();
 			renderer.render(scene, camera);
