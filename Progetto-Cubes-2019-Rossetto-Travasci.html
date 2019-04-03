@@ -29,7 +29,7 @@
 		<script>
 
 		var scene, camera, renderer, controls, stats, time;
-		var redButterfly, purpleButterfly, flag, fish1, fish2, fish3, bridge1, bridge2, bridge3, bridge4, bridge5;
+		var redButterfly, purpleButterfly, flag, fish1, fish2, fish3, fish4, fish5, bridge1, bridge2, bridge3, bridge4, bridge5;
 
 		function Start() {
 			scene = new THREE.Scene();
@@ -91,12 +91,18 @@
 			fish1 = createFish(0x0060fc);
 			fish2 = createFish(0x33cc33);
 			fish3 = createFish(0xff6600);
-			fish1.position.set(2.5, -0.3, 8);
+			fish4 = createFish(0xff66ff);
+			fish5 = createFish(0x23f63f);
+			fish1.position.set(2.5, -0.7, 8);
 			fish2.position.set(10, -0.3, -5);
 			fish3.position.set(10, -0.5, -5);
+			fish4.position.set(9.5, -0.5, -4.5);
+			fish5.position.set(9.8, -0.5, -4.8);
 			scene.add(fish1);
 			scene.add(fish2);
 			scene.add(fish3);
+			scene.add(fish4);
+			scene.add(fish5);
 
 			// Bridge
 			bridge1 = createBridge( 4.1 );
@@ -145,11 +151,12 @@
 			animateButterfly(purpleButterfly,time,6,1.9,4,20000,2500,2,0.25,3,false);
 			animateFlag(flag,time,5000);
 
-			animateFish2(fish1, time, 8000, 2.5, 0, 8);
-			animateFish2(fish2, time, 12000, 9, 0.5, -8);
-			animateFish2(fish3, time, 6000, 9, 0.5, -4.3);
+			animateFish(fish1, time, 15000, 2.8, -0.3, 9.3, 0.8, 1 );
+			animateFish2(fish2, time, 4000, 9, -0.2, -8);
+			animateFish2(fish3, time, 3000, 9, -0.2, -4.3);
+			animateFish2(fish4, time, 5000, 8.5, -0.2, -3.8);
+			animateFish(fish5, time, 10000, 9.1, -0.2, -8, 0.8, 1);
 		}
-
 
 		Start();
 		Update();

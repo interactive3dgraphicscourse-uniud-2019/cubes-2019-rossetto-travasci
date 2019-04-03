@@ -66,7 +66,7 @@ function animateFish( fish, time, duration, x, y, z, rx, rz ) {
   }
 
   fish.position.y=y;
-  fish.rotation.y = (-1.9 * Math.PI * swimTime/period - Math.PI/2);
+  fish.rotation.y = (-2 * Math.PI * swimTime/period - Math.PI/2);
 }
 
 
