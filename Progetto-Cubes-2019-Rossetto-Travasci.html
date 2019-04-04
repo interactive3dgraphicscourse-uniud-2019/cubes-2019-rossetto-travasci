@@ -29,7 +29,7 @@
 		<script>
 
 		var scene, camera, renderer, controls, stats, time;
-		var redButterfly, purpleButterfly, flag, fish1, fish2, fish3, fish4, fish5, bridge1, bridge2, bridge3, bridge4, bridge5;
+		var redButterfly, purpleButterfly, flag, fish1, fish2, fish3, fish4, fish5, bridge1, bridge2, bridge3, bridge4, bridge5, coffer;
 
 		function Start() {
 			scene = new THREE.Scene();
@@ -137,6 +137,13 @@
 			bridge5.position.set( 5.971, 0.4, 3.4 );
 			bridge5.rotation.y = 90 * Math.PI/180;
 			bridge5.scale.divideScalar(2);
+
+			// Coffer
+			coffer = createCoffer();
+			scene.add(coffer);
+			coffer.rotation.y = 90 * Math.PI/180;
+			coffer.position.set( -4.5, 1.6, 2);
+			coffer.scale.divideScalar(1.72);
 		}
 
 		function Update() {

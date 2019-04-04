@@ -95,19 +95,15 @@
 			);
 			*/
 
-			fishes = createFish(0xffffff);
-			test = buildButterfly(0xffffff);
-			scene.add(fishes);
+			test = createCoffer();
 			scene.add(test);
-			fishes.position.y = 0.1;
-			test.position.y = 1;
 
 			stats = new Stats();
 			stats.domElement.style.position = 'absolute';
 			stats.domElement.style.top = '0px';
 			document.body.appendChild( stats.domElement );
 
-			//Coordinates.drawAllAxes();
+			Coordinates.drawAllAxes();
 			controls = new THREE.OrbitControls( camera );
 		}
 
@@ -115,8 +111,6 @@
 
 			time = Date.now();
 			requestAnimationFrame( Update );
-
-			animateFishTail( fishes, time, 500, 0 );
 			controls.update();
 			stats.update();
 			renderer.render(scene, camera);

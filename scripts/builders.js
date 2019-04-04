@@ -367,7 +367,7 @@ function buildButterfly(color){
 }
 
 //builds a wing of the butterfly
-function buildWing(color){
+function buildWing(color) {
   var material=new THREE.MeshPhongMaterial({color:color});
   var geometry1=new THREE.BoxGeometry(1,3,1);
   var geometry2=new THREE.BoxGeometry(1,2,1);
@@ -394,13 +394,13 @@ function buildWing(color){
 }
 
 //builds the body of the butterfly
-function buildButterflyBody(){
+function buildButterflyBody() {
   var material=new THREE.MeshPhongMaterial({color:0x000000});
   var geometryBody=new THREE.BoxGeometry(4,0.5,0.5);
   var geometryHead=new THREE.BoxGeometry(1,1,1);
   var meshBody=new THREE.Mesh(geometryBody,material);
   var meshHead=new THREE.Mesh(geometryHead,material);
-  var body=new THREE.Object3D;
+  var body=new THREE.Object3D();
   meshHead.position.x=-2.5;
   meshBody.position.x=-0.25;
   meshHead.castShadow = true;
@@ -413,7 +413,7 @@ function buildButterflyBody(){
 }
 
 //create a pirate flag
-function buildPirateFlag(){
+function buildPirateFlag() {
   var flagPart=buildFlagCloth();
   var pole=buildPole();
   var flag=new THREE.Object3D;
@@ -426,7 +426,7 @@ function buildPirateFlag(){
 }
 
 //builds the flag part of the flag
-function buildFlagCloth(){
+function buildFlagCloth() {
   var flagPart=new THREE.Object3D;
 
   var flagShape=new THREE.BoxGeometry(0.25,2,0.25);
@@ -471,7 +471,7 @@ function buildFlagCloth(){
 }
 
 //builds the pole of the flag
-function buildPole(){
+function buildPole() {
   var poleComplete=new THREE.Object3D;
 
   var poleShape=new THREE.BoxGeometry(0.35,5.5,0.35);
@@ -500,4 +500,157 @@ function buildPole(){
   topBall.position.y=2.8;
   poleComplete.add(pole);
   return poleComplete;
+} 
+
+function createCoffer() {
+  
+  var base = createBase();
+
+  var coffer1_geometry = new THREE.BoxBufferGeometry(1.9, 0.8, 1.2);
+  var coffer2_geometry = new THREE.BoxBufferGeometry(1.88, 0.4, 1.2);
+  var hinge_geometry = new THREE.BoxBufferGeometry(0.1, 0.1, 0.1);
+  var lock_geometry = new THREE.BoxBufferGeometry(0.22, 0.13, 0.1);
+  var interior_geometry = new THREE.PlaneBufferGeometry(1.8, 1.1);
+
+  var coffer_texture = new THREE.TextureLoader().load("../models/textures/coffer_texture_1024x1024.png");
+  coffer_texture.magFilter = THREE.NearestFilter;
+  coffer_texture.minFilter = THREE.LinearMipMapLinearFilter;
+  
+  var gold_texture = new THREE.TextureLoader().load("../models/textures/gold_texture_256x256.png");
+  gold_texture.magFilter = THREE.NearestFilter;
+	gold_texture.minFilter = THREE.LinearMipMapLinearFilter;
+
+  var coffer_material = new THREE.MeshPhongMaterial( {
+    map: coffer_texture,
+    shininess: 0
+  });
+  var hinge_material = new THREE.MeshPhongMaterial( {color: 0x909090} );
+  var interior_material = new THREE.MeshPhongMaterial( { color: 0x000000 });
+
+  var gold_material = new THREE.MeshPhongMaterial({
+    map: gold_texture
+  });
+
+  var coffer1 = new THREE.Mesh( coffer1_geometry, coffer_material );
+  var coffer2 = new THREE.Mesh( coffer2_geometry, coffer_material );
+  var hinge1 = new THREE.Mesh( hinge_geometry, hinge_material );
+  var hinge2 = new THREE.Mesh( hinge_geometry, hinge_material );
+  var lock = new THREE.Mesh( lock_geometry, hinge_material );
+  var interior = new THREE.Mesh( interior_geometry, interior_material );
+  var gold = new THREE.Mesh( interior_geometry, gold_material );
+
+  coffer1.position.set(0, 1.05, 0);
+  coffer2.position.set(0.6, 0.21, 0.6);
+  //coffer2.rotation.x = -45 * Math.PI/180;
+  hinge1.position.set(-0.6, 0.4, -0.6);
+  hinge2.position.set(0.6, 0.4, -0.6);
+  lock.position.set(0, 0.4, 0.6);
+  interior.position.set(0, -0.205, 0);
+  interior.rotation.x = 90 * Math.PI/180;
+  gold.position.set(0, 0.4005, 0);
+  gold.rotation.x = -90 * Math.PI/180;
+
+  coffer1.castShadow = true;
+  coffer1.receiveShadow = true;
+  coffer2.castShadow = true;
+  coffer2.receiveShadow = true;
+  hinge1.castShadow = true;
+  hinge1.receiveShadow = true;
+  hinge2.castShadow = true;
+  hinge2.receiveShadow = true;
+
+  var coffer = new THREE.Object3D();
+
+  coffer.add(base);
+  coffer.add(coffer1);
+  hinge1.add(coffer2);
+  coffer1.add(hinge1);
+  coffer1.add(hinge2);
+  coffer1.add(lock);
+  coffer2.add(interior);
+  coffer1.add(gold);
+
+  return coffer;
+}
+
+function createBase() {
+  var base1_geometry = new THREE.BoxBufferGeometry( 3.2, 0.2, 3.2);
+  var edge_geometry = new THREE.BoxBufferGeometry( 0.2, 0.5, 3.6);
+  var pedestal_geometry = new THREE.BoxBufferGeometry(2.3, 1.5, 1.5);
+  var water_geometry = new THREE.BoxBufferGeometry(3.2, 0.4, 3.2);
+  var footBridge_geometry = new THREE.BoxBufferGeometry(1.6, 0.3, 0.9);
+
+  var water_texture = new THREE.TextureLoader().load("../models/textures/water2.png");
+  var base_texture = new THREE.TextureLoader().load("../models/textures/base_texture_256x256.png");
+  
+  var base_material = new THREE.MeshPhongMaterial( {
+    map: base_texture,
+    shininess: 0
+  });
+
+  var edge_material = new THREE.MeshPhongMaterial( {
+    color: 0x909090,
+    shininess: 0
+  });
+
+  var water_material = new THREE.MeshPhongMaterial( {
+    map: water_texture,
+    color: 	0x0077be,
+    transparent: true,
+		opacity: 0.33,
+		blendSrc: THREE.SrcAlphaFactor,
+    blendDst: THREE.OneMinusSrcAlphaFactor,
+		blendEquation: THREE.AddEquation,
+		shininess: 90,
+		emissive: 0x0033cc,
+		emissiveIntensity: 0.3,
+  });
+
+  var base1 = new THREE.Mesh( base1_geometry, base_material );
+  var pedestal = new THREE.Mesh( pedestal_geometry, base_material );
+  var edge1 = new THREE.Mesh( edge_geometry, edge_material );
+  var edge2 = new THREE.Mesh( edge_geometry, edge_material );
+  var edge3 = new THREE.Mesh( edge_geometry, edge_material );
+  var edge4 = new THREE.Mesh( edge_geometry, edge_material );
+  var water = new THREE.Mesh( water_geometry, water_material );
+  var footBridge = new THREE.Mesh( footBridge_geometry, edge_material );
+
+  base1.castShadow = true;
+  base1.receiveShadow = true;
+  pedestal.castShadow = true;
+  pedestal.receiveShadow = true;
+  edge1.castShadow = true;
+  edge1.receiveShadow = true;
+  edge2.castShadow = true;
+  edge2.receiveShadow = true;
+  edge3.castShadow = true;
+  edge3.receiveShadow = true;
+  edge4.castShadow = true;
+  edge4.receiveShadow = true;
+  footBridge.castShadow = true;
+  footBridge.receiveShadow = true;
+
+  pedestal.position.set(0, -0.1, 0);
+  edge1.position.set(1.7, 0, 0);
+  edge2.position.set(-1.7, 0, 0);
+  edge3.position.set(0, 0, 1.7);
+  edge3.rotation.y = -90 * Math.PI/180;
+  edge4.position.set(0, 0, -1.7);
+  edge4.rotation.y = -90 * Math.PI/180;
+  water.position.set(0, 0, 0);
+  footBridge.position.set(0, 0.3, 1.15);
+
+  var base = new THREE.Object3D();
+
+  base.add(base1);
+  base1.add(pedestal);
+  base1.add(edge1);
+  base1.add(edge2);
+  base1.add(edge3);
+  base1.add(edge4);
+  base1.add(water);
+  base.add(footBridge);
+
+  return base;
+
 }

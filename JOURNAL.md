@@ -246,3 +246,13 @@ Il codice di creazione del terreno è stato modificato in modo che i cubi di sup
 Applicato fix alla coda del pesce, ora si muove sempre.
 
 - Eric Rossetto
+
+## Aggiunta forziere
+
+```4.04.2019 - 12:35```
+
+Aggiunto il costruttore per il forziere con la relativa base. 
+
+![Coffer](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/coffer_example.png)
+
+- Eric Rossetto
