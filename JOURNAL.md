@@ -277,3 +277,16 @@ Ora il codice del terreno aggiunge anche delle nuvole. Le nuvole sono animate in
 ![Clouds](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedClouds.png)
 
 - Stefano Travasci
+
+## Migliorate le nuvole
+
+```4.04.2019 - 22:57```
+
+Sono stati apportati vari miglioramenti alle nuvole:  
+- migliorata la texture delle nuvole;
+- ingrandito il piano su cui appaiono le nuvole;
+- aggiunta la nebbia (fog) in modo che nasconda il confine del piano delle nuvole.
+
+![BetterClouds](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/ImprovedClouds.png)
+
+- Stefano Travasci
