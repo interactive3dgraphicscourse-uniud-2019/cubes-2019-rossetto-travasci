@@ -52,7 +52,7 @@ function animateFishTail( obj, time, duration ) {
 */
 function animateFish2( fish, time, duration, x, y, z, r ) {
 
-  //animateFishTail(fish, time, 800, x);
+  animateFishTail(fish, time, 500);
   var period = duration;
   var swimTime = time % duration;
 
@@ -64,7 +64,7 @@ function animateFish2( fish, time, duration, x, y, z, r ) {
 
 function animateFish( fish, time, duration, x, y, z, rx, rz ) {
 
-  //animateFishTail(fish, time, 800, x );
+  animateFishTail(fish, time, 500);
   var period = duration / 2;
   var swimTime = time % duration;
 

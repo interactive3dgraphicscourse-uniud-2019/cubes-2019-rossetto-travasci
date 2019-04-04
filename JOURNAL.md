@@ -238,3 +238,11 @@ Aggiunta di un piccolo ponte di collegamento fra le isole.
 Il codice di creazione del terreno è stato modificato in modo che i cubi di superficie che non hanno adiacenti altri blocchi di superficie che si trovano ad un'altezza minore non generano più ombre. Queste ombre non cadevano mai in un punto visibile del terreno o degli oggetti presenti su di esso, quindi erano inutili. In questo modo si migliorano le performance e si riduce notevolmente il numero di effetti visivi spiacevoli causati dalle ombre che si notano fra i confini di blocchi adiacenti.
 
 - Stefano Travasci
+
+## Animazioni
+
+```4.04.2019 - 09:22```
+
+Applicato fix alla coda del pesce, ora si muove sempre.
+
+- Eric Rossetto
