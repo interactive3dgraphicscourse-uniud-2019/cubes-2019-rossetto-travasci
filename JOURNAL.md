@@ -290,3 +290,11 @@ Sono stati apportati vari miglioramenti alle nuvole:
 ![BetterClouds](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/ImprovedClouds.png)
 
 - Stefano Travasci
+
+## Completata animazione forziere       
+
+```5.04.2019 - 00:58```
+
+Completata l'animazione di apertura del forziere. Premendo il tasto `O` si aprirà e si chiuderà automaticamente, al completamento sarà possibile riaprirlo con lo stesso tasto.
+
+- Eric Rossetto
