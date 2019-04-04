@@ -511,6 +511,7 @@ function createCoffer() {
   var hinge_geometry = new THREE.BoxBufferGeometry(0.1, 0.1, 0.1);
   var lock_geometry = new THREE.BoxBufferGeometry(0.22, 0.13, 0.1);
   var interior_geometry = new THREE.PlaneBufferGeometry(1.8, 1.1);
+  var pointer = new THREE.Object3D();
 
   var coffer_texture = new THREE.TextureLoader().load("../models/textures/coffer_texture_1024x1024.png");
   coffer_texture.magFilter = THREE.NearestFilter;
@@ -563,10 +564,11 @@ function createCoffer() {
 
   coffer.add(base);
   coffer.add(coffer1);
-  hinge1.add(coffer2);
   coffer1.add(hinge1);
   coffer1.add(hinge2);
   coffer1.add(lock);
+  hinge1.add(pointer);
+  pointer.add(coffer2);
   coffer2.add(interior);
   coffer1.add(gold);
 
