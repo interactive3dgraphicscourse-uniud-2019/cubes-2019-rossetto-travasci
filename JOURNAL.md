@@ -256,3 +256,14 @@ Aggiunto il costruttore per il forziere con la relativa base.
 ![Coffer](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/coffer_example.png)
 
 - Eric Rossetto
+
+## Costruzione cannone
+
+```4.04.2019 - 18:38```
+
+Il codice per la costruzione del cannone e le sue textures sono stati completati. Un cannone è stato quindi posizionato nella scena.  
+Varie altre modifiche minori al codice.
+
+![Cannon](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedCannon.png)
+
+- Stefano Travasci
