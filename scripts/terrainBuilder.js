@@ -317,11 +317,11 @@ function createGrass(){
 var clouds,cloudTexture,cloudReady=false,cloudOldTime;
 //adds clouds to the terrain
 function addClouds(size){
-		var cloudGeometry=new THREE.PlaneGeometry(size*8,size*8);
+		var cloudGeometry=new THREE.PlaneGeometry(size*48,size*48);
 		cloudTexture= new THREE.TextureLoader().load('../textures/clouds.png',function(){cloudReady=true;cloudOldTime=Date.now();});
 		cloudTexture.magFilter = THREE.NearestFilter;
 		cloudTexture.minFilter = THREE.LinearMipMapLinearFilter;
-		cloudTexture.repeat.set(0.125, 1);
+		cloudTexture.repeat.set(0.25, 1);
 		cloudTexture.wrapS = cloudTexture.wrapT = THREE.MirroredRepeatWrapping;
 		var cloudMaterial = new THREE.MeshPhongMaterial( { map: cloudTexture, transparent: true, opacity: 0.7, side: THREE.DoubleSide } );
 		cloudMaterial.alphaTest = 0.4;
