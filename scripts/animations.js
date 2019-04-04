@@ -121,3 +121,9 @@ function animateFlag(flag,time,period){
       f[i].position.y=Math.cos(Math.PI/16*i+2*Math.PI*ty/(period/2))*i*0.01;
     }
   }
+
+/*
+  Animates the coffer.
+  action defines the type of motion to be made: open/close (1, -1)
+*/
+//function animateCoffer(coffer, action, time)

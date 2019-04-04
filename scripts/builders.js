@@ -1,20 +1,3 @@
-/*
-    THIS SCRIPT CREATES A FISH AND ADDS IT TO THE SCENE
-*/
-
-var unknown_material;
-
-var errLoader = new THREE.TextureLoader();
-errLoader.load(
-  "../models/textures/missingTexture.png",
-
-  function( texture ) {
-    unknown_material = new THREE.MeshPhongMaterial( {
-      map: texture
-    })
-  }
-);
-
 function createFish( color ) {
 
     // Geometries and materials
@@ -181,6 +164,9 @@ function createBridge( height ) {
       shininess: 10 }
   );
 
+  texture.magFilter = THREE.NearestFilter;
+  texture.minFilter = THREE.LinearMipMapLinearFilter;
+
   var pillar_texture = new THREE.TextureLoader().load("../models/textures/pillars_texture_16x16.png");
   var pillar_material = new THREE.MeshPhongMaterial(
     {
@@ -276,7 +262,7 @@ function createTree(color) {
       map: trunk_texture
     }
   );
-  var foliage_texture = new THREE.TextureLoader().load("../models/textures/foliage_texture_256x256.png");
+  var foliage_texture = new THREE.TextureLoader().load("../models/textures/foliage_texture_16x16.png");
   foliage_texture.magFilter = THREE.NearestFilter;
   foliage_texture.minFilter = THREE.LinearMipMapLinearFilter;
 
@@ -500,10 +486,10 @@ function buildPole() {
   topBall.position.y=2.8;
   poleComplete.add(pole);
   return poleComplete;
-}
+} 
 
 function createCoffer() {
-
+  
   var base = createBase();
 
   var coffer1_geometry = new THREE.BoxBufferGeometry(1.9, 0.8, 1.2);
@@ -516,7 +502,7 @@ function createCoffer() {
   var coffer_texture = new THREE.TextureLoader().load("../models/textures/coffer_texture_1024x1024.png");
   coffer_texture.magFilter = THREE.NearestFilter;
   coffer_texture.minFilter = THREE.LinearMipMapLinearFilter;
-
+  
   var gold_texture = new THREE.TextureLoader().load("../models/textures/gold_texture_256x256.png");
   gold_texture.magFilter = THREE.NearestFilter;
 	gold_texture.minFilter = THREE.LinearMipMapLinearFilter;
@@ -584,7 +570,7 @@ function createBase() {
 
   var water_texture = new THREE.TextureLoader().load("../models/textures/water2.png");
   var base_texture = new THREE.TextureLoader().load("../models/textures/base_texture_256x256.png");
-
+  
   var base_material = new THREE.MeshPhongMaterial( {
     map: base_texture,
     shininess: 0
@@ -605,7 +591,7 @@ function createBase() {
 		blendEquation: THREE.AddEquation,
 		shininess: 90,
 		emissive: 0x0033cc,
-		emissiveIntensity: 0.3,
+    emissiveIntensity: 0.5,
   });
 
   var base1 = new THREE.Mesh( base1_geometry, base_material );
