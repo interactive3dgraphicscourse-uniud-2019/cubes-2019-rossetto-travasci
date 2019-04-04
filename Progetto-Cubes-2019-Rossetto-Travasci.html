@@ -56,7 +56,7 @@
 			document.body.appendChild( stats.domElement );
 
 			// uncomment if you need to draw coordinate axes when building the scene
-			Coordinates.drawAllAxes();
+			//Coordinates.drawAllAxes();
 
 			//builds the terrain
 			buildTerrain(scene);
@@ -67,10 +67,10 @@
 		}
 
 		function addObjects(){
-			//tree
+			//trees
 			var tree = createLightBlueTree();
 			scene.add(tree);
-			tree.position.set(0, 1, 0);
+			tree.position.set(-5.8, 1.5, 3.5);
 			tree.scale.divideScalar(2.5);
 
 			//red butterfly
