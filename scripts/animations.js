@@ -58,6 +58,7 @@ function animateFish2( fish, time, duration, x, y, z, r ) {
 
   fish.position.z = r*Math.sin(360 * Math.PI/180 * swimTime/period ) + z;
   fish.position.x = r*Math.cos(360 * Math.PI/180 * swimTime/period ) + x;
+  fish.position.y=y;
 
   fish.rotation.y = (-1.9 * Math.PI * swimTime/period + Math.PI/2);
 }
@@ -128,7 +129,7 @@ function animateFlag(flag,time,period){
 function openCoffer(coffer, time, duration) {
 
   var pointer = coffer.children[1].children[0].children[0];
-  
+
   var t = time % duration;
   pointer.rotation.x = (-55* Math.PI/180) * t/duration;
   pointer.position.y = - 0.36 * t/duration;
@@ -138,7 +139,7 @@ function openCoffer(coffer, time, duration) {
 function closeCoffer(coffer, time, duration) {
 
   var pointer = coffer.children[1].children[0].children[0];
-  
+
   var t = time % duration;
   pointer.rotation.x = (55* Math.PI/180) * t/duration;
   pointer.position.y = 0.35 * t/duration;
