@@ -570,8 +570,10 @@ function createBase() {
   var footBridge_geometry = new THREE.BoxBufferGeometry(1.6, 0.3, 0.9);
 
   var water_texture = new THREE.TextureLoader().load("../models/textures/water2.png");
-  var base_texture = new THREE.TextureLoader().load("../models/textures/base_texture_256x256.png");
-  
+  var base_texture = new THREE.TextureLoader().load("../models/textures/base_texture_16x16.png");
+  base_texture.magFilter = THREE.NearestFilter;
+  base_texture.minFilter = THREE.LinearMipMapLinearFilter;
+
   var base_material = new THREE.MeshPhongMaterial( {
     map: base_texture,
     shininess: 0
