@@ -124,6 +124,23 @@ function animateFlag(flag,time,period){
 
 /*
   Animates the coffer.
-  action defines the type of motion to be made: open/close (1, -1)
 */
-//function animateCoffer(coffer, action, time)
+function openCoffer(coffer, time, duration) {
+
+  var pointer = coffer.children[1].children[0].children[0];
+  
+  var t = time % duration;
+  pointer.rotation.x = (-55* Math.PI/180) * t/duration;
+  pointer.position.y = - 0.36 * t/duration;
+
+}
+
+function closeCoffer(coffer, time, duration) {
+
+  var pointer = coffer.children[1].children[0].children[0];
+  
+  var t = time % duration;
+  pointer.rotation.x = (55* Math.PI/180) * t/duration;
+  pointer.position.y = 0.35 * t/duration;
+
+}
