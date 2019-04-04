@@ -7,6 +7,7 @@ function buildTerrain(scene){
 
 		//starts the construction of the terrain
 		createTerrain(scene, data);
+		addClouds(parseInt(Math.sqrt(data.length)));
 	}
 
 	// load img source
@@ -311,4 +312,32 @@ function createGrass(){
  	grassMaterialUpDownRight.push(grassMaterial,grassSideMaterial,grassMaterial,dirtMaterial,grassMaterial,grassMaterial);
  	grassMaterialDownLeftRight.push(grassMaterial,grassMaterial,grassMaterial,dirtMaterial,grassMaterial,grassSideMaterial);
  	grassMaterialUpLeftRight.push(grassMaterial,grassMaterial,grassMaterial,dirtMaterial,grassSideMaterial,grassMaterial);
+}
+
+var clouds,cloudTexture,cloudReady=false,cloudOldTime;
+//adds clouds to the terrain
+function addClouds(size){
+		var cloudGeometry=new THREE.PlaneGeometry(size*8,size*8);
+		cloudTexture= new THREE.TextureLoader().load('../textures/clouds.png',function(){cloudReady=true;cloudOldTime=Date.now();});
+		cloudTexture.magFilter = THREE.NearestFilter;
+		cloudTexture.minFilter = THREE.LinearMipMapLinearFilter;
+		cloudTexture.repeat.set(0.125, 1);
+		cloudTexture.wrapS = cloudTexture.wrapT = THREE.MirroredRepeatWrapping;
+		var cloudMaterial = new THREE.MeshPhongMaterial( { map: cloudTexture, transparent: true, opacity: 0.7, side: THREE.DoubleSide } );
+		cloudMaterial.alphaTest = 0.4;
+		clouds=new THREE.Mesh(cloudGeometry,cloudMaterial);
+		terrain.add(clouds);
+		clouds.rotation.x=-90*Math.PI/180;
+		clouds.position.y=255/4+70;
+		clouds.position.x=size/4;
+		clouds.position.z=size/4;
+		cloudTexture.offset.x -= 0.25;
+}
+
+//moves the clouds
+function animateClouds(time,speedMultiplier){
+	if(!cloudReady) return;
+	var t=time-cloudOldTime;
+	cloudOldTime=time;
+	cloudTexture.offset.x -= t*0.000001*speedMultiplier;
 }
