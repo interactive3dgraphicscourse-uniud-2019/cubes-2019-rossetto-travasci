@@ -17,7 +17,7 @@
 
 		</style>
 	</head>
-	<body>
+	<body onkeydown="uniKeyCode(event)">
 		<script src="lib/three.min.js"></script>
 		<script src="lib/stats.min.js"></script>
 		<script src="lib/Coordinates.js"></script>
@@ -27,6 +27,11 @@
 		<script src="scripts/builders.js"></script>
 		<script src="scripts/animations.js"></script>
 		<script>
+
+		function uniKeyCode(event) {
+				key = event.keyCode;
+				console.log(key);
+		}
 
 		var scene, camera, renderer, controls, stats, time;
 		var redButterfly, purpleButterfly, flag, fish, bridge, coffer,cannon;
