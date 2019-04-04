@@ -265,7 +265,7 @@ function createWater( width ) {
 /*
   Creates a a light blue tree.
 */
-function createLightBlueTree() {
+function createTree(color) {
 
   trunk_texture = new THREE.TextureLoader().load("../models/textures/trunk_texture_256x512.png");
   trunk_texture.magFilter = THREE.NearestFilter;
@@ -282,7 +282,7 @@ function createLightBlueTree() {
 
   var foliage_material = new THREE.MeshPhongMaterial(
     {
-      color: 0x01FFFF,
+      color: color,
       map: foliage_texture
     }
   );
@@ -500,10 +500,10 @@ function buildPole() {
   topBall.position.y=2.8;
   poleComplete.add(pole);
   return poleComplete;
-} 
+}
 
 function createCoffer() {
-  
+
   var base = createBase();
 
   var coffer1_geometry = new THREE.BoxBufferGeometry(1.9, 0.8, 1.2);
@@ -516,7 +516,7 @@ function createCoffer() {
   var coffer_texture = new THREE.TextureLoader().load("../models/textures/coffer_texture_1024x1024.png");
   coffer_texture.magFilter = THREE.NearestFilter;
   coffer_texture.minFilter = THREE.LinearMipMapLinearFilter;
-  
+
   var gold_texture = new THREE.TextureLoader().load("../models/textures/gold_texture_256x256.png");
   gold_texture.magFilter = THREE.NearestFilter;
 	gold_texture.minFilter = THREE.LinearMipMapLinearFilter;
@@ -584,7 +584,7 @@ function createBase() {
 
   var water_texture = new THREE.TextureLoader().load("../models/textures/water2.png");
   var base_texture = new THREE.TextureLoader().load("../models/textures/base_texture_256x256.png");
-  
+
   var base_material = new THREE.MeshPhongMaterial( {
     map: base_texture,
     shininess: 0
