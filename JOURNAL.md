@@ -267,3 +267,13 @@ Varie altre modifiche minori al codice.
 ![Cannon](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedCannon.png)
 
 - Stefano Travasci
+
+## Aggiunta nuvole
+
+```4.04.2019 - 21:14```
+
+Ora il codice del terreno aggiunge anche delle nuvole. Le nuvole sono animate in modo che si spostino con il tempo. È possibile scegliere (e variare) la velocità con cui esse si muovono.
+
+![Clouds](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedClouds.png)
+
+- Stefano Travasci
