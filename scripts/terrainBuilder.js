@@ -10,7 +10,7 @@ function buildTerrain(scene){
 	}
 
 	// load img source
-	img.src = "../models/textures/heightmapIsland3.png";
+	img.src = "../textures/heightmapIsland3.png";
 }
 
 //return array with height data from img, taken from: http://danni-three.blogspot.it/2013/09/threejs-heightmaps.html
@@ -64,25 +64,25 @@ function createTerrain(scene, data){
 	geometry = new THREE.BoxGeometry(0.5,0.5,0.5);
 
 	//sand
-	var sandTexture = new THREE.TextureLoader().load('../models/textures/sand.png');
+	var sandTexture = new THREE.TextureLoader().load('../textures/sand.png');
 	sandTexture.magFilter = THREE.NearestFilter;
 	sandTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	sandMaterial = new THREE.MeshPhongMaterial( { map: sandTexture, side: THREE.FrontSide } );
 
 	//grass
-	var grassTexture = new THREE.TextureLoader().load('../models/textures/grass.png');
+	var grassTexture = new THREE.TextureLoader().load('../textures/grass.png');
 	grassTexture.magFilter = THREE.NearestFilter;
 	grassTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	grassMaterial = new THREE.MeshPhongMaterial( { map: grassTexture, side: THREE.FrontSide } );
 
 	//dirt
-	var dirtTexture = new THREE.TextureLoader().load('../models/textures/dirt.png');
+	var dirtTexture = new THREE.TextureLoader().load('../textures/dirt.png');
 	dirtTexture.magFilter = THREE.NearestFilter;
 	dirtTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	dirtMaterial = new THREE.MeshPhongMaterial( { map: dirtTexture, side: THREE.FrontSide } );
 
 	//stone
-	var stoneTexture = new THREE.TextureLoader().load('../models/textures/stone.png');
+	var stoneTexture = new THREE.TextureLoader().load('../textures/stone.png');
 	stoneTexture.magFilter = THREE.NearestFilter;
 	stoneTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	stoneMaterial = new THREE.MeshPhongMaterial( { map: stoneTexture, side: THREE.FrontSide } );
@@ -284,13 +284,13 @@ function getGrassMaterial(sidesBool){
 //initializes the various grass materials
 function createGrass(){
 	//grass (top)
-	var grassTexture = new THREE.TextureLoader().load('../models/textures/grass.png');
+	var grassTexture = new THREE.TextureLoader().load('../textures/grass.png');
 	grassTexture.magFilter = THREE.NearestFilter;
 	grassTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	var grassMaterial = new THREE.MeshPhongMaterial( { map: grassTexture } );
 
 	//grass (side)
-	var grassSideTexture = new THREE.TextureLoader().load('../models/textures/grassSide.png');
+	var grassSideTexture = new THREE.TextureLoader().load('../textures/grassSide.png');
 	grassSideTexture.magFilter = THREE.NearestFilter;
 	grassSideTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	var grassSideMaterial = new THREE.MeshPhongMaterial( { map: grassSideTexture } );
