@@ -59,7 +59,7 @@
 		var canPlayFuseAudio=false;
 		var canPlayCannonAudio=false;
 		var cannonReady=true;
-		var canPlayCycle = true;
+		var canPlayCycle = false;
 		var canOpenCoffer = false;
 		var canPlayOpenCofferAudio = false;
 		var canPlayCloseCofferAudio = false;
@@ -103,10 +103,9 @@
 			controls.target= new THREE.Vector3(0,4,0);
 
 			//fog
-			fogColor = new THREE.Color(0xbce7ff);
-			scene.background = fogColor;
-			scene.fog = new THREE.Fog(fogColor, 200, 400);
-
+	    fogColor = new THREE.Color(0xbce7ff);
+	    scene.background = fogColor;
+	    scene.fog = new THREE.Fog(fogColor, 200, 400);
 		}
 
 		function addObjects(){
@@ -289,11 +288,8 @@
 		}
 
 		function playPauseDNCycle() {
-			if( canPlayCycle ) {
-				canPlayCycle = false;
-			} else {
-				canPlayCycle = true;
-			}
+			switchLight();
+			canPlayCycle = !canPlayCycle;
 		}
 
 		Start();
