@@ -41,7 +41,7 @@
 		}
 
 		var scene, camera, renderer, controls, stats, time;
-		var redButterfly, purpleButterfly, flag, fish, bridge, coffer, cannon, cannonAudio,fuseAudio;
+		var redButterfly, purpleButterfly, flag, fish, bridge, coffer, cannon, forest, cannonAudio,fuseAudio;
 		var canPlayFuseAudio=false;
 		var canPlayCannonAudio=false;
 
@@ -90,14 +90,47 @@
 
 		function addObjects(){
 			//trees
-			var lightBlueTree = createTree(0x01FFFF);
-			scene.add(lightBlueTree);
-			lightBlueTree.position.set(-5.8, 1.5, 3.5);
-			lightBlueTree.scale.divideScalar(2.5);
-			var deepGreenTree = createTree(0x00a813);
-			scene.add(deepGreenTree);
-			deepGreenTree.position.set(0, 1.5, 0);
-			deepGreenTree.scale.divideScalar(2.1);
+			forest = [];
+			forest.push(createTree(0x01FFFF));
+			forest.push(createTree(0x00a813));
+			forest.push(createTree(0x336600));
+			forest.push(createTree(0x0099ff));
+			forest.push(createTree(0x01FFFF));
+			forest.push(createTree(0x00a813));
+			forest.push(createTree(0xff9966));
+			forest.push(createTree(0x003300));
+			forest.push(createTree(0x00a813));
+			forest.push(createTree(0xff9966));
+			forest.push(createTree(0x99ffcc));
+			forest.push(createTree(0xff9966));
+			forest[0].position.set(-6.3, 1.5, 3.5);
+			forest[0].scale.divideScalar(2.6);
+			forest[1].position.set(0, 1.5, 0);
+			forest[1].scale.divideScalar(2.1);
+			forest[2].position.set(-4, 1.5, 6);
+			forest[2].scale.divideScalar(1.2);
+			forest[3].position.set(-6, 1.5, -0.5);
+			forest[3].scale.divideScalar(2.3);
+			forest[4].position.set(-2.8, 1.5, -1.5);
+			forest[4].scale.divideScalar(1.9);
+			forest[5].position.set(-2.5, 1.5, 5);
+			forest[5].scale.divideScalar(2.6);
+			forest[6].position.set(-3.8, 1.5, -4.5);
+			forest[6].scale.divideScalar(2.2);
+			forest[7].position.set(9, 1.5, 3);
+			forest[7].scale.divideScalar(2);
+			forest[8].position.set(-8, 1.5, 4.8);
+			forest[8].scale.divideScalar(1.5);
+			forest[9].position.set(-7, 1.5, 1);
+			forest[9].scale.divideScalar(1.1);
+			forest[10].position.set(-6, 1.5, 6);
+			forest[10].scale.divideScalar(2.3);
+			forest[11].position.set(-2.5, 1.5, 7.8);
+			forest[11].scale.divideScalar(2.1);
+			
+			for(var i=0; i<12; ++i) {
+				scene.add(forest[i]);
+			}
 
 			//red butterfly
 			redButterfly=buildButterfly(0xf42c2c);
