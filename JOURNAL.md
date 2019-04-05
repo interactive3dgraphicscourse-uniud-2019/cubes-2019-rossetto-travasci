@@ -318,3 +318,13 @@ Completato il codice per la creazione e l'animazione di una statua e realizzate 
 ![Statue](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Statue.png)
 
 - Stefano Travasci
+
+## Aggiunte le animazioni al cannone
+
+```5.04.2019 - 20:11```
+
+Completate le animazioni del cannone. Per attivarle è sufficiente premere il tasto 'F' sulla tastiera. All'inizio della animazione la miccia del cannone comincerà a fumare, poi il colpo esploderà fuori dal cannone e quindi si alzerà una colonna di fumo dalla bocca del cannone. L'animazione è accompagnata da effetti sonori per la miccia che brucia e l'esplosione del colpo.
+
+![CannonAnimated](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/CannonAnimation.png)
+
+- Stefano Travasci
