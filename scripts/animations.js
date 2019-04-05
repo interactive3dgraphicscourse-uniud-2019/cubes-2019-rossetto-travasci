@@ -208,7 +208,9 @@ function shootCannon(){
     fuseSparks.push(new THREE.Mesh(smallParticleGeometry,orangeSparkMaterial));
     fuseSparks.push(new THREE.Mesh(smallParticleGeometry,orangeSparkMaterial));
 
-    cannonBall=new THREE.Mesh(cannonBallGeometry,deepDarkMaterial);
+    cannonBall=new THREE.Mesh(cannonBallGeometry,new THREE.MeshPhongMaterial({color: 0x232323}));
+    cannonBall.castShadow=true;
+    cannonBall.receiveShadow=true;
 
     cannonFire.push(new THREE.Mesh(hugeParticleGeometry,redFireMaterial));
     cannonFire.push(new THREE.Mesh(bigParticleGeometry,redFireMaterial));
