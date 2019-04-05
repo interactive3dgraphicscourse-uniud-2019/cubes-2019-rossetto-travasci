@@ -528,7 +528,6 @@ function createCoffer() {
 
   coffer1.position.set(0, 1.05, 0);
   coffer2.position.set(0.6, 0.21, 0.9);
-  //coffer2.rotation.x = -45 * Math.PI/180;
   hinge1.position.set(-0.6, 0.4, -0.6);
   hinge2.position.set(0.6, 0.4, -0.6);
   lock.position.set(0, 0.4, 0.6);
@@ -558,6 +557,8 @@ function createCoffer() {
   pointer.add(coffer2);
   coffer2.add(interior);
   coffer1.add(gold);
+
+  coffer.position.set( 0, 0, 0.6);
 
   return coffer;
 }

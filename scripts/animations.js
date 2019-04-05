@@ -126,26 +126,24 @@ function animateFlag(flag,time,period){
 /*
   Animates the coffer.
 */
-var stop = 1;
-var counter = 0;
 
-function resetCofferTrigger() {
-  counter = 0;
-  stop = 1;
-}
+function openCoffer(coffer, duration, time, time_i) {
 
-function openCoffer(coffer, duration) {
+  if( canOpenCoffer ) {
+    var pointer = coffer.children[1].children[0].children[0];
+    var block = coffer.children[1].children[0].children[0].children[0];
 
-  counter += 50;
-  var pointer = coffer.children[1].children[0].children[0];
+    var delta = time - time_i;
+    var zp = 0;
 
-  var t = counter % duration;
-  if( t > duration/2 ) {
-    t = duration - t;
+    var t = delta % duration;
+    if( t > duration/2 ) {
+      t = duration - t;
+    }
+    
+    pointer.position.y = -0.6 * t/duration;
+    pointer.rotation.x = -80 * Math.PI/180 * t/duration;
+
+    if(delta >= duration) canOpenCoffer = false;
   }
-
-  pointer.rotation.x = stop * (-100* Math.PI/180) * t/duration;
-  pointer.position.y = - stop * 0.6 * t/duration;
-
-  if( counter >= duration-1 ) stop = 0;
 }
