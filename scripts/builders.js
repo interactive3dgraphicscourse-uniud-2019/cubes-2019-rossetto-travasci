@@ -527,7 +527,7 @@ function createCoffer() {
   var gold = new THREE.Mesh( interior_geometry, gold_material );
 
   coffer1.position.set(0, 1.05, 0);
-  coffer2.position.set(0.6, 0.21, 0.9);
+  coffer2.position.set(0, 0.2, 0.6);
   hinge1.position.set(-0.6, 0.4, -0.6);
   hinge2.position.set(0.6, 0.4, -0.6);
   lock.position.set(0, 0.4, 0.6);
@@ -535,7 +535,7 @@ function createCoffer() {
   interior.rotation.x = 90 * Math.PI/180;
   gold.position.set(0, 0.4005, 0);
   gold.rotation.x = -90 * Math.PI/180;
-  pointer.position.set(0, 0, -0.3);
+  pointer.position.set(0.6, 0.01, 0);
 
   coffer1.castShadow = true;
   coffer1.receiveShadow = true;
