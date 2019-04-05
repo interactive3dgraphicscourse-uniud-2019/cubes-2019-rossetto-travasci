@@ -305,6 +305,6 @@ Completata l'animazione di apertura del forziere. Premendo il tasto `O` si aprir
 
 Aggiunti gli alberi in modo da crearne una foresta.
 
-![Forest](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/forest_example - Copia.png)
+![Forest](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/forest_example)
 
 -Eric Rossetto
