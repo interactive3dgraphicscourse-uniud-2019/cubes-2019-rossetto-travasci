@@ -31,18 +31,21 @@
 		function uniKeyCode(event) {
 				key = event.keyCode;
 				switch(key) {
-					case 79:
+					case 79:		// O
 						if( !canOpenCoffer ) {
 							canOpenCoffer = true;
 							time_i = Date.now();
 						}
 						break;
-					case 70:
+					case 70:		// F
 						shootCannon(cannon);
 						break;
-						case 80:
-							playPauseAmbientSound();
-							break;
+					case 80:		// P
+						playPauseAmbientSound();
+						break;
+					case 78:		// N
+						playPauseDNCycle();
+						break;
 				}
 		}
 
@@ -53,7 +56,7 @@
 		var canPlayFuseAudio=false;
 		var canPlayCannonAudio=false;
 		var cannonReady=true;
-
+		var canPlayCycle = true;
 		var canOpenCoffer = false;
 		var time_i;
 
@@ -259,6 +262,7 @@
 
 			animateClouds(time,2);
 			openCoffer(coffer, 20000, time, time_i);
+			daynight(time);
 		}
 
 		function playPauseAmbientSound(){
@@ -274,6 +278,14 @@
 				ambientSound.play();
 			}
 			playingAmbient=!playingAmbient;
+		}
+
+		function playPauseDNCycle() {
+			if( canPlayCycle ) {
+				canPlayCycle = false;
+			} else {
+				canPlayCycle = true;
+			}
 		}
 
 		Start();

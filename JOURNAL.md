@@ -323,7 +323,7 @@ Completato il codice per la creazione e l'animazione di una statua e realizzate 
 
 ```5.04.2019 - 20:11```
 
-Completate le animazioni del cannone. Per attivarle è sufficiente premere il tasto 'F' sulla tastiera. All'inizio della animazione la miccia del cannone comincerà a fumare, poi il colpo esploderà fuori dal cannone e quindi si alzerà una colonna di fumo dalla bocca del cannone. L'animazione è accompagnata da effetti sonori per la miccia che brucia e l'esplosione del colpo.
+Completate le animazioni del cannone. Per attivarle è sufficiente premere il tasto `F` sulla tastiera. All'inizio della animazione la miccia del cannone comincerà a fumare, poi il colpo esploderà fuori dal cannone e quindi si alzerà una colonna di fumo dalla bocca del cannone. L'animazione è accompagnata da effetti sonori per la miccia che brucia e l'esplosione del colpo.
 
 ![CannonAnimated](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/CannonAnimation.png)
 
@@ -333,6 +333,14 @@ Completate le animazioni del cannone. Per attivarle è sufficiente premere il ta
 
 ```5.04.2019 - 21:54```
 
-Tramite la pressione del tasto 'P' della tastiera è possibile attivare dei suoni di sottofondo. Successive pressioni dello stesso pulsante metteranno in pausa o faranno ripartire l'audio.
+Tramite la pressione del tasto `P` della tastiera è possibile attivare dei suoni di sottofondo. Successive pressioni dello stesso pulsante metteranno in pausa o faranno ripartire l'audio.
 
 - Stefano Travasci
+
+## Ciclo giorno/notte
+
+```5.04.2019 - 22:03```
+
+Aggiunta la possibilità di ottenere l'effetto del ciclo giorno/notte (approssimato). E' disattivabile attravrso la pressione del tasto `N`.
+
+- Eric Rossetto
