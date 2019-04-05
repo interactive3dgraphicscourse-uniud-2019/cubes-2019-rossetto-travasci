@@ -328,3 +328,11 @@ Completate le animazioni del cannone. Per attivarle è sufficiente premere il ta
 ![CannonAnimated](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/CannonAnimation.png)
 
 - Stefano Travasci
+
+## Aggiunti suoni di sottofondo
+
+```5.04.2019 - 21:54```
+
+Tramite la pressione del tasto 'P' della tastiera è possibile attivare dei suoni di sottofondo. Successive pressioni dello stesso pulsante metteranno in pausa o faranno ripartire l'audio.
+
+- Stefano Travasci
