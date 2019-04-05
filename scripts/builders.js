@@ -533,6 +533,8 @@ function createCoffer() {
   hinge1.receiveShadow = true;
   hinge2.castShadow = true;
   hinge2.receiveShadow = true;
+  gold.receiveShadow = true;
+  interior.receiveShadow = true;
 
   var coffer = new THREE.Object3D();
 

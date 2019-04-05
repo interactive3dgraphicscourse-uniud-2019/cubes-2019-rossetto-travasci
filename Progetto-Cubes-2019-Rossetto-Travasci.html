@@ -35,6 +35,8 @@
 						if( !canOpenCoffer ) {
 							canOpenCoffer = true;
 							time_i = Date.now();
+							canPlayOpenCofferAudio = true;
+							canPlayCloseCofferAudio = true;
 						}
 						break;
 					case 70:		// F
@@ -58,7 +60,12 @@
 		var cannonReady=true;
 		var canPlayCycle = true;
 		var canOpenCoffer = false;
+		var canPlayOpenCofferAudio = false;
+		var canPlayCloseCofferAudio = false;
 		var time_i;
+
+		var openAudio = new Audio('../audioFiles/202092__spookymodem__chest-opening.wav');
+		var closeAudio = new Audio('../audioFiles/261462__tntdude7__chest-slam.wav');
 
 		function Start() {
 			scene = new THREE.Scene();

@@ -131,10 +131,12 @@ function openCoffer(coffer, duration, time, time_i) {
 
   if( canOpenCoffer ) {
     var pointer = coffer.children[1].children[0].children[0];
-    var block = coffer.children[1].children[0].children[0].children[0];
-
     var delta = time - time_i;
-    var zp = 0;
+ 
+    if( delta >= 0 && canPlayOpenCofferAudio ) {
+      openAudio.play();
+      canPlayOpenCofferAudio = false;
+    }
 
     var t = delta % duration;
     if( t > duration/2 ) {
@@ -142,6 +144,11 @@ function openCoffer(coffer, duration, time, time_i) {
     }
 
     pointer.rotation.x = -80 * Math.PI/180 * t/(duration/2);
+
+    if((delta >= 11900) && canPlayCloseCofferAudio) {
+      closeAudio.play();
+      canPlayCloseCofferAudio = false;
+    }
 
     if(delta >= duration) canOpenCoffer = false;
   }

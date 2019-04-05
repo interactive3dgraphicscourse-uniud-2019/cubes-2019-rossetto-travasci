@@ -15,7 +15,7 @@
 
 var hemiLight, dirLight, fogColor;
 
-var dayColor, nightColor, canPlayCycle;
+var dayColor, nightColor;
 
 function createLights() {
 
@@ -28,7 +28,7 @@ function createLights() {
     // Setting DirectionaLight
     dirLight = new THREE.DirectionalLight( 0xffffff, 1);
     dirLight.color.setHSL( 0.1, 1, 0.95 );
-    dirLight.position.set( -1, 1.75, 0);
+    dirLight.position.set( -2, 1.75, 1);
     dirLight.position.multiplyScalar( 50 );
 	dirLight.castShadow = true;
 	dirLight.shadow.mapSize.width = 2048;
@@ -57,30 +57,64 @@ function createLights() {
 
 }
 
+var backColor = new THREE.Color(0xbce7ff);
 function daynight(time) {
 
     if( canPlayCycle ) {
-        var t = time * 0.0002;
+        var t = time * 0.0001;
         var x = Math.sin(t);
         var y = Math.cos(t);
 
         dirLight.position.set( x, x, y);
         dirLight.position.multiplyScalar(50);
+        scene.background = new THREE.Color(0xbce7ff);
+        var background = scene.background;
 
-        dayColor = dayColor + new THREE.Color( (dayColor-nightColor)/60 );
-
-        if( x > 0.2 ) {
+        if( x > 0.2 ) { 
             // DAY
             dirLight.intensity = 1;
             dirLight.shadow.darkness = 0.7;
+            dirLight.castShadow = true;
+            if( nightColor <= dayColor ) {
+                r = 151/360;   
+                g = 201/360;   
+                b = 175/360;   
+            } else {
+                r = 0;
+                g = 0;
+                b = 0;
+            }
+            scene.background += scene.background.add(r, g, b);
         } else if( x < 0.2 && x > 0 ) {
             v = x / 0.2;
             dirLight.intensity = v;
             dirLight.shadow.darkness = v * 0.7;
+            dirLight.castShadow = true;
+            if( nightColor <= dayColor ) {
+                r = 151/360;   
+                g = 201/360;   
+                b = 175/360;   
+            } else {
+                r = 0;
+                g = 0;
+                b = 0;
+            }
+            scene.background += scene.background.add(r, g, b);
         } else {
             // NIGHT
-            dirLight.intensity = 0;
+            dirLight.intensity = 0.1;
             dirLight.shadow.darkness = 0.7;
+            dirLight.castShadow = false;
+            if( dayColor >= nightColor ) {
+                r = -151/360;   
+                g = -201/360;   
+                b = -175/360;   
+            } else {
+                r = 0;
+                g = 0;
+                b = 0;
+            }
+
         }
     }
 }
