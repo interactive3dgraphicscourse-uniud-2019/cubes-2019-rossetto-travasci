@@ -153,6 +153,7 @@ function switchLight(){
     scene.add( dirLight );
     scene.remove( hemiLight2 );
     scene.remove( dirLight2 );
+    scene.background = new THREE.Color(0xbce7ff);
   }else{
     scene.add( hemiLight2 );
     scene.add( dirLight2 );
