@@ -37,6 +37,9 @@
 							time_i = Date.now();
 						}
 						break;
+					case 70:
+						shootCannon(cannon);
+						break;
 				}
 		}
 
@@ -44,6 +47,7 @@
 		var redButterfly, purpleButterfly, flag, fish, bridge, coffer, cannon, cannonAudio,fuseAudio, statue, forest;
 		var canPlayFuseAudio=false;
 		var canPlayCannonAudio=false;
+		var cannonReady=true;
 
 		var canOpenCoffer = false;
 		var time_i;
@@ -239,6 +243,7 @@
 			animateButterfly(purpleButterfly,time,6,1.9,4,20000,2500,2,0.25,3,false);
 			animateFlag(flag,time,5000);
 			animateStatue(statue,time);
+			animateCannonShot(cannon,time);
 
 			animateFish(fish[0], time, 20000, 0, 0, 0, 2, 1 );
 			animateFish2(fish[1], time, 7000, 9.5, -0.7, -7.2, 1.4);

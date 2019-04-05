@@ -167,3 +167,222 @@ function animateStatue(statue,time){
     statueMaterial[4]=statueFaces[6];
   }
 }
+
+var cannonInitialTime;
+var fuseSmoke=[];
+var fuseSparks=[];
+var cannonBall;
+var cannonFire=[];
+var cannonSmoke=[];
+var cannonAnimationList=[false,false,false];//used to perform certain operations only once and at a particular moment
+//start the shooting animation, creates all the needed blocks
+function shootCannon(){
+  if (cannonReady&&canPlayFuseAudio&&canPlayCannonAudio){
+    fuseAudio.play();
+    cannonReady=false;
+    cannonInitialTime=Date.now();
+
+    var smallParticleGeometry=new THREE.BoxGeometry(0.15,0.15,0.15);
+    var mediumParticleGeometry=new THREE.BoxGeometry(0.225,0.225,0.225);
+    var bigParticleGeometry=new THREE.BoxGeometry(0.33,0.33,0.33);
+    var hugeParticleGeometry=new THREE.BoxGeometry(0.45,0.45,0.45);
+    var cannonBallGeometry=new THREE.BoxGeometry(0.85,0.85,0.85);
+
+    var lightGreyMaterial=new THREE.MeshBasicMaterial({color: 0xb2b2b2});
+    var darkGreyMaterial=new THREE.MeshBasicMaterial({color: 0x8c8c8c});
+    var deepGreyMaterial=new THREE.MeshBasicMaterial({color: 0x383838});
+    var deepDarkMaterial=new THREE.MeshBasicMaterial({color: 0x232323});
+    var yellowSparkMaterial=new THREE.MeshBasicMaterial({color: 0xffee32});
+    var orangeSparkMaterial=new THREE.MeshBasicMaterial({color: 0xff8300});
+    var redFireMaterial=new THREE.MeshBasicMaterial({color: 0xff3700});
+
+    fuseSmoke.push(new THREE.Mesh(smallParticleGeometry,lightGreyMaterial));
+    fuseSmoke.push(new THREE.Mesh(smallParticleGeometry,lightGreyMaterial));
+    fuseSmoke.push(new THREE.Mesh(smallParticleGeometry,darkGreyMaterial));
+    fuseSmoke.push(new THREE.Mesh(mediumParticleGeometry,lightGreyMaterial));
+    fuseSmoke.push(new THREE.Mesh(mediumParticleGeometry,darkGreyMaterial));
+
+    fuseSparks.push(new THREE.Mesh(smallParticleGeometry,yellowSparkMaterial));
+    fuseSparks.push(new THREE.Mesh(smallParticleGeometry,yellowSparkMaterial));
+    fuseSparks.push(new THREE.Mesh(smallParticleGeometry,yellowSparkMaterial));
+    fuseSparks.push(new THREE.Mesh(smallParticleGeometry,orangeSparkMaterial));
+    fuseSparks.push(new THREE.Mesh(smallParticleGeometry,orangeSparkMaterial));
+
+    cannonBall=new THREE.Mesh(cannonBallGeometry,deepDarkMaterial);
+
+    cannonFire.push(new THREE.Mesh(hugeParticleGeometry,redFireMaterial));
+    cannonFire.push(new THREE.Mesh(bigParticleGeometry,redFireMaterial));
+    cannonFire.push(new THREE.Mesh(bigParticleGeometry,redFireMaterial));
+    cannonFire.push(new THREE.Mesh(hugeParticleGeometry,yellowSparkMaterial));
+    cannonFire.push(new THREE.Mesh(bigParticleGeometry,yellowSparkMaterial));
+    cannonFire.push(new THREE.Mesh(mediumParticleGeometry,yellowSparkMaterial));
+    cannonFire.push(new THREE.Mesh(bigParticleGeometry,deepDarkMaterial));
+    cannonFire.push(new THREE.Mesh(bigParticleGeometry,deepDarkMaterial));
+    cannonFire.push(new THREE.Mesh(mediumParticleGeometry,deepDarkMaterial));
+    cannonFire.push(new THREE.Mesh(mediumParticleGeometry,deepDarkMaterial));
+    cannonFire.push(new THREE.Mesh(mediumParticleGeometry,deepGreyMaterial));
+    cannonFire.push(new THREE.Mesh(mediumParticleGeometry,deepGreyMaterial));
+
+    cannonSmoke.push(new THREE.Mesh(hugeParticleGeometry,deepGreyMaterial));
+    cannonSmoke.push(new THREE.Mesh(hugeParticleGeometry,deepGreyMaterial));
+    cannonSmoke.push(new THREE.Mesh(hugeParticleGeometry,deepDarkMaterial));
+    cannonSmoke.push(new THREE.Mesh(bigParticleGeometry,deepDarkMaterial));
+    cannonSmoke.push(new THREE.Mesh(bigParticleGeometry,deepGreyMaterial));
+    cannonSmoke.push(new THREE.Mesh(mediumParticleGeometry,deepGreyMaterial));
+    cannonSmoke.push(new THREE.Mesh(mediumParticleGeometry,deepGreyMaterial));
+    cannonSmoke.push(new THREE.Mesh(mediumParticleGeometry,darkGreyMaterial));
+  }
+}
+
+//animates the cannonSide
+function animateCannonShot(cannon,time){
+  if(cannonReady) return;
+  var t=time-cannonInitialTime;
+  var fuse=cannon.children[1].children[3];
+  var cannonBody=cannon.children[1];
+  if(t<3000){
+    //===============
+    //Fuse is ignited
+    //===============
+    if(!cannonAnimationList[0]) {
+      addArrayToObject(fuse,fuseSmoke);
+      addArrayToObject(fuse,fuseSparks);
+    }
+    var particleSpeed=400;
+    var t1=t%500;
+    var t2=(t+200)%500;
+    var t3=(t+400)%500;
+    fuseSparks[1].position.set(0.7*(Math.cos(150*Math.PI/180*t2/500)-1)*0.75,0.7*Math.sin(150*Math.PI/180*t2/500)*1.5,0);
+    fuseSparks[2].position.set(0.7*(Math.cos(50*Math.PI/180+170*Math.PI/180*t1/500)-1)*0.5*0.35,0.7*Math.sin(50*Math.PI/180+170*Math.PI/180*t1/500)*2,0.7*(Math.cos(50*Math.PI/180+170*Math.PI/180*t1/500)-1)*0.5*0.65);
+    fuseSparks[3].position.set(-0.7*(Math.cos(10*Math.PI/180+170*Math.PI/180*t2/500)-1)*0.8*0.10,0.7*Math.sin(10*Math.PI/180+170*Math.PI/180*t2/500)*2,-0.7*(Math.cos(10*Math.PI/180+170*Math.PI/180*t2/500)-1)*0.8*0.90);
+    fuseSparks[4].position.set(-0.7*(Math.cos(160*Math.PI/180*t3/500)-1)*1.4*0.05,0.7*Math.sin(160*Math.PI/180*t3/500)*1.2,0.7*(Math.cos(160*Math.PI/180*t3/500)-1)*1.4*0.95);
+
+    fuseSmoke[0].position.set(-0.7*(Math.cos(150*Math.PI/180*t3/500)-1)*0.50,0.7*Math.sin(150*Math.PI/180*t3/500)*1.7,0.7*(Math.cos(150*Math.PI/180*t3/500)-1)*0.50);
+    fuseSmoke[1].position.set(0,0.7*Math.sin(150*Math.PI/180*t1/500)*1.7,0.7*(Math.cos(150*Math.PI/180*t1/500)-1)*0.85);
+    fuseSmoke[2].position.set(-0.7*(Math.cos(30*Math.PI/180+170*Math.PI/180*t3/500)-1)*0.5*0.45,0.7*Math.sin(30*Math.PI/180+170*Math.PI/180*t3/500)*2.5,-0.7*(Math.cos(30*Math.PI/180+170*Math.PI/180*t3/500)-1)*0.5*0.55);
+    fuseSmoke[3].position.set(0.7*(Math.cos(10*Math.PI/180+170*Math.PI/180*t2/500)-1)*0.7*0.60,0.7*Math.sin(10*Math.PI/180+170*Math.PI/180*t2/500)*2.8,-0.7*(Math.cos(10*Math.PI/180+170*Math.PI/180*t2/500)-1)*0.7*0.50);
+    fuseSmoke[4].position.set(-0.7*(Math.cos(10*Math.PI/180+150*Math.PI/180*t1/500)-1)*0.75,0.7*Math.sin(10*Math.PI/180+150*Math.PI/180*t1/500),0);
+
+    cannonAnimationList[0]=true;
+  } else if(t<3500){
+    //=============
+    //Shot is fired
+    //=============
+    if(!cannonAnimationList[1]){
+      cannonAudio.play();
+      cannonBody.add(cannonBall);
+      addArrayToObject(cannonBody,cannonFire);
+    }
+
+    var tb=t-3000;
+    cannonBall.position.set(4.5+70*tb/1000,-0.5*9.81*(tb/1000)*(tb/1000),0);
+
+    cannonFire[0].position.set(4.5+15*tb/1000,0,0.1*tb*0.0035);
+    cannonFire[1].position.set(4.5+15*tb/1000*0.9,tb*0.0035,0);
+    cannonFire[2].position.set(4.5+15*tb/1000*0.8,-0.4*tb*0.0035,0.5*tb*0.0035);
+    cannonFire[3].position.set(4.5+15*tb/1000*0.7,0.7*tb*0.0035,-0.3*tb*0.0035);
+    cannonFire[4].position.set(4.5+15*tb/1000*0.95,-0.5*tb*0.0035,0.5*tb*0.0035);
+    cannonFire[5].position.set(4.5+15*tb/1000*0.85,0.75*tb*0.0035,-0.2*tb*0.0035);
+    cannonFire[6].position.set(4.5+15*tb/1000*0.75,-0.2*tb*0.0035,-0.2*tb*0.0035);
+    cannonFire[7].position.set(4.5+15*tb/1000*0.92,0.7*tb*0.0035,0.4*tb*0.0035);
+    cannonFire[8].position.set(4.5+15*tb/1000*0.82,-0.8*tb*0.0035,-0.1*tb*0.0035);
+    cannonFire[9].position.set(4.5+15*tb/1000*0.72,-0.5*tb*0.0035,0.4*tb*0.0035);
+    cannonFire[10].position.set(4.5+15*tb/1000*0.97,0.6*tb*0.0035,-0.5*tb*0.0035);
+    cannonFire[11].position.set(4.5+15*tb/1000*0.87,0.2*tb*0.0035,0.3*tb*0.0035);
+
+    cannonAnimationList[1]=true;
+  } else if(t<6500){
+    //=============================
+    //Smoke after the shot is fired
+    //=============================
+    if(!cannonAnimationList[2]){
+      addArrayToObject(cannonBody,cannonSmoke);
+    }
+
+    cannonBall.position.set(4.5+70*(t-3000)/1000,-0.5*9.81*(t-3000)/1000*(t-3000)/1000,0);
+
+    cannonSmoke[0].position.set(4.5+(Math.cos(2*Math.PI*(t-3500)/2000)+0.5),(t-3500)/1000,Math.sin(2*Math.PI*(t-3500)/2000));
+    cannonSmoke[1].position.set(4.5+(Math.cos(2.5+2*Math.PI*(t-3500)/2000)+0.5)*0.8,0.10+0.9*(t-3500)/1000,Math.sin(2.5+2*Math.PI*(t-3500)/2000)*0.8);
+    cannonSmoke[2].position.set(4.5+(Math.cos(1.7+2*Math.PI*(t-3500)/2000)+0.5)*0.75,0.05+0.9*(t-3500)/1000,Math.sin(1.7+2*Math.PI*(t-3500)/2000)*0.75);
+    cannonSmoke[3].position.set(4.5+(Math.cos(4.5+2*Math.PI*(t-3500)/2000)+0.5)*0.5,-0.05+1.3*(t-3500)/1000,Math.sin(4.5+2*Math.PI*(t-3500)/2000)*0.5);
+    cannonSmoke[4].position.set(4.5+(Math.cos(2+2*Math.PI*(t-3500)/2000)+0.5)*0.4,1.2*(t-3500)/1000,Math.sin(2+2*Math.PI*(t-3500)/2000)*0.4);
+    cannonSmoke[5].position.set(4.5+(Math.cos(5.4+2*Math.PI*(t-3500)/2000)+0.5)*1.10,-0.25+1.2*(t-3500)/1000,Math.sin(5.4+2*Math.PI*(t-3500)/2000)*1.10);
+    cannonSmoke[6].position.set(4.5+(Math.cos(0.25+2*Math.PI*(t-3500)/2000)+0.5)*1.2,-0.4+0.7*(t-3500)/1000,Math.sin(0.25+2*Math.PI*(t-3500)/2000)*1.2);
+    cannonSmoke[7].position.set(4.5+(Math.cos(5.1+2*Math.PI*(t-3500)/2000)+0.5)*1.05,-0.15+1.05*(t-3500)/1000,Math.sin(5.1+2*Math.PI*(t-3500)/2000)*1.05);;
+
+    cannonAnimationList[2]=true;
+  } else if(t<7500){
+    //===============
+    //Nothing happens
+    //===============
+  } else {
+    //==============================================
+    //Resets the variables and deletes the particles
+    //==============================================
+    for(var i=0;i<fuseSmoke.length;i++){
+      fuseSmoke[i].geometry.dispose();
+      fuseSmoke[i].material.dispose();
+      fuseSmoke[i]=undefined;
+    }
+    fuseSmoke=[];
+    for(var i=0;i<fuseSparks.length;i++){
+      fuseSparks[i].geometry.dispose();
+      fuseSparks[i].material.dispose();
+      fuseSparks[i]=undefined;
+    }
+    fuseSparks=[];
+
+    cannonBall.geometry.dispose();
+    cannonBall.material.dispose();
+    cannonBall=undefined;
+
+    for(var i=0;i<cannonFire.length;i++){
+      cannonFire[i].geometry.dispose();
+      cannonFire[i].material.dispose();
+      cannonFire[i]=undefined;
+    }
+    cannonFire=[];
+
+    for(var i=0;i<cannonSmoke.length;i++){
+      cannonSmoke[i].geometry.dispose();
+      cannonSmoke[i].material.dispose();
+      cannonSmoke[i]=undefined;
+    }
+    cannonSmoke=[];
+
+    cannonReady=true;
+  }
+  cannonCleaner(t,fuse,cannonBody);
+}
+
+//removes from the scene the meshes that aren't needed anymore
+function cannonCleaner(t,fuse,cannonBody){
+  if(cannonAnimationList[0]&&t>3000){
+    removeArrayFromObject(fuse,fuseSmoke);
+    removeArrayFromObject(fuse,fuseSparks);
+    cannonAnimationList[0]=false;
+  }
+  if(cannonAnimationList[1]&&t>3500){
+    removeArrayFromObject(cannonBody,cannonFire);
+    cannonAnimationList[1]=false;
+  }
+  if(cannonAnimationList[2]&&t>6500){
+    cannonBody.remove(cannonBall);
+    removeArrayFromObject(cannonBody,cannonSmoke);
+    cannonAnimationList[2]=false;
+  }
+}
+
+//adds all the objects in the array to the other object
+function addArrayToObject(object,array){
+  for(var i=0;i<array.length;i++){
+    object.add(array[i]);
+  }
+}
+
+//removes all the objects in the array from the other object
+function removeArrayFromObject(object,array){
+  for(var i=0;i<array.length;i++){
+    object.remove(array[i]);
+  }
+}
