@@ -165,7 +165,6 @@ function createBridge( height ) {
   );
 
   texture.magFilter = THREE.NearestFilter;
-  texture.minFilter = THREE.LinearMipMapLinearFilter;
 
   var pillar_texture = new THREE.TextureLoader().load("../textures/pillars_texture_16x16.png");
   var pillar_material = new THREE.MeshPhongMaterial(
@@ -255,7 +254,6 @@ function createTree(color) {
 
   trunk_texture = new THREE.TextureLoader().load("../textures/trunk_texture_256x512.png");
   trunk_texture.magFilter = THREE.NearestFilter;
-  trunk_texture.minFilter = THREE.LinearMipMapLinearFilter;
 
   var trunk_material = new THREE.MeshPhongMaterial(
     {
@@ -264,7 +262,6 @@ function createTree(color) {
   );
   var foliage_texture = new THREE.TextureLoader().load("../textures/foliage_texture_16x16.png");
   foliage_texture.magFilter = THREE.NearestFilter;
-  foliage_texture.minFilter = THREE.LinearMipMapLinearFilter;
 
   var foliage_material = new THREE.MeshPhongMaterial(
     {
@@ -419,21 +416,18 @@ function buildFlagCloth() {
 
   var flagShortTexture = new THREE.TextureLoader().load('../textures/flag/flagShort.png');
 	flagShortTexture.magFilter = THREE.NearestFilter;
-	flagShortTexture.minFilter = THREE.LinearMipMapLinearFilter;
   var flagShortMaterial = new THREE.MeshPhongMaterial( { map: flagShortTexture } );
   flagShortMaterial.castShadow=true;
   flagShortMaterial.receiveShadow=true;
 
   var flagSideTexture = new THREE.TextureLoader().load('../textures/flag/flagStripBlank.png');
 	flagSideTexture.magFilter = THREE.NearestFilter;
-	flagSideTexture.minFilter = THREE.LinearMipMapLinearFilter;
   var flagSideMaterial = new THREE.MeshPhongMaterial( { map: flagSideTexture } );
   flagSideMaterial.castShadow=true;
   flagSideMaterial.receiveShadow=true;
 
   var flagSideThinTexture = new THREE.TextureLoader().load('../textures/flag/flagStripBlankThin.png');
 	flagSideThinTexture.magFilter = THREE.NearestFilter;
-	flagSideThinTexture.minFilter = THREE.LinearMipMapLinearFilter;
   var flagSideThinMaterial = new THREE.MeshPhongMaterial( { map: flagSideThinTexture } );
   flagSideThinMaterial.castShadow=true;
   flagSideThinMaterial.receiveShadow=true;
@@ -444,7 +438,6 @@ function buildFlagCloth() {
   for(var i=1;i<=14;i++){
     flagStripTextures.push(new THREE.TextureLoader().load('../textures/flag/flagStrip'+i+'.png'));
     flagStripTextures[i-1].magFilter = THREE.NearestFilter;
-    flagStripTextures[i-1].minFilter = THREE.LinearMipMapLinearFilter;
     flagStripMaterials.push(new THREE.MeshPhongMaterial( { map: flagStripTextures[i-1] } ));
     part = new THREE.Mesh(flagShape,[flagSideThinMaterial,flagSideThinMaterial,flagShortMaterial,flagShortMaterial,flagStripMaterials[i-1],flagStripMaterials[i-1]]);
     part.position.x=i/4;
@@ -463,11 +456,9 @@ function buildPole() {
   var poleShape=new THREE.BoxGeometry(0.35,5.5,0.35);
   var poleTextureSide = new THREE.TextureLoader().load('../textures/flag/poleHeight.png');
   poleTextureSide.magFilter = THREE.NearestFilter;
-  poleTextureSide.minFilter = THREE.LinearMipMapLinearFilter;
   var poleMaterialSide = new THREE.MeshPhongMaterial( { map: poleTextureSide } );
   var poleTexturePoint = new THREE.TextureLoader().load('../textures/flag/polePoint.png');
   poleTexturePoint.magFilter = THREE.NearestFilter;
-  poleTexturePoint.minFilter = THREE.LinearMipMapLinearFilter;
   var poleMaterialPoint = new THREE.MeshPhongMaterial( { map: poleTexturePoint } );
   var pole=new THREE.Mesh(poleShape,[poleMaterialSide,poleMaterialSide,poleMaterialPoint,poleMaterialPoint,poleMaterialSide,poleMaterialSide]);
   pole.castShadow=true;
@@ -476,7 +467,6 @@ function buildPole() {
   var topBallShape=new THREE.BoxGeometry(0.5,0.5,0.5);
   var topBallTexture = new THREE.TextureLoader().load('../textures/flag/poleTop.png');
   topBallTexture.magFilter = THREE.NearestFilter;
-  topBallTexture.minFilter = THREE.LinearMipMapLinearFilter;
   var topBallMaterial = new THREE.MeshPhongMaterial( { map: topBallTexture } );
   var topBall=new THREE.Mesh(topBallShape,topBallMaterial);
   topBall.castShadow=true;
@@ -501,11 +491,9 @@ function createCoffer() {
 
   var coffer_texture = new THREE.TextureLoader().load("../textures/coffer_texture_16x16.png");
   coffer_texture.magFilter = THREE.NearestFilter;
-  coffer_texture.minFilter = THREE.LinearMipMapLinearFilter;
 
   var gold_texture = new THREE.TextureLoader().load("../textures/gold_texture_16x16.png");
   gold_texture.magFilter = THREE.NearestFilter;
-	gold_texture.minFilter = THREE.LinearMipMapLinearFilter;
 
   var coffer_material = new THREE.MeshPhongMaterial( {
     map: coffer_texture,
@@ -573,7 +561,6 @@ function createBase() {
   var water_texture = new THREE.TextureLoader().load("../textures/water2.png");
   var base_texture = new THREE.TextureLoader().load("../textures/base_texture_16x16.png");
   base_texture.magFilter = THREE.NearestFilter;
-  base_texture.minFilter = THREE.LinearMipMapLinearFilter;
 
   var base_material = new THREE.MeshPhongMaterial( {
     map: base_texture,
@@ -691,11 +678,9 @@ function buildCannonWheels() {
   var geometry=new THREE.BoxGeometry(1,1,0.25);
   var textureMain = new THREE.TextureLoader().load("../textures/cannon/wheel.png");
   textureMain.magFilter = THREE.NearestFilter;
-  textureMain.minFilter = THREE.LinearMipMapLinearFilter;
   var materialMain=new THREE.MeshPhongMaterial({map: textureMain});
   var textureSide = new THREE.TextureLoader().load("../textures/cannon/wheelSide.png");
   textureSide.magFilter = THREE.NearestFilter;
-  textureSide.minFilter = THREE.LinearMipMapLinearFilter;
   var materialSide=new THREE.MeshPhongMaterial({map: textureSide});
   var material=[materialSide,materialSide,materialSide,materialSide,materialMain,materialMain];
   for(var i=0;i<4;i++){
@@ -714,17 +699,14 @@ function buildCannonStructure(){
 
   var textureBigTopAndSides = new THREE.TextureLoader().load("../textures/cannon/structureBigTopAndSides.png");
   textureBigTopAndSides.magFilter = THREE.NearestFilter;
-  textureBigTopAndSides.minFilter = THREE.LinearMipMapLinearFilter;
   var materialBigTopAndSides=new THREE.MeshPhongMaterial({map: textureBigTopAndSides});
 
   var textureSmallTopAndSides = new THREE.TextureLoader().load("../textures/cannon/structureSmallTopAndSides.png");
   textureSmallTopAndSides.magFilter = THREE.NearestFilter;
-  textureSmallTopAndSides.minFilter = THREE.LinearMipMapLinearFilter;
   var materialSmallTopAndSides=new THREE.MeshPhongMaterial({map: textureSmallTopAndSides});
 
   var textureFront = new THREE.TextureLoader().load("../textures/cannon/structureFront.png");
   textureFront.magFilter = THREE.NearestFilter;
-  textureFront.minFilter = THREE.LinearMipMapLinearFilter;
   var materialFront=new THREE.MeshPhongMaterial({map: textureFront});
 
   var materialBig=[materialFront,materialFront,materialBigTopAndSides,materialBigTopAndSides,materialBigTopAndSides,materialBigTopAndSides];
@@ -756,37 +738,30 @@ function buildCannonBody(){
 
   var textureCannonPoint = new THREE.TextureLoader().load("../textures/cannon/cannonPoint.png");
   textureCannonPoint.magFilter = THREE.NearestFilter;
-  textureCannonPoint.minFilter = THREE.LinearMipMapLinearFilter;
   var materialCannonPoint=new THREE.MeshPhongMaterial({map: textureCannonPoint});
 
   var textureCannonBack = new THREE.TextureLoader().load("../textures/cannon/cannonBack.png");
   textureCannonBack.magFilter = THREE.NearestFilter;
-  textureCannonBack.minFilter = THREE.LinearMipMapLinearFilter;
   var materialCannonBack=new THREE.MeshPhongMaterial({map: textureCannonBack});
 
   var textureCannonSide = new THREE.TextureLoader().load("../textures/cannon/cannonSide.png");
   textureCannonSide.magFilter = THREE.NearestFilter;
-  textureCannonSide.minFilter = THREE.LinearMipMapLinearFilter;
   var materialCannonSide=new THREE.MeshPhongMaterial({map: textureCannonSide});
 
   var textureFuse = new THREE.TextureLoader().load("../textures/cannon/fuse.png");
   textureFuse.magFilter = THREE.NearestFilter;
-  textureFuse.minFilter = THREE.LinearMipMapLinearFilter;
   var materialFuse=new THREE.MeshPhongMaterial({map: textureFuse});
 
   var textureSmallSteel = new THREE.TextureLoader().load("../textures/cannon/smallSteel.png");
   textureSmallSteel.magFilter = THREE.NearestFilter;
-  textureSmallSteel.minFilter = THREE.LinearMipMapLinearFilter;
   var materialSmallSteel=new THREE.MeshPhongMaterial({map: textureSmallSteel});
 
   var textureCannonHingePoint = new THREE.TextureLoader().load("../textures/cannon/cannonHingePoint.png");
   textureCannonHingePoint.magFilter = THREE.NearestFilter;
-  textureCannonHingePoint.minFilter = THREE.LinearMipMapLinearFilter;
   var materialCannonHingePoint=new THREE.MeshPhongMaterial({map: textureCannonHingePoint});
 
   var textureCannonHingeSide = new THREE.TextureLoader().load("../textures/cannon/cannonHingeSide.png");
   textureCannonHingeSide.magFilter = THREE.NearestFilter;
-  textureCannonHingeSide.minFilter = THREE.LinearMipMapLinearFilter;
   var materialCannonHingeSide=new THREE.MeshPhongMaterial({map: textureCannonHingeSide});
 
   var main=new THREE.Mesh(mainGeometry,[materialCannonPoint,materialCannonBack,materialCannonSide,materialCannonSide,materialCannonSide,materialCannonSide]);

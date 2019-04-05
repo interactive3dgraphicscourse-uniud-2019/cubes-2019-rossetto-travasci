@@ -67,25 +67,21 @@ function createTerrain(scene, data){
 	//sand
 	var sandTexture = new THREE.TextureLoader().load('../textures/sand.png');
 	sandTexture.magFilter = THREE.NearestFilter;
-	sandTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	sandMaterial = new THREE.MeshPhongMaterial( { map: sandTexture, side: THREE.FrontSide } );
 
 	//grass
 	var grassTexture = new THREE.TextureLoader().load('../textures/grass.png');
 	grassTexture.magFilter = THREE.NearestFilter;
-	grassTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	grassMaterial = new THREE.MeshPhongMaterial( { map: grassTexture, side: THREE.FrontSide } );
 
 	//dirt
 	var dirtTexture = new THREE.TextureLoader().load('../textures/dirt.png');
 	dirtTexture.magFilter = THREE.NearestFilter;
-	dirtTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	dirtMaterial = new THREE.MeshPhongMaterial( { map: dirtTexture, side: THREE.FrontSide } );
 
 	//stone
 	var stoneTexture = new THREE.TextureLoader().load('../textures/stone.png');
 	stoneTexture.magFilter = THREE.NearestFilter;
-	stoneTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	stoneMaterial = new THREE.MeshPhongMaterial( { map: stoneTexture, side: THREE.FrontSide } );
 
 	//create the different blocks of grassSide
@@ -287,13 +283,11 @@ function createGrass(){
 	//grass (top)
 	var grassTexture = new THREE.TextureLoader().load('../textures/grass.png');
 	grassTexture.magFilter = THREE.NearestFilter;
-	grassTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	var grassMaterial = new THREE.MeshPhongMaterial( { map: grassTexture } );
 
 	//grass (side)
 	var grassSideTexture = new THREE.TextureLoader().load('../textures/grassSide.png');
 	grassSideTexture.magFilter = THREE.NearestFilter;
-	grassSideTexture.minFilter = THREE.LinearMipMapLinearFilter;
 	var grassSideMaterial = new THREE.MeshPhongMaterial( { map: grassSideTexture } );
 
 	grassMaterialSimple.push(grassSideMaterial, grassSideMaterial,grassMaterial,dirtMaterial,grassSideMaterial,grassSideMaterial);
@@ -320,7 +314,6 @@ function addClouds(size){
 		var cloudGeometry=new THREE.PlaneGeometry(size*48,size*48);
 		cloudTexture= new THREE.TextureLoader().load('../textures/clouds.png',function(){cloudReady=true;cloudOldTime=Date.now();});
 		cloudTexture.magFilter = THREE.NearestFilter;
-		cloudTexture.minFilter = THREE.LinearMipMapLinearFilter;
 		cloudTexture.repeat.set(0.25, 1);
 		cloudTexture.wrapS = cloudTexture.wrapT = THREE.MirroredRepeatWrapping;
 		var cloudMaterial = new THREE.MeshPhongMaterial( { map: cloudTexture, transparent: true, opacity: 0.7, side: THREE.DoubleSide } );
