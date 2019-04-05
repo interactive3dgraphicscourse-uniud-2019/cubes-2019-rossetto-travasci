@@ -141,7 +141,7 @@ function openCoffer(coffer, duration, time, time_i) {
       t = duration - t;
     }
 
-    pointer.rotation.x = -80 * Math.PI/180 * t/duration;
+    pointer.rotation.x = -80 * Math.PI/180 * t/(duration/2);
 
     if(delta >= duration) canOpenCoffer = false;
   }
