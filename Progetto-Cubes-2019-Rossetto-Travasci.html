@@ -31,12 +31,17 @@
 		function uniKeyCode(event) {
 				key = event.keyCode;
 				switch(key) {
-					case 79: resetCofferTrigger(); CofferTrigger(); 
+					case 79:
+						resetCofferTrigger();
+						CofferTrigger();
+						break;
 				}
 		}
 
 		var scene, camera, renderer, controls, stats, time;
-		var redButterfly, purpleButterfly, flag, fish, bridge, coffer,cannon;
+		var redButterfly, purpleButterfly, flag, fish, bridge, coffer, cannon, cannonAudio,fuseAudio;
+		var canPlayFuseAudio=false;
+		var canPlayCannonAudio=false;
 
 		function Start() {
 			scene = new THREE.Scene();

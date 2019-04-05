@@ -657,6 +657,15 @@ function buildCannon(){
   body.rotation.z=11*Math.PI/180;
   body.rotation.y=180*Math.PI/180;
   body.scale.multiplyScalar(0.85);
+
+  //loads the audio files for the animation
+  fuseAudio = new Audio('../audioFiles/140715__j1987__fuse2.wav');
+  fuseAudio.volume=0.5;
+  fuseAudio.oncanplaythrough=function() {canPlayFuseAudio=true;};
+  cannonAudio = new Audio('../audioFiles/184650__isaac200000__cannon1.wav');
+  cannonAudio.volume=0.5;
+  cannonAudio.oncanplaythrough=function() {canPlayCannonAudio=true;};
+
   return cannon;
 }
 
