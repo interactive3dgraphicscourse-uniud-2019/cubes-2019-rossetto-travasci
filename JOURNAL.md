@@ -298,3 +298,13 @@ Sono stati apportati vari miglioramenti alle nuvole:
 Completata l'animazione di apertura del forziere. Premendo il tasto `O` si aprirà e si chiuderà automaticamente, al completamento sarà possibile riaprirlo con lo stesso tasto.
 
 - Eric Rossetto
+
+## Aggiunta foresta
+
+```5.04.2019 - 00:58```
+
+Aggiunti gli alberi in modo da crearne una foresta.
+
+![Forest](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/forest_example.png)
+
+-Eric Rossetto
