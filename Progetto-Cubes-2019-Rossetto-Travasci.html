@@ -17,7 +17,7 @@
 
 		</style>
 	</head>
-		<body onkeydown="uniKeyCode(event)">
+	<body onkeydown="uniKeyCode(event)">
 		<script src="lib/three.min.js"></script>
 		<script src="lib/stats.min.js"></script>
 		<script src="lib/Coordinates.js"></script>
@@ -26,6 +26,7 @@
 		<script src="scripts/lights.js"></script>
 		<script src="scripts/builders.js"></script>
 		<script src="scripts/animations.js"></script>
+		<script src="scripts/statue.js"></script>
 		<script>
 
 		function uniKeyCode(event) {
@@ -41,7 +42,7 @@
 		}
 
 		var scene, camera, renderer, controls, stats, time;
-		var redButterfly, purpleButterfly, flag, fish, bridge, coffer, cannon, forest, cannonAudio,fuseAudio;
+		var redButterfly, purpleButterfly, flag, fish, bridge, coffer, cannon, cannonAudio,fuseAudio, statue, forest;
 		var canPlayFuseAudio=false;
 		var canPlayCannonAudio=false;
 
@@ -127,7 +128,7 @@
 			forest[10].scale.divideScalar(2.3);
 			forest[11].position.set(-2.5, 1.5, 7.8);
 			forest[11].scale.divideScalar(2.1);
-			
+
 			for(var i=0; i<12; ++i) {
 				scene.add(forest[i]);
 			}
@@ -215,6 +216,12 @@
 			cannon.scale.multiplyScalar(0.23);
 			cannon.position.set(6.8,1.7,5.3);
 			cannon.rotation.y=55*Math.PI/180;
+
+			//statue
+			statue=buildStatue();
+			scene.add(statue);
+			statue.position.set(-4,2.5,-4);
+			statue.rotation.y=20*Math.PI/180;
 		}
 
 		function Update() {
@@ -232,6 +239,7 @@
 			animateButterfly(redButterfly,time,-0.5,2.3,1.5,15000,1500,1.5,0.17,4,true);
 			animateButterfly(purpleButterfly,time,6,1.9,4,20000,2500,2,0.25,3,false);
 			animateFlag(flag,time,5000);
+			animateStatue(statue,time);
 
 			animateFish(fish[0], time, 20000, 0, 0, 0, 2, 1 );
 			animateFish2(fish[1], time, 7000, 9.5, -0.7, -7.2, 1.4);
