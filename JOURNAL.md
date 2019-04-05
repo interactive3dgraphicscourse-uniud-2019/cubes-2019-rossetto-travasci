@@ -301,10 +301,20 @@ Completata l'animazione di apertura del forziere. Premendo il tasto `O` si aprir
 
 ## Aggiunta foresta
 
-```5.04.2019 - 00:58```
+```5.04.2019 - 11:38```
 
 Aggiunti gli alberi in modo da crearne una foresta.
 
 ![Forest](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/forest_example.png)
 
--Eric Rossetto
+- Eric Rossetto
+
+## Aggiunta statua "magica"
+
+```5.04.2019 - 12:09```
+
+Completato il codice per la creazione e l'animazione di una statua e realizzate le relative texture. Periodicamente gli occhi della statua si illuminano e lampeggiano.
+
+![Statue](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Statue.png)
+
+- Stefano Travasci
