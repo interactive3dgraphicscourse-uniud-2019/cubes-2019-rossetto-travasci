@@ -140,10 +140,31 @@ function openCoffer(coffer, duration, time, time_i) {
     if( t > duration/2 ) {
       t = duration - t;
     }
-    
+
     pointer.position.y = -0.6 * t/duration;
     pointer.rotation.x = -80 * Math.PI/180 * t/duration;
 
     if(delta >= duration) canOpenCoffer = false;
+  }
+}
+
+//animates the eyes of the statue by changing its texture
+function animateStatue(statue,time){
+  var t=time%24850;
+  if(t>12425){
+    t=24850-t;
+  }
+  if(t<10000){
+    statueMaterial[4]=statueFaces[0];
+  }else if(t<11500){
+    statueMaterial[4]=statueFaces[Math.floor((t-10000)/250)+1];
+  }else if(t<11750){
+    statueMaterial[4]=statueFaces[5];
+  }else if(t<12000){
+    statueMaterial[4]=statueFaces[6];
+  }else if(t<12250){
+    statueMaterial[4]=statueFaces[5];
+  }else{
+    statueMaterial[4]=statueFaces[6];
   }
 }
