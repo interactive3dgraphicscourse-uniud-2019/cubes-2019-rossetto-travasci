@@ -40,11 +40,16 @@
 					case 70:
 						shootCannon(cannon);
 						break;
+						case 80:
+							playPauseAmbientSound();
+							break;
 				}
 		}
 
 		var scene, camera, renderer, controls, stats, time;
-		var redButterfly, purpleButterfly, flag, fish, bridge, coffer, cannon, cannonAudio,fuseAudio, statue, forest;
+		var redButterfly, purpleButterfly, flag, fish, bridge, coffer, cannon, cannonAudio,fuseAudio, statue, forest,ambientSound;
+		var ambientSoundInitialized=false;
+		var playingAmbient=false;
 		var canPlayFuseAudio=false;
 		var canPlayCannonAudio=false;
 		var cannonReady=true;
@@ -90,6 +95,7 @@
 			fogColor = new THREE.Color(0xbce7ff);
 			scene.background = fogColor;
 			scene.fog = new THREE.Fog(fogColor, 200, 400);
+
 		}
 
 		function addObjects(){
@@ -253,6 +259,21 @@
 
 			animateClouds(time,2);
 			openCoffer(coffer, 20000, time, time_i);
+		}
+
+		function playPauseAmbientSound(){
+			if(!ambientSoundInitialized){
+				ambientSound=new Audio('audioFiles/451743__richwise__tropical-island.mp3');
+				ambientSound.volume=0.2;
+				ambientSound.loop=true;
+				ambientSoundInitialized=true;
+			}
+			if(playingAmbient){
+				ambientSound.pause();
+			}else{
+				ambientSound.play();
+			}
+			playingAmbient=!playingAmbient;
 		}
 
 		Start();
