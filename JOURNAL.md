@@ -363,3 +363,13 @@ Per migliorare le prestazioni del terreno, ovvero ridurre l'impatto nelle presta
 Inoltre, gli oggetti identici presenti nella scena sono ora ottenuti clonando una singola mesh.
 
 - Stefano Travasci
+
+## Completato ciclo giorno notte
+
+```6.04.2019 - 01:55```
+
+Completato il ciclo giorno notte, correggendo alcuni problemi ed introducendo un effetto di disolvenza tra colori al passaggio tra un momento e l'altro della giornata.
+
+![DayNightCyle](https://github.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/blob/master/screenshots/DayNightCyle.png)
+
+- Stefano Travasci
