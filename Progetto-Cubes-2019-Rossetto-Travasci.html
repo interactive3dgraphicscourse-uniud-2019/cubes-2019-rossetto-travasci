@@ -16,9 +16,26 @@
 			height: 100%;
 		}
 
+		#overlay{
+			background: rgb(230, 230, 230, 0.6);
+			position: absolute;
+			padding: 1.3em;
+			padding-top: 1.2em;
+			font-size: 1.45em;
+			top: 1em;
+			right: 1em;
+		}
+
 		</style>
 	</head>
 	<body onkeydown="uniKeyCode(event)">
+		<div id="overlay">
+			Press O to open the treasure chest</br>
+			Press F to shoot the cannon</br>
+			Press P to play or pause the ambient sounds</br>
+			Press N to start or stop the day/night cycle</br>
+			Press ESC to hide this overlay</br>
+		</div>
 		<script src="lib/three.min.js"></script>
 		<script src="lib/stats.min.js"></script>
 		<script src="lib/Coordinates.js"></script>
@@ -31,6 +48,7 @@
 
 		function uniKeyCode(event) {
 				key = event.keyCode;
+				//console.log(key);
 				switch(key) {
 					case 79:		// O
 						if( !canOpenCoffer ) {
@@ -49,6 +67,13 @@
 					case 78:		// N
 						playPauseDNCycle();
 						break;
+					case 27:
+						if(showOverlay){
+							document.getElementById("overlay").style.visibility = "hidden";
+						}else{
+							document.getElementById("overlay").style.visibility = "visible";
+						}
+						showOverlay=!showOverlay;
 				}
 		}
 
@@ -64,6 +89,8 @@
 		var canPlayOpenCofferAudio = false;
 		var canPlayCloseCofferAudio = false;
 		var time_i;
+
+		var showOverlay=true;
 
 		var openAudio = new Audio('../audioFiles/202092__spookymodem__chest-opening.wav');
 		var closeAudio = new Audio('../audioFiles/261462__tntdude7__chest-slam.wav');

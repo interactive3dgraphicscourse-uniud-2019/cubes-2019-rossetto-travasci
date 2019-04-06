@@ -478,7 +478,12 @@ function buildPole() {
   return poleComplete;
 }
 
+var openAudio;
+var closeAudio;
+
 function createCoffer() {
+  openAudio = new Audio('../audioFiles/202092__spookymodem__chest-opening.wav');
+  closeAudio = new Audio('../audioFiles/261462__tntdude7__chest-slam.wav');
 
   var base = createBase();
 
