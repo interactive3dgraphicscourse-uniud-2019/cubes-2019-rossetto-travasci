@@ -295,7 +295,7 @@ Sono stati apportati vari miglioramenti alle nuvole:
 
 ```5.04.2019 - 00:58```
 
-Completata l'animazione di apertura del forziere. Premendo il tasto `O` si aprirà e si chiuderà automaticamente, al completamento sarà possibile riaprirlo con lo stesso tasto.
+Completata l'animazione di apertura del forziere. Premendo il tasto 'O' si aprirà e si chiuderà automaticamente, al completamento sarà possibile riaprirlo con lo stesso tasto.
 
 - Eric Rossetto
 
@@ -323,7 +323,7 @@ Completato il codice per la creazione e l'animazione di una statua e realizzate 
 
 ```5.04.2019 - 20:11```
 
-Completate le animazioni del cannone. Per attivarle è sufficiente premere il tasto `F` sulla tastiera. All'inizio della animazione la miccia del cannone comincerà a fumare, poi il colpo esploderà fuori dal cannone e quindi si alzerà una colonna di fumo dalla bocca del cannone. L'animazione è accompagnata da effetti sonori per la miccia che brucia e l'esplosione del colpo.
+Completate le animazioni del cannone. Per attivarle è sufficiente premere il tasto 'F' sulla tastiera. All'inizio della animazione la miccia del cannone comincerà a fumare, poi il colpo esploderà fuori dal cannone e quindi si alzerà una colonna di fumo dalla bocca del cannone. L'animazione è accompagnata da effetti sonori per la miccia che brucia e l'esplosione del colpo.
 
 ![CannonAnimated](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/CannonAnimation.png)
 
@@ -333,7 +333,7 @@ Completate le animazioni del cannone. Per attivarle è sufficiente premere il ta
 
 ```5.04.2019 - 21:54```
 
-Tramite la pressione del tasto `P` della tastiera è possibile attivare dei suoni di sottofondo. Successive pressioni dello stesso pulsante metteranno in pausa o faranno ripartire l'audio.
+Tramite la pressione del tasto 'P' della tastiera è possibile attivare dei suoni di sottofondo. Successive pressioni dello stesso pulsante metteranno in pausa o faranno ripartire l'audio.
 
 - Stefano Travasci
 
@@ -344,3 +344,13 @@ Tramite la pressione del tasto `P` della tastiera è possibile attivare dei suon
 Aggiunta la possibilità di ottenere l'effetto del ciclo giorno/notte (approssimato). E' disattivabile attravrso la pressione del tasto `N`.
 
 - Eric Rossetto
+
+## Aggiunto overlay
+
+```6.04.2019 - 22:22```
+
+Aggiunto un overlay che mostra le funzioni associate a certi pulsanti della tastiera. È possibile nascondere o mostrare nuovamente l'overlay premendo il tasto 'ESC'.
+
+![Overlay](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Overlay.png)
+
+- Stefano Travasci
