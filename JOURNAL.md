@@ -354,3 +354,12 @@ Aggiunto un overlay che mostra le funzioni associate a certi pulsanti della tast
 ![Overlay](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Overlay.png)
 
 - Stefano Travasci
+
+## Miglioramento prestazioni del terreno
+
+```6.04.2019 - 23:21```
+
+Per migliorare le prestazioni del terreno, ovvero ridurre l'impatto nelle prestazioni dovuto alla sua presenza, ora non viene più creata una nuova mesh per ogni blocco presente in esso, ma vengono clonati (`mesh.clone()`) blocchi preesistenti.
+Inoltre, gli oggetti identici presenti nella scena sono ora ottenuti clonando una singola mesh.
+
+- Stefano Travasci
