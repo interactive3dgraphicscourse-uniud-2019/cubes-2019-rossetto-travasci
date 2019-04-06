@@ -149,14 +149,12 @@ function daynight(time) {
               changeFog=true;
             }
         }
-        console.log(changeFog);
         color=new THREE.Color("rgb("+r+", "+g+", "+b+")");
         scene.background = color;
         if(changeFog){
           scene.fog.color=color;
     			renderer.setClearColor( color );
         }
-        if(lastMoment==-1)alert("!");
     }
 }
 
