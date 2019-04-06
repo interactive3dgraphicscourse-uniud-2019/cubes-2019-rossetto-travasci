@@ -139,14 +139,14 @@
 			forest.push(createTree(0x00a813));
 			forest.push(createTree(0x336600));
 			forest.push(createTree(0x0099ff));
-			forest.push(createTree(0x01FFFF));
-			forest.push(createTree(0x00a813));
+			forest.push(forest[0].clone());
+			forest.push(forest[1].clone());
 			forest.push(createTree(0xff9966));
 			forest.push(createTree(0x003300));
-			forest.push(createTree(0x00a813));
-			forest.push(createTree(0xff9966));
+			forest.push(forest[1].clone());
+			forest.push(forest[6].clone());
 			forest.push(createTree(0x99ffcc));
-			forest.push(createTree(0xff9966));
+			forest.push(forest[6].clone());
 			forest[0].position.set(-6.3, 1.5, 3.5);
 			forest[0].scale.divideScalar(2.6);
 			forest[1].position.set(0, 1.5, 0);
@@ -221,17 +221,17 @@
 			bridgePart.rotation.y = 90 * Math.PI/180;
 			bridgePart.scale.divideScalar(2);
 
-			bridgePart = createBridge( 4.1 );
+			bridgePart = bridgePart.clone();
 			bridge.add(bridgePart);
 			bridgePart.position.set( 3.155, -0.5, 2 );
 			bridgePart.rotation.y = 90 * Math.PI/180;
-			bridgePart.scale.divideScalar(2);
+			//bridgePart.scale.divideScalar(2);
 
-			bridgePart = createBridge( 4.1 );
+			bridgePart = bridgePart.clone();
 			bridge.add(bridgePart);
 			bridgePart.position.set( 4.565, -0.5, 2 );
 			bridgePart.rotation.y = 90 * Math.PI/180;
-			bridgePart.scale.divideScalar(2);
+			//bridgePart.scale.divideScalar(2);
 
 			bridgePart = createBridge( 5 );
 			bridge.add(bridgePart);
