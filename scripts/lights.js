@@ -16,8 +16,6 @@
 var hemiLight, dirLight;
 var hemiLight2, dirLight2;
 
-var dayColor, nightColor;
-
 function createLights() {
 
     //==========================
@@ -39,8 +37,8 @@ function createLights() {
     //dirLight.position.set( -2, 1.7, 3 );                // afternoon (?)
     dirLight.position.multiplyScalar( 40 );
 	  dirLight.castShadow = true;
-	  dirLight.shadow.mapSize.width = 4096;
-    dirLight.shadow.mapSize.height = 4096;
+	  dirLight.shadow.mapSize.width = 2048;
+    dirLight.shadow.mapSize.height = 2048;
 
     scene.add( hemiLight );
     scene.add( dirLight );
@@ -50,6 +48,11 @@ function createLights() {
     dirLight.shadow.camera.right = 15;
     dirLight.shadow.camera.top = 15;
     dirLight.shadow.camera.bottom = -15;
+
+    //fog
+    fogColor = new THREE.Color(0xbce7ff);
+    scene.background = fogColor;
+    scene.fog = new THREE.Fog(fogColor, 200, 400);
 
     //==========================================
     //The lights for the animated daynight cycle
@@ -80,70 +83,80 @@ function createLights() {
     dirLight2.shadow.camera.far = 3500;
     dirLight2.shadow.bias = -0.000001;
 
-    dayColor = new THREE.Color(0xbce7ff);
-    nightColor = new THREE.Color(0x252850);
-
 }
 
-var backColor = new THREE.Color(0xbce7ff);
+var lastMoment=-1;
 function daynight(time) {
 
     if( canPlayCycle ) {
-        var t = time * 0.0001;
-        var x = Math.sin(t);
+        var t = time/10000;
+        var z = Math.sin(t);
         var y = Math.cos(t);
-
-        dirLight2.position.set( x, x, y);
+        var r,g,b;
+        var changeFog=false;
+        dirLight2.position.set( -1, y, z);
         dirLight2.position.multiplyScalar(50);
-        scene.background = new THREE.Color(0xbce7ff);
-        var background = scene.background;
-
-        if( x > 0.2 ) {
+        if( y > 0.4 ) {
             // DAY
             dirLight2.intensity = 1;
             dirLight2.shadow.darkness = 0.7;
             dirLight2.castShadow = true;
-            if( nightColor <= dayColor ) {
-                r = 151/360;
-                g = 201/360;
-                b = 175/360;
-            } else {
-                r = 0;
-                g = 0;
-                b = 0;
+            r = 188;
+            g = 231;
+            b = 255;
+            if(lastMoment!=0){
+              lastMoment=0;
+              changeFog=true;
             }
-            scene.background += scene.background.add(r, g, b);
-        } else if( x < 0.2 && x > 0 ) {
-            v = x / 0.2;
+        } else if( y < 0.4 && y > -0.4 ) {//dusk and dawn
+            v = (y+0.4) / 0.8;
             dirLight2.intensity = v;
             dirLight2.shadow.darkness = v * 0.7;
             dirLight2.castShadow = true;
-            if( nightColor <= dayColor ) {
-                r = 151/360;
-                g = 201/360;
-                b = 175/360;
-            } else {
-                r = 0;
-                g = 0;
-                b = 0;
+            var p;
+            if(y<-0.1){//dusk
+              p=(y+0.4)/0.3;
+              r = Math.floor(255*p)+Math.floor(42*(1-p));
+              g = Math.floor(168*p)+Math.floor(43*(1-p));
+              b = Math.floor(28*p)+Math.floor(45*(1-p));
+              changeFog=true;
+            }else if(y<0.1){
+              if(lastMoment!=1){
+                lastMoment=1;
+                changeFog=true;
+              }
+              r = 255;
+              g = 168;
+              b = 28;
+            }else{//dawn
+              p=1-(y-0.1)/0.3;
+              r = Math.floor(255*p)+Math.floor(188*(1-p));
+              g = Math.floor(168*p)+Math.floor(231*(1-p));
+              b = Math.floor(28*p)+Math.floor(255*(1-p));
+              changeFog=true;
             }
-            scene.background += scene.background.add(r, g, b);
+
         } else {
             // NIGHT
             dirLight2.intensity = 0.1;
             dirLight2.shadow.darkness = 0.7;
             dirLight2.castShadow = false;
-            if( dayColor >= nightColor ) {
-                r = -151/360;
-                g = -201/360;
-                b = -175/360;
-            } else {
-                r = 0;
-                g = 0;
-                b = 0;
+            r = 42;
+            g = 43;
+            b = 45;
+            if(lastMoment!=2){
+              lastMoment=2;
+              changeFog=true;
             }
-
         }
+        console.log(changeFog);
+        color=new THREE.Color("rgb("+r+", "+g+", "+b+")");
+        scene.background = color;
+        if(changeFog){
+          scene.fog.color=color;
+    			renderer.setClearColor( color );
+        }
+        if(lastMoment==-1)alert("!");
     }
 }
 
@@ -153,11 +166,15 @@ function switchLight(){
     scene.add( dirLight );
     scene.remove( hemiLight2 );
     scene.remove( dirLight2 );
-    scene.background = new THREE.Color(0xbce7ff);
+    var color=new THREE.Color(0xbce7ff);
+    scene.background = color;
+    scene.fog.color = color;
+    renderer.setClearColor( color );
   }else{
     scene.add( hemiLight2 );
     scene.add( dirLight2 );
     scene.remove( hemiLight );
     scene.remove( dirLight );
+    lastMoment=-1;
   }
 }
