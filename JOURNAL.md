@@ -341,7 +341,7 @@ Tramite la pressione del tasto 'P' della tastiera è possibile attivare dei suon
 
 ```5.04.2019 - 22:03```
 
-Aggiunta la possibilità di ottenere l'effetto del ciclo giorno/notte (approssimato). E' disattivabile attravrso la pressione del tasto `N`.
+Aggiunta la possibilità di ottenere l'effetto del ciclo giorno/notte (approssimato). E' disattivabile attravrso la pressione del tasto 'N'.
 
 - Eric Rossetto
 
