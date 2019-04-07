@@ -128,7 +128,7 @@ Un overlay che mostra i tasti della tastiera da premere per effettuare certe azi
 
 Le feature da sviluppare individuate all'inizio dei lavori sono state divise in tre gruppi con crescenti priorità, in modo da distinguere le feature che rappresentavano le basi fondanti del progetto, quelle che pur essendo meno importanti dovevano essere comunque obbligatoriamente completate e quelle di minore importanza che non erano strettamente necessarie. In corso d'opera ci sono stati vari ridimensionamenti e aggiunte, come ad esempio il cannone e il forziere, in modo da rispecchiare la nostra volontà sull'obiettivo finale del progetto.
 
-La modellazione degli oggetti è stata fatta usando solo i metodi fornitoci dalla libreria di three.js, senza l'uso di strumenti esterni. Le texture sono state tutte personalmente da noi utilizzando un *raster graphic editor* (Paint per Windows e Pinta per Ubuntu). 
+La modellazione degli oggetti è stata fatta usando solo i metodi fornitoci dalla libreria di three.js, senza l'uso di strumenti esterni. Le texture sono state realizzate tutte personalmente da noi utilizzando un *raster graphic editor* (Paint per Windows e Pinta per Ubuntu). 
 
 Nel progetto sono stati utilizzati i seguenti suoni, tutti provvisti di una licenza Creative Commons 0.
 
