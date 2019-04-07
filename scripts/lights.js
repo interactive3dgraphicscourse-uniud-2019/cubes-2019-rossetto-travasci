@@ -98,9 +98,6 @@ function daynight(time) {
         dirLight2.position.multiplyScalar(50);
         if( y > 0.4 ) {
             // DAY
-            dirLight2.intensity = 1;
-            dirLight2.shadow.darkness = 0.7;
-            dirLight2.castShadow = true;
             r = 188;
             g = 231;
             b = 255;
@@ -108,6 +105,9 @@ function daynight(time) {
               lastMoment=0;
               changeFog=true;
               hemiLight2.intensity=0.6;
+              dirLight2.intensity = 1;
+              dirLight2.shadow.darkness = 0.7;
+              dirLight2.castShadow = true;
             }
         } else if( y < 0.4 && y > -0.4 ) {//dusk and dawn
             v = (y+0.4) / 0.8;
@@ -118,9 +118,9 @@ function daynight(time) {
             var p;
             if(y<-0.1){//dusk
               p=(y+0.4)/0.3;
-              r = Math.floor(255*p)+Math.floor(42*(1-p));
-              g = Math.floor(168*p)+Math.floor(43*(1-p));
-              b = Math.floor(28*p)+Math.floor(45*(1-p));
+              r = Math.floor(255*p+42*(1-p));
+              g = Math.floor(168*p+43*(1-p));
+              b = Math.floor(28*p+45*(1-p));
               changeFog=true;
             }else if(y<0.1){
               if(lastMoment!=1){
@@ -132,17 +132,14 @@ function daynight(time) {
               b = 28;
             }else{//dawn
               p=1-(y-0.1)/0.3;
-              r = Math.floor(255*p)+Math.floor(188*(1-p));
-              g = Math.floor(168*p)+Math.floor(231*(1-p));
-              b = Math.floor(28*p)+Math.floor(255*(1-p));
+              r = Math.floor(255*p+188*(1-p));
+              g = Math.floor(168*p+231*(1-p));
+              b = Math.floor(28*p+255*(1-p));
               changeFog=true;
             }
 
         } else {
             // NIGHT
-            dirLight2.intensity = 0;
-            dirLight2.shadow.darkness = 0.7;
-            dirLight2.castShadow = false;
             r = 42;
             g = 43;
             b = 45;
@@ -150,6 +147,9 @@ function daynight(time) {
               lastMoment=2;
               changeFog=true;
               hemiLight2.intensity=0.1;
+              dirLight2.intensity = 0;
+              dirLight2.shadow.darkness = 0.7;
+              dirLight2.castShadow = false;
             }
         }
         color=new THREE.Color("rgb("+r+", "+g+", "+b+")");
