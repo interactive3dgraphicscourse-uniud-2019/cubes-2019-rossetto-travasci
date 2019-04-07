@@ -24,76 +24,79 @@ Il mare, parte integrante del terreno, è un parallelepipedo con base di dimensi
 ---
 
 ## Fish
-Il costruttore `buildFish(color)` ritorna una mesh di un pesce del colore fornito in input. 
+Il costruttore `buildFish(color)` ritorna un Object3D di un pesce del colore fornito in input. 
 
 ![fish](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/fishes_example.png)
 
-Chiamando il metodo questi si muoveranno tracciando cerchi oppure "8" sul piano XZ di un raggio e durata complessiva specificati nell'input della funzione. Il pesce inoltre muoverà la coda rotando di pochi gradi attorno y per dare la sensazione che questo stia nuotando.
+A seconda del tipo di animazione scelta, il pesce si muoverà su un tracciato a forma di cerchio oppure di "8". Il pesce inoltre muoverà la coda a destra e a sinistra per dare l'impressione che stia nuotando.
 
 ---
 
 ## Bridge
-Il costruttore `buildBridge(height)` ritorna una mesh di una sezione di ponte di altezza `height`. 
+Il costruttore `buildBridge(height)` ritorna un Object3D di una sezione di ponte di altezza `height`. 
 
 ![bridge](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/bridge_example.png)
 
 ---
 
 ## Tree
-Il costruttore `buildTree(color)` ritorna una mesh di un albero del colore fornito in input. 
+Un albero, creato utilizzando il costruttore `buildTree(color)`. Al momento della sua creazione è possibile sceglierne il colore. 
 
 ![tree](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/tree_example.png)
+
+Nel terreno sono stati aggiunti diversi alberi. Gli alberi uguali sono stati ottenuti clonando una stessa mesh, invece di crearne di separate. Quindi, per averli di dimensioni diverse, sono state applicate diverse scalature.
 
 ---
 
 ## Butterfly
-Il costruttore `buildButterfly(color)` ritorna una mesh di una farfalla del colore fornito in input. 
+Una farfalla, creata utilizzando il costruttore `buildButterfly(color)`. Nel momento della sua creazione è possibile scegliere il colore dele sue ali.
 
 ![butterfly](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Butterflies.png)
 
-Chiamando il metodo queste si muoveranno tracciando una traiettoria ellittica su XZ mentre disegneranno una traiettoria sinusoidale su Y. Inoltre queste muoveranno le ali rotando attorno al loro busto per rendere l'animazione del volo.
+Quando animate, si muoveranno su un tracciato ellittico, sbattendo le ali e ondeggiando in alto ed in basso durante lo spostamento.
 
 ---
 
 ## Pirate Flag
-Il costruttore `buildPirateFlag()` ritorna una mesh di un bandiera dei pirati. 
+Una bandiera dei pirati, creata utilizzando il costruttore `buildPirateFlag()`. 
 
 ![pirateflag](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/PirateFlag.png)
 
-Per rendere il tessuto animato lo si è fatto costituire da diversi parallelepipedi. Ognuno di questi descrive un'animazione sinusoidale su Y e X con diversi istanti di partenza.
+Per rendere creare una animazione della bandiera che sventola, il tessuto è stato scomposto in diversi parallelepipedi. Ognuno di questi descrive un'animazione sinusoidale su Y e X con diversi istanti di partenza.
 
 ---
 
 ## Treasure Coffer 
-Il costruttore `buildCoffer()` ritorna una mesh di un forziere. 
+Un forziere, creato utilizzando il costruttore `buildCoffer()`. 
 
 ![coffer](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/coffer_example.png)
 
-Al premere del tasto `O` il forziere si aprirà ruotando attorno alle cerniere mostrando il suo interno ed emettendo un rumore all'apertura e alla chiusura.
+Alla pressione del tasto `O` il forziere si aprirà ruotando attorno alle cerniere in modo da mostrare il suo contenuto. Nel far questo emetterà un rumore all'apertura e alla chiusura.
 
 ---
 
 ## Cannon
-Il costruttore `buildCannon()` ritorna una mesh di un cannone. 
+Un cannone, creato utilizzando il costruttore `buildCannon()`. 
 
 ![cannon](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedCannon.png)
 
-Al premere del tasto `F` la miccia si "accenderà" emettendo un particolare suono e generando diverse particelle che andranno a rappresentare la scintilla. Dopo un lasso di tempo prefissato il cannone "sparerà" un blocco (cannonball). Dopo lo sparo, un certo numero di particelle andranno a rappresentare il fumo dovuto allo sparo.
+Alla pressione del tasto `F` la miccia si "accenderà", ovverò emetterà un suono e genererà dfumo e scintille. Dopo qualche secondo il cannone "sparerà" una palla di cannone. Dopo lo sparo, una piccola colonna di fumo si alzerà dalla bocca del cannone.
 
 ---
 
 ## Magic Statue 
-Il costruttore `buildStatue()` ritorna una mesh di una statua. 
+Una statua magica, creata utilizzando il costruttore `buildStatue()`. 
 
 ![statue](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Statue.png)
 
-La statua possiede un'animazione che fa lampeggiare gli occhi.
+Attraverso l'alternanza di molteplici texture, è stata creata una animazione grazie alla quali gli occhi della statua sembrano lampeggiare.
 
 ---
 
 ## Clouds
 
-Sono state aggiunte delle nuvole animate che si muovono in continuazione nel cielo. Per rendere più morbida la transizione e dare l'effetto di allontanamento delle nuvole è stata aggiunta una nebbia alla scena.
+Delle nuvole animate che si muovono in continuazione nel cielo. Per nascondere il confine del piano su cui appaiono le nuvole è stata aggiunta una nebbia alla scena.  
+Il codice deputato alla creazione ed animazione delle nuvole si trova all'interno di `terrainBuilder.js`. L'animazione, in particolare, funziona incrementando continuamente l'offset della texture delle nuvole.
 
 ![clouds](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/clouds_example.png)
 
@@ -101,12 +104,18 @@ Sono state aggiunte delle nuvole animate che si muovono in continuazione nel cie
 
 ## Day/night cycle
 
-Tramite la pressione del tasto `N` è possibile simulare un ciclo giorno/notte attivando un'animazione che sposta e cambia l'intensità della DirectionalLight su una circonferenza tutto attorno alla scena. Per migliorare la resa della luce nelle fasi intermedie (alba e tramonto) si sposta anche la HemisphereLight. Lo sfondo reagisce anch'esso al cambiamento cambiando colore in base alla percentuale di animazione a cui arrivato. Alla successiva pressione del tasto la luce torna nella sua posizione scenica di default.
+Tramite la pressione del tasto `N` è possibile simulare un ciclo giorno/notte attivando un'animazione che sposta la DirectionalLight e ne cambia l'intensità. Anche l'intensità della HemisphereLight viene modificata durante il corso della giornata simulata. Lo sfondo reagisce anch'esso al cambiamento cambiando colore gradualmente in base alla percentuale di animazione a cui si è arrivati. Alla successiva pressione del tasto la luce torna nella sua posizione di default.
 
 --- 
 
-## Calm Sounds 
+## Ambient Sounds 
 
-Tramite la pressione del tasto `P` è possibile attivare i suoni ambientali, utili a creare atmosfera.
+Tramite la pressione del tasto `P` è possibile attivare dei suoni ambientali di sottofondo, utili a creare atmosfera.
+
+---
+
+## Overlay
+
+Un overlay che mostra i tasti della tastiera da premere per effettuare certe azioni. Nascondibile premendo il tasto `Esc`.
 
 # Credits
