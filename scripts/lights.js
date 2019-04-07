@@ -107,12 +107,14 @@ function daynight(time) {
             if(lastMoment!=0){
               lastMoment=0;
               changeFog=true;
+              hemiLight2.intensity=0.6;
             }
         } else if( y < 0.4 && y > -0.4 ) {//dusk and dawn
             v = (y+0.4) / 0.8;
             dirLight2.intensity = v;
             dirLight2.shadow.darkness = v * 0.7;
             dirLight2.castShadow = true;
+            hemiLight2.intensity=v*0.5+0.1;
             var p;
             if(y<-0.1){//dusk
               p=(y+0.4)/0.3;
@@ -138,7 +140,7 @@ function daynight(time) {
 
         } else {
             // NIGHT
-            dirLight2.intensity = 0.1;
+            dirLight2.intensity = 0;
             dirLight2.shadow.darkness = 0.7;
             dirLight2.castShadow = false;
             r = 42;
@@ -147,6 +149,7 @@ function daynight(time) {
             if(lastMoment!=2){
               lastMoment=2;
               changeFog=true;
+              hemiLight2.intensity=0.1;
             }
         }
         color=new THREE.Color("rgb("+r+", "+g+", "+b+")");
