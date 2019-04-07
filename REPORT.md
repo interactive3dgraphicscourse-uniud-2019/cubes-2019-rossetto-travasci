@@ -11,6 +11,9 @@ La cartella `textures` contiene tutte le textures e la heightmap.
 
 Lo spostamento all'interno della scena è gestito dai controlli definiti in `OrbitControls.js`.
 
+Il progetto è stato inizialmente diviso in un certo numero di features di diversa priorità in modo da organizzare al meglio il lavoro. In corso d'opera ci sono stati ridimensionamenti e aggiunte, si veda il cannone e il forziere ad esempio, in modo da rispecchiare la nostra volontà sull'obiettivo finale del progetto. 
+
+La modellazione degli oggetti è stata fatta usando solo i metodi fornitoci dalla libreria di three.js e le texture sono state tutte create a mano utilizzando un *raster graphic editor* (Paint per Windows o Pinta per Ubuntu). 
 # Features
 
 ### Terrain
