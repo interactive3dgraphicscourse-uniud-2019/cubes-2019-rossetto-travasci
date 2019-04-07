@@ -11,7 +11,7 @@ La cartella `textures` contiene tutte le textures e la heightmap.
 
 # Features
 
-## Terrain
+### Terrain
 
 Il terreno viene costruito dalla funzione `buildTerrain()` all'interno di `terrainBuilder.js`. Questa funzione utilizza l'immagine `heightmapIsland.png`, che non è altro che una heightmap, per posizionare i blocchi del terreno alla giusta altezza. Ogni pixel della heightmap rappresenta un blocco di lato 0.5, ovvero mezzo metro nella nostra convenzione.  
 Solo i blocchi visibili del terreno vengono creati, ovvero i blocchi che si trovano in superficie e quelli che fanno parte di pareti verticali esposte. Ai confini del terreno, inoltre, un muro verticale di blocchi arriva fino all'altezza del punto più basso del terreno, in modo da far sembrare compatto il terreno quando visto dai lati.  
@@ -23,7 +23,7 @@ Il mare, parte integrante del terreno, è un parallelepipedo con base di dimensi
 
 ---
 
-## Fish
+### Fish
 Il costruttore `buildFish(color)` ritorna un Object3D di un pesce del colore fornito in input. 
 
 ![fish](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/fishes_example.png)
@@ -32,14 +32,14 @@ A seconda del tipo di animazione scelta, il pesce si muoverà su un tracciato a 
 
 ---
 
-## Bridge
+### Bridge
 Il costruttore `buildBridge(height)` ritorna un Object3D di una sezione di ponte di altezza `height`. 
 
 ![bridge](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/bridge_example.png)
 
 ---
 
-## Tree
+### Tree
 Un albero, creato utilizzando il costruttore `buildTree(color)`. Al momento della sua creazione è possibile sceglierne il colore. 
 
 ![tree](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/tree_example.png)
@@ -48,7 +48,7 @@ Nel terreno sono stati aggiunti diversi alberi. Gli alberi uguali sono stati ott
 
 ---
 
-## Butterfly
+### Butterfly
 Una farfalla, creata utilizzando il costruttore `buildButterfly(color)`. Nel momento della sua creazione è possibile scegliere il colore dele sue ali.
 
 ![butterfly](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Butterflies.png)
@@ -57,25 +57,25 @@ Quando animate, si muoveranno su un tracciato ellittico, sbattendo le ali e onde
 
 ---
 
-## Pirate Flag
+### Pirate Flag
 Una bandiera dei pirati, creata utilizzando il costruttore `buildPirateFlag()`. 
 
 ![pirateflag](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/PirateFlag.png)
 
-Per rendere creare una animazione della bandiera che sventola, il tessuto è stato scomposto in diversi parallelepipedi. Ognuno di questi descrive un'animazione sinusoidale su Y e X con diversi istanti di partenza.
+Per rendere creare una animazione della bandiera che sventola, il tessuto è stato scomposto in diversi parallelepipedi (ognuno animato).
 
 ---
 
-## Treasure Coffer 
+### Treasure Coffer 
 Un forziere, creato utilizzando il costruttore `buildCoffer()`. 
 
 ![coffer](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/coffer_example.png)
 
-Alla pressione del tasto `O` il forziere si aprirà ruotando attorno alle cerniere in modo da mostrare il suo contenuto. Nel far questo emetterà un rumore all'apertura e alla chiusura.
+Alla pressione del tasto `O` il forziere si aprirà e si chiuderà dopo un tempo prefissato, emettendo suoni all'apertura e alla chiusura.
 
 ---
 
-## Cannon
+### Cannon
 Un cannone, creato utilizzando il costruttore `buildCannon()`. 
 
 ![cannon](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedCannon.png)
@@ -84,7 +84,7 @@ Alla pressione del tasto `F` la miccia si "accenderà", ovverò emetterà un suo
 
 ---
 
-## Magic Statue 
+### Magic Statue 
 Una statua magica, creata utilizzando il costruttore `buildStatue()`. 
 
 ![statue](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Statue.png)
@@ -93,7 +93,7 @@ Attraverso l'alternanza di molteplici texture, è stata creata una animazione gr
 
 ---
 
-## Clouds
+### Clouds
 
 Delle nuvole animate che si muovono in continuazione nel cielo. Per nascondere il confine del piano su cui appaiono le nuvole è stata aggiunta una nebbia alla scena.  
 Il codice deputato alla creazione ed animazione delle nuvole si trova all'interno di `terrainBuilder.js`. L'animazione, in particolare, funziona incrementando continuamente l'offset della texture delle nuvole.
@@ -102,20 +102,22 @@ Il codice deputato alla creazione ed animazione delle nuvole si trova all'intern
 
 ---
 
-## Day/night cycle
+### Day/night cycle
 
 Tramite la pressione del tasto `N` è possibile simulare un ciclo giorno/notte attivando un'animazione che sposta la DirectionalLight e ne cambia l'intensità. Anche l'intensità della HemisphereLight viene modificata durante il corso della giornata simulata. Lo sfondo reagisce anch'esso al cambiamento cambiando colore gradualmente in base alla percentuale di animazione a cui si è arrivati. Alla successiva pressione del tasto la luce torna nella sua posizione di default.
 
 --- 
 
-## Ambient Sounds 
+### Ambient Sounds 
 
-Tramite la pressione del tasto `P` è possibile attivare dei suoni ambientali di sottofondo, utili a creare atmosfera.
+Tramite la pressione del tasto `P` è possibile attivare dei suoni ambientali di sottofondo.
 
 ---
 
-## Overlay
+### Overlay
 
 Un overlay che mostra i tasti della tastiera da premere per effettuare certe azioni. Nascondibile premendo il tasto `Esc`.
 
 # Credits
+
+I suoni sono stati scaricati dal sito www.freesound.org.
