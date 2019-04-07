@@ -1,4 +1,4 @@
-function createFish( color ) {
+function buildFish( color ) {
 
     // Geometries and materials
     var body_geometry = new THREE.BoxBufferGeometry( 0.2, 0.14, 0.14 );
@@ -90,9 +90,9 @@ function createFish( color ) {
 }
 
 /*
-  Creates a bridge of a given height.
+  builds a bridge of a given height.
 */
-function createBridge( height ) {
+function buildBridge( height ) {
 
   var pillar_geometry = new THREE.BoxBufferGeometry( 0.23, height, 0.23 );
   var top_geometry = new THREE.BoxBufferGeometry( 1.8, 0.1, 2.8 );
@@ -149,9 +149,9 @@ function createBridge( height ) {
 }
 
 /*
-  Creates a color tree.
+  builds a color tree.
 */
-function createTree(color) {
+function buildTree(color) {
 
   trunk_texture = new THREE.TextureLoader().load("../textures/trunk_texture_256x512.png");
   trunk_texture.magFilter = THREE.NearestFilter;
@@ -233,7 +233,7 @@ function createTree(color) {
   return tree;
 }
 
-//Creates a butterfly with wings the color of 'color'
+//builds a butterfly with wings the color of 'color'
 function buildButterfly(color){
   var rightWing=buildWing(color);
   var leftWing=buildWing(color);
@@ -296,7 +296,7 @@ function buildButterflyBody() {
   return body;
 }
 
-//create a pirate flag
+//build a pirate flag
 function buildPirateFlag() {
   var flagPart=buildFlagCloth();
   var pole=buildPole();
@@ -382,11 +382,11 @@ function buildPole() {
 var openAudio;
 var closeAudio;
 
-function createCoffer() {
+function buildCoffer() {
   openAudio = new Audio('../audioFiles/202092__spookymodem__chest-opening.wav');
   closeAudio = new Audio('../audioFiles/261462__tntdude7__chest-slam.wav');
 
-  var base = createBase();
+  var base = buildBase();
 
   var coffer1_geometry = new THREE.BoxBufferGeometry(1.9, 0.8, 1.2);
   var coffer2_geometry = new THREE.BoxBufferGeometry(1.9, 0.4, 1.2);
@@ -458,7 +458,7 @@ function createCoffer() {
   return coffer;
 }
 
-function createBase() {
+function buildBase() {
   var base1_geometry = new THREE.BoxBufferGeometry( 3.2, 0.2, 3.2);
   var edge_geometry = new THREE.BoxBufferGeometry( 0.2, 0.5, 3.6);
   var pedestal_geometry = new THREE.BoxBufferGeometry(2.3, 1.5, 1.5);
@@ -541,7 +541,7 @@ function createBase() {
 
 }
 
-//creates and returns a complete cannon
+//builds and returns a complete cannon
 function buildCannon(){
   var base=buildCannonBase();
   var body=buildCannonBody();
@@ -564,7 +564,7 @@ function buildCannon(){
   return cannon;
 }
 
-//creates the wooden base of the cannon
+//builds the wooden base of the cannon
 function buildCannonBase(){
   var wheels=buildCannonWheels();
   var structure=buildCannonStructure();
@@ -598,7 +598,7 @@ function buildCannonWheels() {
   return wheels;
 }
 
-//creates the main wooden structure of the cannon base
+//builds the main wooden structure of the cannon base
 function buildCannonStructure(){
   var structure=new THREE.Object3D;
   var geometryBig=new THREE.BoxGeometry(5,0.75,1.5);
@@ -633,7 +633,7 @@ function buildCannonStructure(){
   return structure;
 }
 
-//creates the cannon without it's base
+//builds the cannon without it's base
 function buildCannonBody(){
   var cannonBody=new THREE.Object3D;
 
@@ -698,7 +698,7 @@ function buildCannonBody(){
   return cannonBody;
 }
 
-//creates a statue
+//builds a statue
 var statueFaces=[],statueMaterial;
 function buildStatue(){
   var mainGeometry=new THREE.BoxGeometry(1.5,2,0.5);

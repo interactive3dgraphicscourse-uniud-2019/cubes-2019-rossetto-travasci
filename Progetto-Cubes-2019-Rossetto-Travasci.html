@@ -108,7 +108,7 @@
 
 			camera.position.set(11,10,11);
 			//camera.lookAt( new THREE.Vector3(0,0,0));//doesn't work when using OrbitControls
-			createLights();
+			buildLights();
 
 			stats = new Stats();
 			stats.domElement.style.position = 'absolute';
@@ -130,17 +130,17 @@
 		function addObjects(){
 			//trees
 			forest = [];
-			forest.push(createTree(0x01FFFF));
-			forest.push(createTree(0x00a813));
-			forest.push(createTree(0x336600));
-			forest.push(createTree(0x0099ff));
+			forest.push(buildTree(0x01FFFF));
+			forest.push(buildTree(0x00a813));
+			forest.push(buildTree(0x336600));
+			forest.push(buildTree(0x0099ff));
 			forest.push(forest[0].clone());
 			forest.push(forest[1].clone());
-			forest.push(createTree(0xff9966));
-			forest.push(createTree(0x003300));
+			forest.push(buildTree(0xff9966));
+			forest.push(buildTree(0x003300));
 			forest.push(forest[1].clone());
 			forest.push(forest[6].clone());
-			forest.push(createTree(0x99ffcc));
+			forest.push(buildTree(0x99ffcc));
 			forest.push(forest[6].clone());
 			forest[0].position.set(-6.3, 1.5, 3.5);
 			forest[0].scale.divideScalar(2.6);
@@ -187,12 +187,12 @@
 
 			// Fishes
 			fish=[];
-			fish.push(createFish(0x0060fc));
+			fish.push(buildFish(0x0060fc));
 			var fishRotate=new THREE.Object3D;
-			fish.push(createFish(0x33cc33));
-			fish.push(createFish(0xff6600));
-			fish.push(createFish(0xff66ff));
-			fish.push(createFish(0xcc0099));
+			fish.push(buildFish(0x33cc33));
+			fish.push(buildFish(0xff6600));
+			fish.push(buildFish(0xff66ff));
+			fish.push(buildFish(0xcc0099));
 			fish[0].position.set(2.5, -0.7, 8);
 			fish[1].position.set(10, -0.3, -5);
 			fish[2].position.set(10, -0.5, -5);
@@ -210,7 +210,7 @@
 			// Bridge
 			bridge=new THREE.Object3D;
 
-			var bridgePart = createBridge( 4.1 );
+			var bridgePart = buildBridge( 4.1 );
 			bridge.add(bridgePart);
 			bridgePart.position.set( 1.75, -0.5, 2);
 			bridgePart.rotation.y = 90 * Math.PI/180;
@@ -228,12 +228,12 @@
 			bridgePart.rotation.y = 90 * Math.PI/180;
 			//bridgePart.scale.divideScalar(2);
 
-			bridgePart = createBridge( 5 );
+			bridgePart = buildBridge( 5 );
 			bridge.add(bridgePart);
 			bridgePart.position.set( 5.72, -0.9, 2.25 );
 			bridgePart.scale.divideScalar(2);
 
-			bridgePart = createBridge( 2.5 );
+			bridgePart = buildBridge( 2.5 );
 			bridge.add(bridgePart);
 			bridgePart.position.set( 5.971, 0.4, 3.4 );
 			bridgePart.rotation.y = 90 * Math.PI/180;
@@ -242,7 +242,7 @@
 			scene.add(bridge);
 
 			// Coffer
-			coffer = createCoffer();
+			coffer = buildCoffer();
 			scene.add(coffer);
 			coffer.rotation.y = 90 * Math.PI/180;
 			coffer.position.set( -4.5, 1.6, 2);

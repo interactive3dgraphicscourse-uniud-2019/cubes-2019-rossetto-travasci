@@ -16,7 +16,7 @@
 var hemiLight, dirLight;
 var hemiLight2, dirLight2;
 
-function createLights() {
+function buildLights() {
 
     //==========================
     //The standard static lights
