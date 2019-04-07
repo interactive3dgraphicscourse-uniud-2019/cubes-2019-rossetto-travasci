@@ -1,8 +1,13 @@
 # Progetto Interactive-3D-Graphics: Modeling and rendering with boxes
 
-Partiamo con l'introduzione del soggetto della nostra scena: **un'isola dei pirati con annessi soggetti a tema animati**.
+Nel nostro progetto abbiamo realizzato un'isola con il tema dei pirati. L'isola, costruita a partire da una heightmap realizzata appositamente, è stata quindi decorata con vari oggetti che seguissero il tema. Molti di questi oggetti sono stati inoltre animati.
 
 ![Island](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/island_example.png)
+
+Il file principale è `Progetto-Cubes-2019-Rossetto-Travasci.html`. Vengono utilizzate le librerie `three.min.js`, `stats.min.js` e `OrbitControls.js`, tutte contenute nella cartella `lib`. Il file principale ha accesso anche alla libreria `Coordinates.js` (sempre collocata nella stessa cartella), che però al momento non è usata.  
+La cartella `scripts` contiene vari file `.js` che vengono utilizzati dal file principale per vari scopi. In particolare, in ordine alfabetico: `animations.js` contiene tutto il codice che implementa le animazioni; `builders.js` contiene le funzioni necessarie a creare gli oggetti presenti nella scena; `lights.js` si occupa di creare le luci e di gestirle nel ciclo giorno/notte e nella attivazione e disattivazione dello stesso; `terrainBuilder.js`, infine, crea il terreno a partire dalla heightmap, aggiunge il mare e si occupa della creazione ed animazione delle nuvole.  
+La cartella `audioFiles` contiene i file audio usati nel progetto.
+La cartella `textures` contiene tutte le textures e la heightmap.
 
 # Terreno della scena
 
