@@ -22,7 +22,7 @@ Il costruttore `buildFish(color)` ritorna una mesh di un pesce del colore fornit
 
 ![fish](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/fishes_example.png)
 
-Chiamando il metodo `animateFish(...)` questi si muoveranno tracciando cerchi oppure "8" sul piano XZ di un raggio e durata complessiva specificati nell'input della funzione. Il pesce inoltre muoverà la coda rotando di pochi gradi attorno y per dare la sensazione che questo stia nuotando. 
+Chiamando il metodo questi si muoveranno tracciando cerchi oppure "8" sul piano XZ di un raggio e durata complessiva specificati nell'input della funzione. Il pesce inoltre muoverà la coda rotando di pochi gradi attorno y per dare la sensazione che questo stia nuotando. 
 ### `Bridge`
 Il costruttore `buildBridge(height)` ritorna una mesh di una sezione di ponte di altezza `height`. 
 
@@ -38,13 +38,13 @@ Il costruttore `buildButterfly(color)` ritorna una mesh di una farfalla del colo
 
 ![butterfly](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Butterflies.png)
 
-Chiamando il metodo `animateButterfly(...)` queste si muoveranno tracciando una traiettoria ellittica su XZ mentre disegneranno una traiettoria sinusoidale su Y. Inoltre queste muoveranno le ali rotando attorno al loro busto per rendere l'animazione del volo.
+Chiamando il metodo queste si muoveranno tracciando una traiettoria ellittica su XZ mentre disegneranno una traiettoria sinusoidale su Y. Inoltre queste muoveranno le ali rotando attorno al loro busto per rendere l'animazione del volo.
 ### `Pirate Flag`
 Il costruttore `buildPirateFlag()` ritorna una mesh di un bandiera dei pirati. 
 
 ![pirateflag](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/PirateFlag.png)
 
-Per rendere il "tessuto" della bandiera animato dal vento l'animazione traccia una funzione sinusoidale(coseno) in verticale su Y e orizzontale su Z. 
+Per rendere il tessuto animato lo si è fatto costituire da diversi parallelepipedi. Ognuno di questi descrive un'animazione sinusoidale su Y e X con diversi istanti di partenza.
 ### `Coffer` 
 Il costruttore `buildCoffer()` ritorna una mesh di un forziere. 
 
@@ -56,7 +56,7 @@ Il costruttore `buildCannon()` ritorna una mesh di un cannone.
 
 ![cannon](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedCannon.png)
 
-Al premere del tasto `O`
+Al premere del tasto `F` la miccia si "accenderà" emettendo un particolare suono e generando diverse particelle che andranno a rappresentare la scintilla. Dopo un lasso di tempo prefissato il cannone "sparerà" un blocco (cannonball). Dopo lo sparo, un certo numero di particelle andranno a rappresentare il fumo dovuto allo sparo.
 ### `Statue` 
 Il costruttore `buildStatue()` ritorna una mesh di una statua. 
 
