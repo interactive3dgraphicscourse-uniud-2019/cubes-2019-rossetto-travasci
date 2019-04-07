@@ -11,17 +11,19 @@ La cartella `textures` contiene tutte le textures e la heightmap.
 
 # Features
 
-## Impervious scene terrain
+## Terrain
 
-Il terreno viene costruito tramite un algoritmo all'interno di `terrainBuilder.js` che scansiona l'immagine `heightmapIsland.png` composta solo da colori nella scala dei grigi. Alle coordinate *(i, j)* infatti è presente una certa tonalità che definisce la posizione *y* finale del blocco (che al termine sarà *(i, y, j)* ) e la diversa texture da applicarci (`sand`, `dirt`, `stone` o `grass`). Sono inoltre stati fatti diversi miglioramenti all'algoritmo in modo da ridurre l'impatto sulle prestazioni: se un blocco non presenta blocchi adiacenti con posizioni in altezza maggiori viene reso falso il valore di `castShadow`. 
+Il terreno viene costruito dalla funzione `buildTerrain()` all'interno di `terrainBuilder.js`. Questa funzione utilizza l'immagine `heightmapIsland.png`, che non è altro che una heightmap, per posizionare i blocchi del terreno alla giusta altezza. Ogni pixel della heightmap rappresenta un blocco di lato 0.5, ovvero mezzo metro nella nostra convenzione.  
+Solo i blocchi visibili del terreno vengono creati, ovvero i blocchi che si trovano in superficie e quelli che fanno parte di pareti verticali esposte. Ai confini del terreno, inoltre, un muro verticale di blocchi arriva fino all'altezza del punto più basso del terreno, in modo da far sembrare compatto il terreno quando visto dai lati.  
+Le texture dei blocchi che compongono il terreno variano a seconda della loro altezza e del fatto che si trovino o meno in superficie. Ad esempio, i blocchi di erba vengono posizionati solo al di sopra di una certa altezza e solo se non ci sono altri blocchi direttamente al di sopra di loro.  
+Inoltre, i blocchi d'erba possiedono diverse varianti, in modo che le loro facce laterali siano completamente composte da erba se subito al di sotto di tale faccia si trova un altro cubo di erba. In caso contrario, la faccia laterale in questione presenterà una parte superiore di erba e una inferiore di terra.  
+Per diminuire l'impatto nelle prestazioni del terreno, i blocchi di superficie che si trovano ad una altezza inferiore o uguale a quella di tutti i blocchi di superficie ad essi adiacenti non generano ombre. Inoltre, invece di creare una nuova mesh per ogni blocco posizionato nel terreno, vengono clonate delle mesh create in precedenza.
 
-Il mare, parte integrante del terreno, è un parallelepipedo con base di dimensioni della heightmap che utilizza un materiale trasparente.
-
-I confini del terreno non sono scoperti ma viene invece posto un muro verticale e arriva al punto più basso del terreno.
+Il mare, parte integrante del terreno, è un parallelepipedo con base di dimensioni quasi uguali a quelle del terreno che utilizza un materiale trasparente.
 
 ---
 
-## Indian Fish
+## Fish
 Il costruttore `buildFish(color)` ritorna una mesh di un pesce del colore fornito in input. 
 
 ![fish](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/fishes_example.png)
@@ -30,21 +32,21 @@ Chiamando il metodo questi si muoveranno tracciando cerchi oppure "8" sul piano 
 
 ---
 
-## Short Bridge
+## Bridge
 Il costruttore `buildBridge(height)` ritorna una mesh di una sezione di ponte di altezza `height`. 
 
 ![bridge](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/bridge_example.png)
 
 ---
 
-## Squared root Tree (call me the jokemaster)
+## Tree
 Il costruttore `buildTree(color)` ritorna una mesh di un albero del colore fornito in input. 
 
 ![tree](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/tree_example.png)
 
 ---
 
-## Wonderfly Butterfly
+## Butterfly
 Il costruttore `buildButterfly(color)` ritorna una mesh di una farfalla del colore fornito in input. 
 
 ![butterfly](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Butterflies.png)
@@ -62,7 +64,7 @@ Per rendere il tessuto animato lo si è fatto costituire da diversi parallelepip
 
 ---
 
-## (Fake) Treasure Coffer 
+## Treasure Coffer 
 Il costruttore `buildCoffer()` ritorna una mesh di un forziere. 
 
 ![coffer](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/coffer_example.png)
@@ -71,7 +73,7 @@ Al premere del tasto `O` il forziere si aprirà ruotando attorno alle cerniere m
 
 ---
 
-## Pirate Cannon called "Mommy"
+## Cannon
 Il costruttore `buildCannon()` ritorna una mesh di un cannone. 
 
 ![cannon](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedCannon.png)
@@ -89,7 +91,7 @@ La statua possiede un'animazione che fa lampeggiare gli occhi.
 
 ---
 
-## Weird-flat Clouds
+## Clouds
 
 Sono state aggiunte delle nuvole animate che si muovono in continuazione nel cielo. Per rendere più morbida la transizione e dare l'effetto di allontanamento delle nuvole è stata aggiunta una nebbia alla scena.
 
@@ -97,7 +99,7 @@ Sono state aggiunte delle nuvole animate che si muovono in continuazione nel cie
 
 ---
 
-## "Interstellar" Day/night cycle
+## Day/night cycle
 
 Tramite la pressione del tasto `N` è possibile simulare un ciclo giorno/notte attivando un'animazione che sposta e cambia l'intensità della DirectionalLight su una circonferenza tutto attorno alla scena. Per migliorare la resa della luce nelle fasi intermedie (alba e tramonto) si sposta anche la HemisphereLight. Lo sfondo reagisce anch'esso al cambiamento cambiando colore in base alla percentuale di animazione a cui arrivato. Alla successiva pressione del tasto la luce torna nella sua posizione scenica di default.
 
