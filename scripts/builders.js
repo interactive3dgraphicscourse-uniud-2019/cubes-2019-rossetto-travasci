@@ -509,8 +509,6 @@ function createCoffer() {
 
   var gold_material = new THREE.MeshPhongMaterial({
     map: gold_texture,
-    emissive: 0xffffff,
-    emissiveIntensity: 0.3
   });
 
   var coffer1 = new THREE.Mesh( coffer1_geometry, coffer_material );
@@ -540,7 +538,6 @@ function createCoffer() {
   hinge1.receiveShadow = true;
   hinge2.castShadow = true;
   hinge2.receiveShadow = true;
-  gold.receiveShadow = true;
   interior.receiveShadow = true;
 
   var coffer = new THREE.Object3D();

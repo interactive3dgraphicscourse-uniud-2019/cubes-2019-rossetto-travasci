@@ -368,7 +368,7 @@ Inoltre, gli oggetti identici presenti nella scena sono ora ottenuti clonando un
 
 ```6.04.2019 - 01:55```
 
-Completato il ciclo giorno notte, correggendo alcuni problemi ed introducendo un effetto di disolvenza tra colori al passaggio tra un momento e l'altro della giornata.
+Completato il ciclo giorno notte, correggendo alcuni problemi ed introducendo un effetto di dissolvenza tra colori al passaggio tra un momento e l'altro della giornata.
 
 ![DayNightCyle](https://github.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/blob/master/screenshots/DayNightCyle.png)
 
