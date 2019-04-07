@@ -89,7 +89,7 @@ Completata sia la versione iniziale dell'algoritmo deputato alla costruzione del
 
 ```31.03.2019 - 19:02```
 
-Creati i costruttori per i modelli di pesci e piattaforme. Sostituiti i materiali con i più appropriati `MeshPongMaterial`.  
+Creati i costruttori per i modelli di pesci e piattaforme. Sostituiti i materiali con i più appropriati `MeshPhongMaterial`.  
 Aggiunta la possibilità di creare un blocco d'acqua animato (su questo è possibile però migliorarlo), agli aspetti stilistici non ci ho ancora dato peso.
 
 ![Water 1.0](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/water_example.PNG)

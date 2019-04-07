@@ -89,67 +89,6 @@ function createFish( color ) {
     return body;
 }
 
-
-/*
-  Creates a platform of specified height with a plane on top of given
-  width. The legOffset specifies how much the pillars of the platform must dist
-  from the edge of the plane.
-
-  The legOffset depends on the width and the depth of the pillars.
-      pillarsWidth < legOffSet < width
-*/
-
-function createPlatform(width, height, legOffset) {
-
-  var pillar_geometry = new THREE.BoxBufferGeometry( 0.25, height, 0.25 );
-  var top_geometry = new THREE.BoxBufferGeometry( width, 0.1, width );
-  var platform_material = new THREE.MeshPhongMaterial();
-
-  var loader = new THREE.TextureLoader();
-  loader.load(
-    "../textures/bridge_texture_256x256.png",                                   // Need a texture
-    function( texture ) {
-      platform_material = new THREE.MeshPhongMaterial(
-        { map: texture }
-      )
-    }
-  );
-
-  var pillar1 = new THREE.Mesh(pillar_geometry, platform_material);
-  var pillar2 = new THREE.Mesh(pillar_geometry, platform_material);
-  var pillar3 = new THREE.Mesh(pillar_geometry, platform_material);
-  var pillar4 = new THREE.Mesh(pillar_geometry, platform_material);
-  var top = new THREE.Mesh(top_geometry, platform_material);
-
-  pillar1.position.set( (width-legOffset)/2, height/2, (width-legOffset)/2 );
-  pillar2.position.set( -(width-legOffset)/2, height/2, (width-legOffset)/2 );
-  pillar3.position.set( (width-legOffset)/2, height/2, -(width-legOffset)/2 );
-  pillar4.position.set( -(width-legOffset)/2, height/2, -(width-legOffset)/2 );
-  top.position.set( 0, height, 0 );
-
-  pillar1.receiveShadow = true;
-  pillar1.castShadow = true;
-  pillar2.receiveShadow = true;
-  pillar2.castShadow = true;
-  pillar3.receiveShadow = true;
-  pillar3.castShadow = true;
-  pillar4.receiveShadow = true;
-  pillar4.castShadow = true;
-  top.receiveShadow = true;
-  top.castShadow = true;
-
-  var table = new THREE.Mesh();
-  table.position.set( 0, 0, 0 );
-
-  table.add(pillar1);
-  table.add(pillar2);
-  table.add(pillar3);
-  table.add(pillar4);
-  table.add(top);
-
-  return table;
-}
-
 /*
   Creates a bridge of a given height.
 */
@@ -210,45 +149,7 @@ function createBridge( height ) {
 }
 
 /*
-  Creates a layer of water. (Can be a box)
-  It uses the principles of transparency shown at lesson plus
-  some tricks to make it move.
-
-  The width is the length of an edge of a cube.
-*/
-function createWater( width ) {
-
-  var texture = new THREE.TextureLoader().load("../textures/water2.png");
-  var box_geometry = new THREE.PlaneBufferGeometry( width, width );
-  var box_material = new THREE.MeshPhongMaterial(
-     {
-       map: texture,
-       opacity: 1,
-       blendSrc: THREE.SrcAlphaFactor,
-       blendDst: THREE.OneMinusSrcAlphaFactor,
-       blendEquation: THREE.AddEquation,
-       transparent: true,
-       side: THREE.DoubleSide
-     }
-  );
-
-  box_material.alphaMap = texture;
-  box_material.alphaMap.magFilter = THREE.NearestFilter;
-  box_material.alphaMap.wrapT = THREE.RepeatWrapping;
-  box_material.alphaMap.repeat.y = 1;
-
-  var water_box = new THREE.Mesh(box_geometry, box_material);
-
-  water_box.rotation.x = 90 * Math.PI/180;
-
-  // CAN CAUSE PROBLEMS
-  water_box.receiveShadow = true;
-
-  return water_box;
-}
-
-/*
-  Creates a a light blue tree.
+  Creates a color tree.
 */
 function createTree(color) {
 

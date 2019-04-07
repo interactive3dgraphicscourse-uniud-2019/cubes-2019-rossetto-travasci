@@ -11,7 +11,7 @@ function buildTerrain(scene){
 	}
 
 	// load img source
-	img.src = "../textures/heightmapIsland3.png";
+	img.src = "../textures/heightmapIsland.png";
 }
 
 //return array with height data from img, taken from: http://danni-three.blogspot.it/2013/09/threejs-heightmaps.html
