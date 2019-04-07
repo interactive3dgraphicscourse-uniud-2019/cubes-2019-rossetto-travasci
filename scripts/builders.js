@@ -509,6 +509,8 @@ function createCoffer() {
 
   var gold_material = new THREE.MeshPhongMaterial({
     map: gold_texture,
+    emissive: 0xffffff,
+    emissiveIntensity: 0.3
   });
 
   var coffer1 = new THREE.Mesh( coffer1_geometry, coffer_material );
