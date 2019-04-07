@@ -9,6 +9,8 @@ La cartella `scripts` contiene vari file `.js` che vengono utilizzati dal file p
 La cartella `audioFiles` contiene i file audio usati nel progetto.
 La cartella `textures` contiene tutte le textures e la heightmap.
 
+Lo spostamento all'interno della scena è gestito dai controlli definiti in `OrbitControls.js`.
+
 # Features
 
 ### Terrain
