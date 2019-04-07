@@ -71,7 +71,7 @@ Per rendere creare una animazione della bandiera che sventola, il tessuto è sta
 ### Treasure Coffer 
 Un forziere, creato utilizzando il costruttore `buildCoffer()`. 
 
-![coffer](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/coffer_example.png)
+![coffer](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/RCoffer.png)
 
 Alla pressione del tasto `O` il forziere si aprirà e si chiuderà dopo un tempo prefissato, emettendo suoni all'apertura e alla chiusura.
 
@@ -80,7 +80,7 @@ Alla pressione del tasto `O` il forziere si aprirà e si chiuderà dopo un tempo
 ### Cannon
 Un cannone, creato utilizzando il costruttore `buildCannon()`. 
 
-![cannon](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedCannon.png)
+![cannon](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/RCannon.png)
 
 Alla pressione del tasto `F` la miccia si "accenderà", ovverò emetterà un suono e genererà dfumo e scintille. Dopo qualche secondo il cannone "sparerà" una palla di cannone. Dopo lo sparo, una piccola colonna di fumo si alzerà dalla bocca del cannone.
 
@@ -89,7 +89,7 @@ Alla pressione del tasto `F` la miccia si "accenderà", ovverò emetterà un suo
 ### Magic Statue 
 Una statua magica, creata utilizzando il costruttore `buildStatue()`. 
 
-![statue](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Statue.png)
+![statue](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/RStatue.png)
 
 Attraverso l'alternanza di molteplici texture, è stata creata una animazione grazie alla quali gli occhi della statua sembrano lampeggiare.
 
@@ -108,6 +108,8 @@ Il codice deputato alla creazione ed animazione delle nuvole si trova all'intern
 
 Tramite la pressione del tasto `N` è possibile simulare un ciclo giorno/notte attivando un'animazione che sposta la DirectionalLight e ne cambia l'intensità. Anche l'intensità della HemisphereLight viene modificata durante il corso della giornata simulata. Lo sfondo reagisce anch'esso al cambiamento cambiando colore gradualmente in base alla percentuale di animazione a cui si è arrivati. Alla successiva pressione del tasto la luce torna nella sua posizione di default.
 
+![DayNightCycle](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/RDayNight.png)
+
 --- 
 
 ### Ambient Sounds 
@@ -119,6 +121,8 @@ Tramite la pressione del tasto `P` è possibile attivare dei suoni ambientali di
 ### Overlay
 
 Un overlay che mostra i tasti della tastiera da premere per effettuare certe azioni. Nascondibile premendo il tasto `Esc`.
+
+![Overlay](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/ROverlay.png)
 
 # Credits
 
