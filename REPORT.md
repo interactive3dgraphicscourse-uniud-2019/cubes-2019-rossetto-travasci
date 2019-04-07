@@ -120,4 +120,10 @@ Un overlay che mostra i tasti della tastiera da premere per effettuare certe azi
 
 # Credits
 
-I suoni sono stati scaricati dal sito www.freesound.org.
+Nel progetto sono stati utilizzati i seguenti suoni, tutti provvisti di una licenza Creative Commons 0.
+
+> fuse2.wav by j1987 on freesound.org  
+> Cannon1.wav by Isaac200000 on freesound.org  
+> Chest Opening.wav by spookymodem on freesound.org  
+> Chest Slam by TNTdude7 on freesound.org  
+> Tropical Island by richwise on freesound.org  
