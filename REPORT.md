@@ -2,6 +2,8 @@
 
 Partiamo con l'introduzione del soggetto della nostra scena: **un'isola dei pirati con annessi soggetti a tema animati**.
 
+![Island](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/island_example.png)
+
 Per la realizzazione abbiamo deciso di dividere il progetto in **feature**, in modo da definire, almeno inizialmente, una lista di possibili idee da implementare con la relativa priorità.
 
 Volendole elencare:
@@ -38,6 +40,7 @@ Il terreno viene costruito tramite un algoritmo all'interno di `terrainBuilder.j
 Il mare, parte integrante del terreno, è un parallelepipedo con base di dimensioni della heightmap che utilizza un materiale trasparente.
 
 I confini del terreno non sono scoperti ma viene invece posto un muro verticale e arriva al punto più basso del terreno.
+Sono state inoltre aggiunte nuvole
 
 ## Aggiunta di oggetti alla scena
 
@@ -48,10 +51,16 @@ Sono stati creati diversi modelli, i cui costruttori sono presenti nel file `bui
 - `Tree`: il costruttore `buildTree(color)` ritorna una mesh di un albero del colore fornito in input. ![tree](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/tree_example.png)
 - `Butterfly`: il costruttore `buildButterfly(color)` ritorna una mesh di una farfalla del colore fornito in input. ![butterfly](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Butterflies.png)
 - `Pirate Flag`: il costruttore `buildPirateFlag()` ritorna una mesh di un bandiera dei pirati. ![pirateflag](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/PirateFlag.png)
-- `Coffer & Base`: il costruttore `buildCoffer()` ritorna una mesh di un forziere. ![coffer](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/coffer_example.png)
+- `Coffer`: il costruttore `buildCoffer()` ritorna una mesh di un forziere. ![coffer](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/coffer_example.png)
 - `Cannon`: il costruttore `buildCannon()` ritorna una mesh di un cannone. ![cannon](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/AddedCannon.png)
 - `Statue`: il costruttore `buildStatue()` ritorna una mesh di una statua. ![statue](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/Statue.png)
 
 La posizione degli oggetti sulla mappa è dovuta solo ad un gusto estetico.
 
 ## Animazioni
+
+Sono state introdotte numerose animazioni per gli oggetti in scena tramite le funzioni dichiarate in animation.js. 
+
+- `Fish`: questi si muoveranno tracciando cerchi oppure "8" sul piano XZ di un raggio e durata complessiva specificati nell'input della funzione. Il pesce inoltre muoverà la coda rotando di pochi gradi attorno y per dare la sensazione che questo stia nuotando.
+- `Butterfly`: queste si muoveranno tracciando una traiettoria ellittica su XZ mentre disegneranno una traiettoria sinusoidale. Inoltre queste muoveranno le ali rotando attorno al loro busto per rendere l'animazione del volo.
+- `Pirate Flag`

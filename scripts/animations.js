@@ -143,7 +143,7 @@ function openCoffer(coffer, duration, time, time_i) {
       t = duration - t;
     }
 
-    pointer.rotation.x = -80 * Math.PI/180 * t/(duration/2);
+    pointer.rotation.x = -100 * Math.PI/180 * t/(duration/2);
 
     if((delta >= 11900) && canPlayCloseCofferAudio) {
       closeAudio.play();
