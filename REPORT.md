@@ -11,9 +11,6 @@ La cartella `textures` contiene tutte le textures e la heightmap.
 
 Lo spostamento all'interno della scena è gestito dai controlli definiti in `OrbitControls.js`.
 
-Il progetto è stato inizialmente diviso in un certo numero di features di diversa priorità in modo da organizzare al meglio il lavoro. In corso d'opera ci sono stati ridimensionamenti e aggiunte, si veda il cannone e il forziere ad esempio, in modo da rispecchiare la nostra volontà sull'obiettivo finale del progetto. 
-
-La modellazione degli oggetti è stata fatta usando solo i metodi fornitoci dalla libreria di three.js e le texture sono state tutte create a mano utilizzando un *raster graphic editor* (Paint per Windows o Pinta per Ubuntu). 
 # Features
 
 ### Terrain
@@ -85,7 +82,7 @@ Un cannone, creato utilizzando il costruttore `buildCannon()`.
 
 ![cannon](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/RCannon.png)
 
-Alla pressione del tasto `F` la miccia si "accenderà", ovverò emetterà un suono e genererà dfumo e scintille. Dopo qualche secondo il cannone "sparerà" una palla di cannone. Dopo lo sparo, una piccola colonna di fumo si alzerà dalla bocca del cannone.
+Alla pressione del tasto `F` la miccia si "accenderà", ovvero emetterà un suono e genererà fumo e scintille. Dopo qualche secondo il cannone "sparerà" una palla di cannone. Dopo lo sparo, una piccola colonna di fumo si alzerà dalla bocca del cannone.
 
 ---
 
@@ -127,7 +124,11 @@ Un overlay che mostra i tasti della tastiera da premere per effettuare certe azi
 
 ![Overlay](https://raw.githubusercontent.com/interactive3dgraphicscourse-uniud-2019/cubes-2019-rossetto-travasci/master/screenshots/ROverlay.png)
 
-# Credits
+# Processo di sviluppo
+
+Le feature da sviluppare individuate all'inizio dei lavori sono state divise in tre gruppi con crescenti priorità, in modo da distinguere le feature che rappresentavano le basi fondanti del progetto, quelle che pur essendo meno importanti dovevano essere comunque obbligatoriamente completate e quelle di minore importanza che non erano strettamente necessarie. In corso d'opera ci sono stati vari ridimensionamenti e aggiunte, come ad esempio il cannone e il forziere, in modo da rispecchiare la nostra volontà sull'obiettivo finale del progetto.
+
+La modellazione degli oggetti è stata fatta usando solo i metodi fornitoci dalla libreria di three.js, senza l'uso di strumenti esterni. Le texture sono state tutte personalmente da noi utilizzando un *raster graphic editor* (Paint per Windows e Pinta per Ubuntu). 
 
 Nel progetto sono stati utilizzati i seguenti suoni, tutti provvisti di una licenza Creative Commons 0.
 
