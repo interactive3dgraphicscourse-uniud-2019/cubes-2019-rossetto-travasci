@@ -59,8 +59,13 @@ La posizione degli oggetti sulla mappa è dovuta solo ad un gusto estetico.
 
 ## Animazioni
 
-Sono state introdotte numerose animazioni per gli oggetti in scena tramite le funzioni dichiarate in animation.js. 
+Sono state introdotte numerose animazioni per gli oggetti in scena tramite le funzioni dichiarate in `animation.js`, `lights.js`, `terrainBuilder.js`. 
 
-- `Fish`: questi si muoveranno tracciando cerchi oppure "8" sul piano XZ di un raggio e durata complessiva specificati nell'input della funzione. Il pesce inoltre muoverà la coda rotando di pochi gradi attorno y per dare la sensazione che questo stia nuotando.
+- `Fish`: questi si muoveranno tracciando cerchi oppure "8" sul piano XZ di un raggio e durata complessiva specificati nell'input della funzione. Il pesce inoltre muoverà la coda rotando di pochi gradi attorno y per dare la sensazione che questo stia nuotando. 
 - `Butterfly`: queste si muoveranno tracciando una traiettoria ellittica su XZ mentre disegneranno una traiettoria sinusoidale. Inoltre queste muoveranno le ali rotando attorno al loro busto per rendere l'animazione del volo.
-- `Pirate Flag`
+- `Pirate Flag`: per rendere il "tessuto" della bandiera animato dal vento l'animazione traccia una funzione sinusoidale(coseno) in verticale su Y e orizzontale su Z. 
+- `Coffer`: al premero del tasto `O` il forziere si aprirà ruotando attorno alle cerniere mostrando il suo interno ed emettendo un rumore all'apertura e alla chiusura.
+- `Statue`
+- `Cannon`
+- `Clouds`
+- `Day/night`
